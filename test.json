@@ -1,0 +1,28 @@
+{
+	"0":{
+		"Event Name": "Time for a break",
+		"Event Description": "It is holliday season and workers want to enjoy a nice break",
+		"Choice1":{"text": "Sure why not?","resources":{"Science":-50,"Work Power":100} , "flags":{}},
+		"Choice2":{"text": "Make it quick!","resources":{"Science":-20,"Work Power":40} ,"flags":{}},
+		"Choice3":{"text": "This doesn't optimize energy production!","resources":{"Science":40,"Work Power":-80} ,"flags":{}}	
+		},
+	"1":{
+		"Event Name": "Scientific Breakthrough",
+		"Event Description": "Your Scientists have made a breakthrough!",
+		"Choice1":{"text": "Cool","resources":{"Science":20} ,"flags":{}},
+		"Choice2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{}},
+		"Choice3":{"text": "Fund them A LOT","resources":{"Science":150,"Money":-1250},"flags":{"Uranium_added":true} }
+		},
+	"2":{
+		"Event Name": "Two Options",
+		"Event Description": "Wow you have only two options",
+		"Choice1":{"text": "Nooo","resources":{"Oil":35} ,"flags":{}},
+		"Choice2":{"text": "Whatever","resources":{"Uranium":50,"Money":-500},"flags":{} }	
+		},
+	"3":{
+		"Event Name": "One Option",
+		"Event Description": "Now you have no more options",
+		"Choice1":{"text": "Crap","resources":{"Money":35},"flags":{} }
+		}
+
+}
