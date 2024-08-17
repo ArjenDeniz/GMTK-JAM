@@ -7,6 +7,7 @@ var resources =[]
 @onready var year = $"Time-BG/TimeLabel"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimatedSprite2D.play('default')
 	refresh_grid()
 	return
 

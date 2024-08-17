@@ -24,19 +24,59 @@ var choice3_data = {'text':'Opinions of monkeys bears no importance for maximizi
 var test_data = {'name':'You are cool', 'description':'The people think you are cool so they decided to gice you a reward',
 'choice1':choice1_data,'choice2':choice2_data,'choice3':choice3_data,'ID':0}
 
+func load_json_data(file_path):
+	if FileAccess.file_exists(file_path):
+		var data_file =  FileAccess.open(file_path, FileAccess.READ)
+		var parse_res = JSON.parse_string(data_file.get_as_text())
+		if (parse_res is Dictionary) or (parse_res is Array):
+			return parse_res
+		else:
+			print('Parse error')
+	else:
+		print('Couldn\'t find resource data ')
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_event_data(test_data)
+	
 	pass # Replace with function body.
 
-func set_event_data(event_data):
-	event_name.text = event_data['name']
-	description.text = event_data['description']
-	choice1.set_choice(test_data['choice1']['text'],test_data['choice1']['resources'],1)
-	choice2.set_choice(test_data['choice2']['text'],test_data['choice2']['resources'],2)
-	choice3.set_choice(test_data['choice3']['text'],test_data['choice3']['resources'],3)
-	event_id = event_data['ID']
+
+func Event_setup(ID: int):
+	event_id = ID
+	
+func resource_dict_to_arr(dict):
+	var arr = []
+	for key in dict:
+		arr.append({"name":key,'quantity':dict[key]})
+	return arr
+func set_event_data(event_data,ID,Choice_status):
+	event_name.text = event_data['Event Name']
+	description.text = event_data['Event Description']
+	choice1.set_choice(event_data['Choice1']['text'],resource_dict_to_arr(event_data['Choice1']['resources']),1,Choice_status[0])
+	if event_data.has('Choice2'):
+		choice2.set_choice(event_data['Choice2']['text'],resource_dict_to_arr(event_data['Choice2']['resources']),2,Choice_status[1])
+		if event_data.has('Choice3'):
+			choice3.set_choice(event_data['Choice3']['text'],resource_dict_to_arr(event_data['Choice3']['resources']),3,Choice_status[2])
+		else:
+			choice3.complete_disable()
+	else:
+		choice2.complete_disable()
+		choice3.complete_disable()
+	event_id = ID
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
+
+
+func _on_choice_slot_1_button_press() -> void:
+	choice_made.emit(event_id,1)
+	
+
+func _on_choice_slot_2_button_press() -> void:
+	choice_made.emit(event_id,2)
+	
+
+func _on_choice_slot_3_button_press() -> void:
+	choice_made.emit(event_id,3)
