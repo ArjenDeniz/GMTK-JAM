@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://clar667tddtxq"]
+
+[ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
+[ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_tm8uo")
+
+[node name="HUD" parent="." instance=ExtResource("1_2q76b")]
+
+[node name="Update_Resources" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Update_Resources" to="." method="_on_update_resources_timeout"]

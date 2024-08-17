@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsfth4sc7xfj0"]
+
+[ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="1_8sdgi"]
+[ext_resource type="Script" path="res://choice_slot.gd" id="1_kdfd1"]
+[ext_resource type="PackedScene" uid="uid://ccw2pf8pfl542" path="res://resource_slot.tscn" id="2_ip4an"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2ue7"]
+bg_color = Color(0.393086, 0.393086, 0.393085, 1)
+
+[node name="Choice_Slot" type="Control"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kdfd1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_8sdgi")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_n2ue7")
+text = "Choice x"
+alignment = 0
+autowrap_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 8
+
+[node name="Resource_Slot" parent="GridContainer" instance=ExtResource("2_ip4an")]
+layout_mode = 2
+
+[node name="Resource_Slot2" parent="GridContainer" instance=ExtResource("2_ip4an")]
+layout_mode = 2
+
+[node name="Resource_Slot3" parent="GridContainer" instance=ExtResource("2_ip4an")]
+layout_mode = 2
+
+[node name="Resource_Slot4" parent="GridContainer" instance=ExtResource("2_ip4an")]
+layout_mode = 2
+
+[node name="Resource_Slot5" parent="GridContainer" instance=ExtResource("2_ip4an")]
+layout_mode = 2
