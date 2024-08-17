@@ -1,0 +1,29 @@
+* Event
+** Event type
+** Preconditions
+*** Resource checks
+*** Flag checks
+** Event Text
+** Choices
+*** Resource modifications
+stored as delta:
+res: {"coal": 500, "wood": -500}
+*** Flag modifications
+flags: {"monkeystoryline": 1, "alzheimer": false}
+
+
+* Process:
+her tick:
+check if conditions satisfied for any priority events in priority events array
+
+Event timer passed:
+event olacak mi roll
+-> hangi tur event roll (hardcoded probabilities)
+-> o arrayde hangi event roll
+** event types:
+Separate arrays for civ progress
+*** Resource generating
+*** Surprise event
+* Epoch changes
+When a resource is invented or made obsolete, or when civilization changes type:
+Alter priority event arrays and normal event arrays.
