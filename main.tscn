@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://clar667tddtxq"]
+
+[ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
+[ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
+[ext_resource type="PackedScene" uid="uid://cqyn3ifdqp0ul" path="res://event.tscn" id="3_5bh0l"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_tm8uo")
+
+[node name="HUD" parent="." instance=ExtResource("1_2q76b")]
+
+[node name="Event_prompt" parent="HUD" instance=ExtResource("3_5bh0l")]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -331.0
+offset_right = 362.0
+offset_bottom = 369.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Update_Resources" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="choice_made" from="HUD/Event_prompt" to="." method="Event_Choice_get"]
+[connection signal="timeout" from="Update_Resources" to="." method="_on_update_resources_timeout"]
