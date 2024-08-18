@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bdj154800hva"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bdj154800hva"]
 
 [ext_resource type="FontFile" uid="uid://cpho80q1o78f5" path="res://fonts/TMT_paint/static/TMT-Paint-Regular.otf" id="1_bsefh"]
 [ext_resource type="StyleBox" uid="uid://dfggtxv3cl04o" path="res://styles/80s_stylebox_hover.tres" id="2_dmql0"]
@@ -22,6 +22,12 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvt22"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lmmh"]
+bg_color = Color(3.1285e-06, 0.451992, 0.601543, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 13.0
+
 [resource]
 Button/colors/font_color = Color(0, 0.73366, 0.284886, 1)
 Button/colors/font_hover_color = Color(0, 0.733333, 0.286275, 1)
@@ -43,3 +49,4 @@ TooltipLabel/font_sizes/font_size = 20
 TooltipLabel/fonts/font = ExtResource("1_bsefh")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_vvt22")
 YearPanel/base_type = &"Panel"
+YearPanel/styles/panel = SubResource("StyleBoxFlat_2lmmh")

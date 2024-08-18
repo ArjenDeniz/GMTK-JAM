@@ -75,6 +75,7 @@ text = "Year:
 "
 
 [node name="Forced_event1" parent="." instance=ExtResource("32_dp5ps")]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -86,6 +87,7 @@ offset_bottom = 296.0
 grow_horizontal = 0
 
 [node name="Forced_event2" parent="." instance=ExtResource("32_dp5ps")]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

@@ -28,7 +28,6 @@ offset_right = 362.0
 offset_bottom = 369.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = null
 
 [node name="Forced_Event" parent="HUD" instance=ExtResource("4_svhob")]
 visible = false
@@ -36,7 +35,6 @@ offset_left = 399.0
 offset_top = 87.0
 offset_right = 1149.0
 offset_bottom = 787.0
-theme = null
 
 [node name="Game Over Screen" parent="HUD" instance=ExtResource("5_ewxav")]
 visible = false
