@@ -45,9 +45,10 @@ func add_resource(new_resource):
 	resource['quantity'] = new_resource['quantity']
 	var texture_data = load_json_data("res://Icon_data.json")
 	resource['texture'] = texture_data[resource['name'] ]
-	var image = Image.load_from_file(resource['texture'])
-	image.resize(512,512)
-	$Innter/ItemIcon.texture = ImageTexture.create_from_image(image)
+	# var image = Image.load_from_file(resource['texture'])
+	# image.resize(512,512)
+	# $Innter/ItemIcon.texture = ImageTexture.create_from_image(image)
+	$Innter/ItemIcon.texture = load(resource['texture'])
 	
 	#Icon.texture = ResourceLoader.load(resource['texture'])
 	$Innter/Quantity.text= str(resource['quantity'])
