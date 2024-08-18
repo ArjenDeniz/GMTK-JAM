@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://6tqngk6t3wjy"]
+
+[ext_resource type="FontFile" uid="uid://cmwa3eqmf4a56" path="res://fonts/acrylic/Acrylic-1.0.0.otf" id="1_cxy7s"]
+[ext_resource type="StyleBox" uid="uid://c7gkut8lccnrf" path="res://styles/Future_stylebox_hover.tres" id="2_kt7fy"]
+[ext_resource type="StyleBox" uid="uid://c5hcmfyjvhku1" path="res://styles/Future_stylebox_normal.tres" id="3_2njl7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvt22"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.469699, 0.359146, 0.695757, 0.764706)
+
+[resource]
+Button/colors/font_color = Color(0.54377, 0.756287, 0.987783, 1)
+Button/colors/font_focus_color = Color(0.870417, 0.237052, 0, 1)
+Button/colors/font_hover_color = Color(0.187765, 0.701027, 0.600651, 1)
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 25
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_cxy7s")
+Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
+Button/styles/hover = ExtResource("2_kt7fy")
+Button/styles/normal = ExtResource("3_2njl7")
+Button/styles/pressed = ExtResource("3_2njl7")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/fonts/font = ExtResource("1_cxy7s")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_vvt22")
