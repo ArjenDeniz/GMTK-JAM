@@ -24,6 +24,10 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lmmh"]
 bg_color = Color(3.1285e-06, 0.451992, 0.601543, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 13.0
