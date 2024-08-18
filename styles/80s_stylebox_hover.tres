@@ -11,3 +11,4 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0.733333, 0.286275, 1)
+anti_aliasing = false
