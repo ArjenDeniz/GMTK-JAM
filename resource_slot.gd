@@ -49,7 +49,7 @@ func add_resource(new_resource):
 		resource['texture'] = texture_data[resource['name'] ]
 	else:
 		resource['texture'] = "res://icon.svg"
-  $Innter/ItemIcon.texture = load(resource['texture'])
+	$Innter/ItemIcon.texture = load(resource['texture'])
 	
 	#Icon.texture = ResourceLoader.load(resource['texture'])
 	$Innter/Quantity.text= str(resource['quantity'])
