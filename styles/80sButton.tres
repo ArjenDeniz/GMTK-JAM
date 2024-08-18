@@ -1,10 +1,23 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bdj154800hva"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bdj154800hva"]
 
 [ext_resource type="FontFile" uid="uid://cpho80q1o78f5" path="res://fonts/TMT_paint/static/TMT-Paint-Regular.otf" id="1_bsefh"]
 [ext_resource type="StyleBox" uid="uid://dfggtxv3cl04o" path="res://styles/80s_stylebox_hover.tres" id="2_dmql0"]
 [ext_resource type="StyleBox" uid="uid://b0qykhge5lqkb" path="res://styles/80s_stylebox_normal.tres" id="3_5j1sj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1581"]
+bg_color = Color(0.490424, 0, 0.0919086, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvgoq"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvt22"]
 bg_color = Color(0, 0, 0, 1)
@@ -20,7 +33,13 @@ Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
 Button/styles/hover = ExtResource("2_dmql0")
 Button/styles/normal = ExtResource("3_5j1sj")
 Button/styles/pressed = ExtResource("3_5j1sj")
+DetailPanel/base_type = &"Panel"
+ForcedPanel/base_type = &"Panel"
+ForcedPanel/styles/panel = SubResource("StyleBoxFlat_k1581")
+Label/fonts/font = ExtResource("1_bsefh")
+Panel/styles/panel = SubResource("StyleBoxFlat_wvgoq")
 TooltipLabel/colors/font_color = Color(0.721505, 0.345274, 0, 1)
 TooltipLabel/font_sizes/font_size = 20
 TooltipLabel/fonts/font = ExtResource("1_bsefh")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_vvt22")
+YearPanel/base_type = &"Panel"

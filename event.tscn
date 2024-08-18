@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqyn3ifdqp0ul"]
 
+[ext_resource type="Theme" uid="uid://bdj154800hva" path="res://styles/80sButton.tres" id="1_1l156"]
 [ext_resource type="Script" path="res://event.gd" id="1_wj6u8"]
-[ext_resource type="Theme" uid="uid://6tqngk6t3wjy" path="res://styles/FutureButton.tres" id="2_bdkot"]
 [ext_resource type="PackedScene" uid="uid://dsfth4sc7xfj0" path="res://choice_slot.tscn" id="3_0w8t2"]
 
 [node name="Event" type="Control"]
@@ -10,7 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("2_bdkot")
+theme = ExtResource("1_1l156")
 script = ExtResource("1_wj6u8")
 
 [node name="ColorRect" type="Panel" parent="."]
@@ -20,7 +20,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_bdkot")
 
 [node name="Event Name" type="Label" parent="."]
 layout_mode = 1
@@ -32,7 +31,6 @@ offset_top = 20.0
 offset_right = 100.0
 offset_bottom = 70.0
 grow_horizontal = 2
-theme = ExtResource("2_bdkot")
 theme_override_font_sizes/font_size = 25
 text = "Event Name"
 horizontal_alignment = 1
@@ -48,7 +46,6 @@ offset_top = 75.0
 offset_right = 350.0
 offset_bottom = 195.0
 grow_horizontal = 2
-theme = ExtResource("2_bdkot")
 theme_override_font_sizes/font_size = 18
 text = "Event Description"
 autowrap_mode = 2

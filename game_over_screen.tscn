@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://rt0efmt4hea7"]
+[gd_scene load_steps=2 format=3 uid="uid://rt0efmt4hea7"]
 
 [ext_resource type="Script" path="res://game_over_screen.gd" id="1_21a68"]
-[ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="1_ihpbv"]
-[ext_resource type="Theme" uid="uid://6tqngk6t3wjy" path="res://styles/FutureButton.tres" id="1_ohdf2"]
 
 [node name="Game Over Screen" type="Control"]
 custom_minimum_size = Vector2(600, 600)
@@ -10,7 +8,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("1_ohdf2")
 script = ExtResource("1_21a68")
 
 [node name="ColorRect" type="Panel" parent="."]
@@ -31,7 +28,6 @@ offset_top = 20.0
 offset_right = 131.0
 offset_bottom = 75.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_ihpbv")
 theme_override_font_sizes/font_size = 45
 text = "Game Over"
 
@@ -47,7 +43,6 @@ offset_top = -78.0
 offset_right = 119.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_ihpbv")
 theme_override_font_sizes/font_size = 45
 text = "Re-train"
 
@@ -63,7 +58,6 @@ offset_top = -9.60001
 offset_right = 210.0
 offset_bottom = 134.4
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_ihpbv")
 theme_override_font_sizes/font_size = 25
 text = "You lost because of..."
 

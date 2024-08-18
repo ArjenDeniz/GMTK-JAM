@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://clar667tddtxq"]
+[gd_scene load_steps=7 format=3 uid="uid://clar667tddtxq"]
 
 [ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
 [ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
 [ext_resource type="PackedScene" uid="uid://cqyn3ifdqp0ul" path="res://event.tscn" id="3_5bh0l"]
+[ext_resource type="Theme" uid="uid://bdj154800hva" path="res://styles/80sButton.tres" id="3_66obb"]
 [ext_resource type="PackedScene" uid="uid://7d2tesbv14i1" path="res://forced_event.tscn" id="4_svhob"]
 [ext_resource type="PackedScene" uid="uid://rt0efmt4hea7" path="res://game_over_screen.tscn" id="5_ewxav"]
 
@@ -10,6 +11,7 @@
 script = ExtResource("1_tm8uo")
 
 [node name="HUD" parent="." instance=ExtResource("1_2q76b")]
+theme = ExtResource("3_66obb")
 
 [node name="Event_prompt" parent="HUD" instance=ExtResource("3_5bh0l")]
 visible = false
@@ -26,6 +28,7 @@ offset_right = 362.0
 offset_bottom = 369.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = null
 
 [node name="Forced_Event" parent="HUD" instance=ExtResource("4_svhob")]
 visible = false
@@ -33,6 +36,7 @@ offset_left = 399.0
 offset_top = 87.0
 offset_right = 1149.0
 offset_bottom = 787.0
+theme = null
 
 [node name="Game Over Screen" parent="HUD" instance=ExtResource("5_ewxav")]
 visible = false
