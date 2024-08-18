@@ -50,9 +50,15 @@ func set_event_data(event_data,ID,Choice_status,resource_visibility_arr,event_ty
 			choice3.set_choice(event_data['Choice_3']['text'],resource_dict_to_arr(event_data['Choice_3']['resources']),3,Choice_status[2],resource_visibility_arr[2])
 		else:
 			choice3.complete_disable()
+			$ColorRect.size += Vector2(0, -120)
+			$Choice_grid/Choice_Slot3.hide()
 	else:
 		choice2.complete_disable()
 		choice3.complete_disable()
+		$ColorRect.size += Vector2(0,-240)
+		$Choice_grid/Choice_Slot2.hide()
+		$Choice_grid/Choice_Slot3.hide()
+
 	event_id = ID
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

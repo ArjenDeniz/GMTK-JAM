@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d10kykpc457kl"
-path="res://.godot/imported/earth20.png-27233003900e380b011d27aaccbd6b43.ctex"
+path="res://.godot/imported/Earth20.png-dfedf4f52e6cc84df44bd78916171e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Earth_new/earth20.png"
-dest_files=["res://.godot/imported/earth20.png-27233003900e380b011d27aaccbd6b43.ctex"]
+source_file="res://Backgrounds/Earth_new/Earth20.png"
+dest_files=["res://.godot/imported/Earth20.png-dfedf4f52e6cc84df44bd78916171e75.ctex"]
 
 [params]
 
