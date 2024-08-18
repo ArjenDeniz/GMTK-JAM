@@ -45,7 +45,6 @@ func add_resource(new_resource):
 	resource['quantity'] = new_resource['quantity']
 	var texture_data = load_json_data("res://Icon_data.json")
 	
-=======
 	if texture_data.has(resource['name']):
 		resource['texture'] = texture_data[resource['name'] ]
 	else:
