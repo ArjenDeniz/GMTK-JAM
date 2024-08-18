@@ -1,102 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccw2pf8pfl542"]
+[gd_scene load_steps=2 format=3 uid="uid://ccw2pf8pfl542"]
 
 [ext_resource type="Script" path="res://resource_slot.gd" id="1_in35d"]
-[ext_resource type="Texture2D" uid="uid://criyjh0uocp6b" path="res://Icons/science.png" id="2_6t7qd"]
-[ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="3_mgfak"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3wye"]
-
-[node name="Resource_Slot" type="Control"]
+[node name="Resource_Slot" type="Button"]
 custom_minimum_size = Vector2(100, 50)
-layout_mode = 3
-anchors_preset = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 110.0
 offset_bottom = 60.0
 script = ExtResource("1_in35d")
-
-[node name="BG" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.504453, 0.463928, 9.62615e-08, 1)
-
-[node name="Innter" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.533037, 0.533037, 0.533037, 1)
-
-[node name="ItemIcon" type="Sprite2D" parent="Innter"]
-position = Vector2(20.9, 18.9)
-scale = Vector2(0.054, 0.05)
-texture = ExtResource("2_6t7qd")
-
-[node name="Quantity" type="Label" parent="Innter"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -16.0
-offset_right = -1.0
-offset_bottom = 15.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_mgfak")
-theme_override_font_sizes/font_size = 15
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_v3wye")
-
-[node name="Details" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_top = -25.0
-offset_right = 75.0
-color = Color(0.472551, 0.431624, 0, 1)
-
-[node name="Label" type="Label" parent="Details"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.5
-offset_top = -11.5
-offset_right = 23.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_mgfak")
-theme_override_font_sizes/font_size = 10
-text = "Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

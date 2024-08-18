@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cilwh4ha3jnbt"]
+[gd_scene load_steps=4 format=3 uid="uid://celr4cct78p0q"]
 
 [ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="1_4e54q"]
 [ext_resource type="Script" path="res://forced_event_miinimized.gd" id="1_i7iqh"]
+[ext_resource type="Theme" uid="uid://6tqngk6t3wjy" path="res://styles/FutureButton.tres" id="2_gvtta"]
 
 [node name="Forced_Event_miinimized" type="Control"]
 custom_minimum_size = Vector2(250, 125)
@@ -11,14 +12,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_i7iqh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.608538, 0.191643, 0.143329, 1)
+theme = ExtResource("2_gvtta")
+theme_type_variation = &"ForcedPanel"
 
 [node name="Countdown" type="Label" parent="."]
 layout_mode = 1
@@ -33,7 +35,6 @@ offset_right = 48.5
 offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4e54q")
 text = "Countdown"
 
@@ -47,7 +48,6 @@ offset_top = 10.0
 offset_right = 48.5
 offset_bottom = 33.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4e54q")
 text = "Event Title"
 
