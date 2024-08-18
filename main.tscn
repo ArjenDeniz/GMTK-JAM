@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://clar667tddtxq"]
+[gd_scene load_steps=6 format=3 uid="uid://clar667tddtxq"]
 
 [ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
 [ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
 [ext_resource type="PackedScene" uid="uid://cqyn3ifdqp0ul" path="res://event.tscn" id="3_5bh0l"]
+[ext_resource type="PackedScene" uid="uid://cn71mf6hr3smu" path="res://forced_event.tscn" id="4_svhob"]
+[ext_resource type="PackedScene" uid="uid://bon5y0ucpi40i" path="res://game_over_screen.tscn" id="5_ewxav"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tm8uo")
@@ -24,9 +26,26 @@ offset_bottom = 369.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Forced_Event" parent="HUD" instance=ExtResource("4_svhob")]
+visible = false
+offset_left = 399.0
+offset_top = 87.0
+offset_right = 1149.0
+offset_bottom = 787.0
+
+[node name="Game Over Screen" parent="HUD" instance=ExtResource("5_ewxav")]
+visible = false
+offset_left = 449.0
+offset_top = 128.0
+offset_right = 1049.0
+offset_bottom = 728.0
+
 [node name="Update_Resources" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
 
-[connection signal="choice_made" from="HUD/Event_prompt" to="." method="Event_Choice_get"]
+[connection signal="Forced_Event_Enlarge" from="HUD" to="." method="Enlarge_Forced_Event"]
+[connection signal="forced_choice_made" from="HUD/Event_prompt" to="." method="Event_Choice_get"]
+[connection signal="forced_choice_made" from="HUD/Forced_Event" to="." method="Forced_Event_get_choice"]
+[connection signal="restart" from="HUD/Game Over Screen" to="." method="start_game"]
 [connection signal="timeout" from="Update_Resources" to="." method="_on_update_resources_timeout"]

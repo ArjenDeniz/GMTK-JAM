@@ -25,7 +25,7 @@ func load_json_data(file_path):
 		if (parse_res is Dictionary) or (parse_res is Array):
 			return parse_res
 		else:
-			print('Parse error')
+			print('Parse error in ',file_path)
 	else:
 		print('Couldn\'t find resource data ')
 		
@@ -44,11 +44,13 @@ func add_resource(new_resource):
 	resource['name'] = new_resource['name']
 	resource['quantity'] = new_resource['quantity']
 	var texture_data = load_json_data("res://Icon_data.json")
-	resource['texture'] = texture_data[resource['name'] ]
-	# var image = Image.load_from_file(resource['texture'])
-	# image.resize(512,512)
-	# $Innter/ItemIcon.texture = ImageTexture.create_from_image(image)
-	$Innter/ItemIcon.texture = load(resource['texture'])
+	
+=======
+	if texture_data.has(resource['name']):
+		resource['texture'] = texture_data[resource['name'] ]
+	else:
+		resource['texture'] = "res://icon.svg"
+  $Innter/ItemIcon.texture = load(resource['texture'])
 	
 	#Icon.texture = ResourceLoader.load(resource['texture'])
 	$Innter/Quantity.text= str(resource['quantity'])

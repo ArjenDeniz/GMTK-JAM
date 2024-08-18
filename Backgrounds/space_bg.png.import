@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m6i1sh40md4d"
-path="res://.godot/imported/Earth7.png-ee7ba001e49f91a024a2cee3ae6aa6f6.ctex"
+uid="uid://blocsux4jehqm"
+path="res://.godot/imported/space_bg.png-f0cb8cc340684df511eca2793a329b33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Earth_new/Earth7.png"
-dest_files=["res://.godot/imported/Earth7.png-ee7ba001e49f91a024a2cee3ae6aa6f6.ctex"]
+source_file="res://Backgrounds/space_bg.png"
+dest_files=["res://.godot/imported/space_bg.png-f0cb8cc340684df511eca2793a329b33.ctex"]
 
 [params]
 

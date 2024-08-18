@@ -1,7 +1,7 @@
 {
   "Money": "res://Icons/Money.png",
   "Science": "res://Icons/science.png",
-  "Work Power": "res://Icons/human.png",
-  "Uranium": "res://Icons/uranium.png",
-  "Oil": "res://Icons/Oil.png"
+  "Coal": "res://Icons/fossil_fuel.png",
+  "Watts": "res://Icons/watt.png",
+  "Silicon": "res://Icons/compute.png"
 }

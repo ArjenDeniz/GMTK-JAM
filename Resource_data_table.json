@@ -1,0 +1,17 @@
+{
+  "Money": {"Visible":true,"Positive":false},
+  "Science": {"Visible":true,"Positive":true},
+  "Work Power":{"Visible":true,"Positive":true},
+  "Uranium": {"Visible":true,"Positive":true},
+  "Coal": {"Visible":true,"Positive":true},
+  "global_warming": {"Visible":false,"Positive":true},
+  "Watts": {"Visible":true,"Positive":true},
+  "coal_mines":{"Visible":true,"Positive":true},
+  "Scientist": {"Visible":true,"Positive":true},
+  "fossil_fuel_plant" : {"Visible":true,"Positive":true},
+"Bank" : {"Visible":true,"Positive":true},
+"silicon_factory": {"Visible":true,"Positive":true},
+"solar_panel":{"Visible":true,"Positive":true},
+"Silicon":{"Visible":true,"Positive":true},
+"real_estate":{"Visible":true,"Positive":true}
+}

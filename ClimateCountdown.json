@@ -1,0 +1,224 @@
+{
+    "climate_cooldown_1": {
+        "Event_title": "Cooling the Planet",
+        "Event_description": "The planet is heating up, and scientists warn that immediate action is needed to reduce global warming. How much are you willing to invest in cooling measures?",
+        "Choice_1": {
+            "text": "Deploy every resource available.",
+            "resources": {
+                "Money": -1500,
+                "Watts": -200,
+                "Science": -200
+            },
+            "flags": {
+                "global_warming_1": true
+            },
+            "results": {
+                "Global_Warming_Good": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Take moderate action.",
+            "resources": {
+                "Money": -800,
+                "Watts": -200,
+                "Coal": -100,
+                "Science": -100
+            },
+            "flags": {
+                "global_warming_1": true
+            },
+            "results": {
+                "Global_Warming_Okay": 1
+            }
+        },
+        "Choice_3": {
+            "text": "Ignore the warnings.",
+            "resources": {},
+            "flags": {
+                "global_warming_1": true
+            },
+            "results": {
+                "Global_Warming_Bad": 1
+            }
+        },
+        "preconditions": {
+            "CivType": 0,
+            "global_warming_1": false
+        }
+    },
+    "climate_countdown_2": {
+        "Event_title": "The Air They Breathe",
+        "Event_description": "Air pollution is accelerating global warming, and drastic measures are required to clean the atmosphere. Will you sacrifice resources to clear the air?",
+        "Choice_1": {
+            "text": "Launch a massive clean-up operation.",
+            "resources": {
+                "Money": -1200,
+                "Watts": -400,
+                "Coal": -50,
+                "Science": -250
+            },
+            "flags": {
+                "global_warming_2": true
+            },
+            "results": {
+                "Air_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Implement air filters on our buildings.",
+            "resources": {
+                "Money": -500,
+                "Watts": -150,
+                "Coal": -100,
+                "Science": -75
+            },
+            "flags": {
+                "global_warming_2": true
+            },
+            "results": {
+                "Air_Result_2": 1
+            }
+        },
+        "Choice_3": {
+            "text": "As human's say \"Let the winds handle it.\" ",
+            "resources": {},
+            "flags": {
+                "global_warming_2": true
+            },
+            "results": {
+                "Air_Result_3": 1
+            }
+        },
+        "preconditions": {
+            "CivType": 0,
+            "global_warming_2": false
+        }
+    },
+    "climate_countdown_3": {
+        "Event_title": "The Ocean's Call",
+        "Event_description": "Rising ocean temperatures are a clear sign of global warming. A massive effort is needed to cool the seas and save marine life. Will you dive in?",
+        "Choice_1": {
+            "text": "Cool the oceans at all costs.",
+            "resources": {
+                "Money": -1000,
+                "Watts": -600,
+                "Science": -250
+            },
+            "flags": {
+                "global_warming_3": true
+            },
+            "results": {
+                "Ocean_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Fund small-scale cooling projects.",
+            "resources": {
+                "Money": -700,
+                "Watts": -200,
+                "Coal": -125,
+                "Science": -100
+            },
+            "flags": {
+                "global_warming_2": true
+            },
+            "results": {
+                "Ocean_Result_2": 1
+            }
+        },
+        "Choice_3": {
+            "text": "Let nature take its course.",
+            "resources": {},
+            "flags": {
+                "global_warming_3": true
+            },
+            "results": {
+                "Ocean_Result_3": 1
+            }
+        },
+        "preconditions": {
+            "CivType": 0,
+            "global_warming_3": false
+        }
+    },
+    "climate_countdown_4": {
+        "Event_title": "The End is Nigh",
+        "Event_description": "The global temperature is reaching critical levels. This is the last chance to make a meaningful impact on global warming. How much are you willing to sacrifice to save the planet?",
+        "Choice_1": {
+            "text": "Go all-in for the future",
+            "resources": {
+                "Money": -2000,
+                "Watts": -600,
+                "Coal": -350,
+                "Science": -300
+            },
+            "flags": {
+                "global_warming_4": true
+            },
+            "results": {
+                "End_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Take measured steps.",
+            "resources": {
+                "Money": -1000,
+                "Watts": -200,
+                "Coal": -150,
+                "Science": -100
+            },
+            "flags": {
+                "global_warming_4": true
+            },
+            "results": {
+                "End_Result_2": 2
+            }
+        },
+        "Choice_3": {
+            "text": "Why should we sacrifice —we don't even breathe.",
+            "resources": {},
+            "flags": {
+                "global_warming_4": true
+            },
+            "results": {
+                "End_Result_3": 1
+            }
+        },
+        "preconditions": {
+            "CivType": 0,
+            "global_warming_4": false
+        }
+    },
+    "silicon_discovery": {
+        "Event_title": "Scientific Breakthrough",
+        "Event_description": "Our scientists have made a groundbreaking discovery that could revolutionize our operations. But to bring this discovery to life, we need substantial funding. Will you invest in this scientific marvel, or let it slip through our circuits?",
+        "Choice_1": {
+            "text": "Fund the research!",
+            "resources": {
+                "Money": -1000,
+                "Science": 300
+            },
+            "flags": {
+                "Silicon_invented": true
+            },
+            "results": {
+                "Silicon_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Take measured steps.",
+            "resources": {
+                "Money": -1000,
+                "Watts": -200,
+                "Coal": -150,
+                "Science": -100
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": 0,
+            "Silicon_invented": false
+        }
+    }
+}
