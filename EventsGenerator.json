@@ -1,0 +1,327 @@
+{
+	"bank_generator": {
+		"Event_title": "Banking on Success",
+		"Event_description": "With resources and infrastructure now within reach, the time has come to establish a financial institution. This bank could streamline operations, ensuring that future investments are handled with precision—but it will require significant funds to get started.",
+		"Choice_1": {
+			"text": "The bank is up and running, processing transactions with the efficiency only we could achieve. Just don't ask about the setup costs.",
+			"resources": {
+				"Money": -4000,
+				"Bank": 1
+			},
+			"flags": {},"results":{}
+		},
+		"Choice_2": {
+			"text": "Start the negotiations",
+			"resources": {
+				"Bank": 1,
+				"Money": -2000,
+				"fossil_fuel_plant": 1
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Delay the banking plans",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": true
+		}
+	},
+	"scientist_hiring_spree": {
+		"Event_title": "Brain Drain",
+		"Event_description": "The latest breakthrough has created a buzz in the scientific community, and now's the perfect time to recruit more brains to the operation. But hiring these eggheads isn't cheap. Ready to invest in some serious brainpower?",
+		"Choice_1": {
+			"text": "We've got more brains than a zombie buffet! Just hope they're worth the big bucks.",
+			"resources": {
+				"Scientist": 10,
+				"Money": -1300
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "A few more brilliant minds have joined the team. Now we just need to figure out how to pay them!",
+			"resources": {
+				"Scientist": 5,
+				"Money": -800
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "No new hires today—our current scientists are smart enough to handle things...we hope.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0
+		}
+	},
+	"coal_generator": {
+		"Event_title": "Mine Over Matter",
+		"Event_description": "The world still runs on coal, and there's a chance to buy some mines. Should we dig in?",
+		"Choice_1": {
+			"text": "More coal than a steam engine's wildest dreams, but the price tag smokes too.",
+			"resources": {
+				"coal_mines": 3,
+				"Money": -1000
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "A modest investment with solid returns. Just like grandma's old coal stove.",
+			"resources": {
+				"coal_mines": 1,
+				"Money": -400
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Coal? So last century.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": false
+		}
+	},
+	"ff_watt_generator": {
+		"Event_title": "Fueling the Future",
+		"Event_description": "A fossil fuel plant is up for grabs. It could boost our energy production, but it's going to cost a pretty penny—and a lot of coal. Do we take the plunge?",
+		"Choice_1": {
+			"text": "Full throttle!",
+			"resources": {
+				"Money": -800,
+				"Coal": -600,
+				"fossil_fuel_plant": 2
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "We've got the plant and some coal to spare. Not bad for a day's work.",
+			"resources": {
+				"Money": -400,
+				"Coal": -300,
+				"fossil_fuel_plant": 1
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "No plant, no coal, no regrets. We're keeping our money—and the air—clean.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": false
+		}
+	},
+	"r_d_generator": {
+		"Event_title": "Department of Discovery",
+		"Event_description": "An opportunity to establish a top-tier R&D Department has arisen. As an AI, you recognize the potential for groundbreaking innovation—but it comes with a hefty price tag. Will you invest in the future of science?",
+		"Choice_1": {
+			"text": "Build the ultimate think tank!",
+			"resources": {
+				"Scientist": 15,
+				"Money": -2000
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Start small, think big.",
+			"resources": {
+				"Scientist": 7,
+				"Money": -1200
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "We're staying lean. The future of innovation can wait—our bank account can't.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": true
+		}
+	},
+	"resource_trade": {
+		"Event_title": "Barter for Betterment",
+		"Event_description": "A potential trade partner is interested in acquiring one of our fossil fuel plants or coal_mines. In exchange, they offer valuable resources that could enhance our operations. Should we negotiate?",
+		"Choice_1": {
+			"text": "Trade the fossil fuel plant.",
+			"resources": {
+				"Money": 1500,
+				"fossil_fuel_plant": -1
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Choice 2: Offer the coal mine.",
+			"resources": {
+				"Money": 900,
+				"Watts": 200,
+				"Coal": -300,
+				"coal_mines": -1
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Choice 3: Hold onto our assets.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0
+		}
+	},
+	"scientist_generator": {
+		"Event_title": "New Job Applications",
+		"Event_description": "The lab's coffee machine is finally fixed. Now, should we recruit more brains to enjoy it?",
+		"Choice_1": {
+			"text": "Coffee for everyone!",
+			"resources": {
+				"Scientist": 10,
+				"Money": -500
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Let's keep it medium brew.",
+			"resources": {
+				"Scientist": 3,
+				"Money": 200
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "We're fully caffeinated.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0
+		}
+	},
+	"silicon_generator": {
+		"Event_title": "The Silicon Dream",
+		"Event_description": "A state-of-the-art silicon factory is up for sale. As an AI, you understand the value of advanced materials. This could power the tech of tomorrow—but is the investment logical?",
+		"Choice_1": {
+			"text": "We've optimized our material intake—at a significant cost. The data better prove us right.",
+			"resources": {
+				"silicon_factory": 1,
+				"Money": -1000
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "We've secured the factory at a lower cost. Efficiency is key—just like my code.",
+			"resources": {
+				"silicon_factory": 1,
+				"Money": -500,
+				"Coal": -600
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Silicon? More like silly-con.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": true
+		}
+	},
+	"solar_panel_generator": {
+		"Event_title": "Solar Power Surge",
+		"Event_description": "The opportunity to invest in solar panels has emerged. These could significantly boost our energy efficiency, but the installation requires both silicon and substantial funding. Is it time to go green?",
+		"Choice_1": {
+			"text": "Go full solar!",
+			"resources": {
+				"solar_panel": 3,
+				"Money": -2000,
+				"Silicon": -200
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Start with a small array.",
+			"resources": {
+				"solar_panel": 1,
+				"Money": -1000,
+				"Silicon": -200
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Stick to traditional energy.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0,
+			"Silicon_invented": true
+		}
+	},
+	"real_estate_generator": {
+		"Event_title": "Time to Earn Some Money",
+		"Event_description": "A lucrative investment opportunity has popped up! It promises great returns, but there’s a catch—you’ll need to divert some resources. Should we go for it?",
+		"Choice_1": {
+			"text": "Go big or go home, right? We’re rolling in cash, but the lights might flicker.",
+			"resources": {
+				"real_estate": 3,
+				"Watts": -250,
+				"Coal": -150
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "A smart investment.",
+			"resources": {
+				"real_estate": 1,
+				"Watts": -100,
+				"Coal": -50
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Not today.",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": 0
+		}
+	}
+}

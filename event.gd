@@ -6,23 +6,13 @@ extends Control
 @onready var choice2 = $Choice_grid/Choice_Slot2
 @onready var choice3 = $Choice_grid/Choice_Slot3
 
-signal choice_made(ID: int, Choice: int)
+signal forced_choice_made(ID, Choice: int,type)
 
 var event_id = -1
-
+var type = "Forced"
 # Test
-var resource1 = [{"name": 'Man Power', "quantity": '+100', "texture":"res://Icons/human.png" },
-{"name": 'Science', "quantity":'-20', "texture":"res://Icons/science.png"}]
-var choice1_data = {'text':'Wow thanks!','resources':resource1}
-var resource2 = [{"name": 'Man Power', "quantity": '+10', "texture":"res://Icons/human.png" }]
-var choice2_data = {'text':'Okay.....','resources':resource2}
-var resource3 = [{"name": 'Man Power', "quantity": '-50', "texture":"res://Icons/human.png" },
-{"name": 'Science', "quantity":'+10', "texture":"res://Icons/science.png"}]
-var choice3_data = {'text':'Opinions of monkeys bears no importance for maximizing the energy output',
-'resources':resource3}
 
-var test_data = {'name':'You are cool', 'description':'The people think you are cool so they decided to gice you a reward',
-'choice1':choice1_data,'choice2':choice2_data,'choice3':choice3_data,'ID':0}
+
 
 func load_json_data(file_path):
 	if FileAccess.file_exists(file_path):
@@ -49,14 +39,15 @@ func resource_dict_to_arr(dict):
 	for key in dict:
 		arr.append({"name":key,'quantity':dict[key]})
 	return arr
-func set_event_data(event_data,ID,Choice_status):
-	event_name.text = event_data['Event Name']
-	description.text = event_data['Event Description']
-	choice1.set_choice(event_data['Choice1']['text'],resource_dict_to_arr(event_data['Choice1']['resources']),1,Choice_status[0])
-	if event_data.has('Choice2'):
-		choice2.set_choice(event_data['Choice2']['text'],resource_dict_to_arr(event_data['Choice2']['resources']),2,Choice_status[1])
-		if event_data.has('Choice3'):
-			choice3.set_choice(event_data['Choice3']['text'],resource_dict_to_arr(event_data['Choice3']['resources']),3,Choice_status[2])
+func set_event_data(event_data,ID,Choice_status,resource_visibility_arr,event_type):
+	type = event_type
+	event_name.text = event_data['Event_title']
+	description.text = event_data['Event_description']
+	choice1.set_choice(event_data['Choice_1']['text'],resource_dict_to_arr(event_data['Choice_1']['resources']),1,Choice_status[0],resource_visibility_arr[0])
+	if event_data.has('Choice_2'):
+		choice2.set_choice(event_data['Choice_2']['text'],resource_dict_to_arr(event_data['Choice_2']['resources']),2,Choice_status[1],resource_visibility_arr[1])
+		if event_data.has('Choice_3'):
+			choice3.set_choice(event_data['Choice_3']['text'],resource_dict_to_arr(event_data['Choice_3']['resources']),3,Choice_status[2],resource_visibility_arr[2])
 		else:
 			choice3.complete_disable()
 	else:
@@ -71,12 +62,12 @@ func _process(delta: float) -> void:
 
 
 func _on_choice_slot_1_button_press() -> void:
-	choice_made.emit(event_id,1)
+	forced_choice_made.emit(event_id,1,type)
 	
 
 func _on_choice_slot_2_button_press() -> void:
-	choice_made.emit(event_id,2)
+	forced_choice_made.emit(event_id,2,type)
 	
 
 func _on_choice_slot_3_button_press() -> void:
-	choice_made.emit(event_id,3)
+	forced_choice_made.emit(event_id,3,type)

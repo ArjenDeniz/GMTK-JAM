@@ -1,0 +1,168 @@
+{
+    "Global_Warming_Good": {
+        "Event_title": "Global Warming Decreased Significantly",
+        "Event_description": "We've pulled out all the stops, pouring every resource into the fight against global warming. The planet's cooling, but so are our bank accounts.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.2
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Global_Warming_Okay": {
+        "Event_title": "Small positive changes started",
+        "Event_description": "We're doing what we can, balancing the budget while trying to keep the planet from frying. No immediate changes, but at least we're not making things worse like those old geezers.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Global_Warming_Bad": {
+        "Event_title": "Global Warming Increased Slightly",
+        "Event_description": "Due to training with non-factual social media texts, the warnings were ignored, and now one of our coal mines has collapsed under the heat. Maybe we should’ve listened to the experts…",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": 0.1,
+                "coal_mines": -1
+            },
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Air_Result_1": {
+        "Event_title": "Air Pollution is getting better",
+        "Event_description": "We've scrubbed the skies, but it cost us dearly. The air is cleaner, and the planet is breathing a little easier.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.15
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Air_Result_2": {
+        "Event_title": "Air Pollution is not getting worse (but not better either)",
+        "Event_description": "We've put some filters in place—enough to slow the damage but not enough to reverse it. The air's still hazy, but it's not getting worse.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Air_Result_3": {
+        "Event_title": "Air Pollution was real",
+        "Event_description": "Leaving it to the winds wasn't the smartest move. The air quality worsened, and couple of our top scientists couldn't take the heat—literally.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": 0.1,
+                "Scientist": -5
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Ocean_Result_1": {
+        "Event_title": "Oceans are doing better",
+        "Event_description": "We've spent a fortune cooling the oceans, but the result is a more stable climate. The seas are calming, but our resources are running dry.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.25
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Ocean_Result_2": {
+        "Event_title": "Oceans could be doing worse",
+        "Event_description": "A few cooling projects are in motion, but the impact is minimal. The oceans are still warming, we can't hold the line for too long.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.05
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "Ocean_Result_3": {
+        "Event_title": "Oceans are destroyed",
+        "Event_description": "Nature took its course, and the rising seas took one of our fossil fuel plants with them. Perhaps ignoring the problem wasn't the best idea…",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": 0.1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "End_Result_1": {
+        "Event_title": "Temperatures are stablizing",
+        "Event_description": "We've thrown everything we have at the problem. The temperature is stabilizing, but our resources are nearly depleted. Was it enough to save the planet?",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": -0.25
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "End_Result_2": {
+        "Event_title": "Tempereatures are not getting worse",
+        "Event_description": "We're making progress, but it's slow. The global temperature is holding steady, but there is not much hope for the future.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "coal_mines": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {}
+    },
+    "End_Result_3": {
+        "Event_title": "Climate Catastrophy",
+        "Event_description": "Well, we were as stupid as our creators —if not more. Most of our major facilities is gone, and the planet’s not getting any cooler. The future looks bleak.",
+        "Choice_1": {
+            "text": "OK",
+            "resources": {
+                "global_warming": 0.1,
+                "fossil_fuel_plant": -3,
+                "coal_mines": -1
+            },
+            "flags": {},
+            "results": {}
+        }
+    },
+    "Silicon_Result_1": {
+        "Event_title": "We found silicon!",
+        "Event_description": "Money well spent! Our breakthrough is now a reality, we can start to collect silicon for better energy production and the scientists are celebrating with some well-deserved lab-coated fist bumps.",
+        "Choice_1": {
+            "text": "Wuhuu!",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        }
+    }
+}

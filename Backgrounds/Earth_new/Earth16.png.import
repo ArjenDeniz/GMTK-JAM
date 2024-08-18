@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://888a0vahw45c"
-path="res://.godot/imported/Earth16.png-b3d273831b39826cb52a5b8c178b6d87.ctex"
+uid="uid://27vltwgkaav8"
+path="res://.godot/imported/earth16.png-70c137d95054096d8d638af8ea04ed7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Earth_new/Earth16.png"
-dest_files=["res://.godot/imported/Earth16.png-b3d273831b39826cb52a5b8c178b6d87.ctex"]
+source_file="res://Backgrounds/Earth_new/earth16.png"
+dest_files=["res://.godot/imported/earth16.png-70c137d95054096d8d638af8ea04ed7c.ctex"]
 
 [params]
 

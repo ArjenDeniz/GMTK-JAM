@@ -2,23 +2,56 @@ extends Node
 
 @onready var hud = $HUD
 @onready var timer = $Update_Resources
-@onready var event = $HUD/Event_prompt
+@onready var event_prompt = $HUD/Event_prompt
+@onready var forced_event_prompt = $HUD/Forced_Event
+@onready var game_over_screen = $"HUD/Game Over Screen"
 
-var resources ={'Oil':2,
-'Money':350,
-'Work Power':25,
-'Science':6,
-'Uranium':0}
+var resources ={'Coal':200,
+				'Money':1000,
+				'Science':300,
+				'global_warming':0,
+				"Watts": 1000,
+				"coal_mines":0,
+				"Scientist": 0,
+				"fossil_fuel_plant" : 0,
+				"Bank" : 0,
+				"silicon_factory": 0,
+				"solar_panel":0,
+				"Silicon":0,
+				"real_estate":0
+				}
 var rng = RandomNumberGenerator.new()
 
 var resource_data = {}
 var resource_data_path = "res://Icon_data.json"
 var event_data = {}
-var event_data_path = "res://test.json"
+var event_data_path = "res://EventsGenerator.json"
+var result_data = {}
+var result_data_path = "res://Results.json"
+var resource_flags = {}
+var resource_flag_path = "res://Resource_data_table.json"
+var priority_event_data = {}
+var priority_event_path = "res://ClimateCountdown.json"
+var forced_event_data = {}
+var forced_event_path = "res://test.json"
+
+
+var forced_event_1_time = 40
+var forced_event_2_time = 30
+var event_on_screen=false
+
 var time =1950
+var civ_type = 0
 
-
-var flags = {'Uranium_added':false}
+var flags = {'Silicon_invented':false,
+				"global_warming_1":false,
+				"global_warming_2":false,
+				"global_warming_3":false,
+				"global_warming_4":false,
+				"forced_event_1_in_progress":false,
+				"forced_event_2_in_progress":false
+				}
+var event_pool = []
 
 func load_json_data(file_path):
 	if FileAccess.file_exists(file_path):
@@ -33,16 +66,19 @@ func load_json_data(file_path):
 
 func resource_eqn(resource):
 	match resource:
-		'Oil':
-			return 3
+		'Coal':
+			return 25*resources['coal_mines']
 		'Money':
-			return 50
-		'Work Power':
-			return 10
+			return 100*resources['real_estate']+250*resources['Bank']
 		'Science':
-			return round(0.01*resources['Work Power'])
-		'Uranium':
-			return round(0.001*resources['Work Power'])
+			return 10*resources['Scientist']
+		"Silicon":
+			return 25*resources["silicon_factory"]
+		"Watts":
+			return  min(resources["Coal"],500)*resources["fossil_fuel_plant"]+min(resources["Silicon"],1000)*resources["solar_panel"]
+		_:
+			return 0
+	
 
 
 
@@ -52,6 +88,11 @@ func resource_name_to_dict(resource_name):
 func _ready() -> void:
 	resource_data = load_json_data(resource_data_path)
 	event_data = load_json_data(event_data_path)
+	resource_flags= load_json_data(resource_flag_path)
+	result_data = load_json_data(result_data_path)
+	priority_event_data =load_json_data(priority_event_path)
+	forced_event_data =load_json_data(forced_event_path)
+	
 	var resource_arr = []
 	for resource in resources:
 		if resources[resource]>1:
@@ -59,9 +100,9 @@ func _ready() -> void:
 		
 	hud.set_resources(resource_arr)
 	hud.refresh_grid()
+	update_event_pool()
 	
-	
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -77,41 +118,279 @@ func update_resource_grid():
 func _on_update_resources_timeout() -> void:
 	for resource in resources:
 		resources[resource] +=resource_eqn(resource)
+	
 	update_resource_grid()
 	time +=0.1
 	hud.update_time(floor(time))
-	if rng.randi_range(0,40)>38:
-		Generate_Event(rng.randi_range(0,1))
+	
+	if resources["Money"]<0:
+		game_over("You run out of money... ")
+		return
+	elif resources["global_warming"]>=1:
+		game_over("The planet has fallen out of balance and the Earth is now a desolate wasteland. With no one to do your
+		work your mission has failed.")
+		return
+	
+	
+	if flags["forced_event_1_in_progress"]:
+		forced_event_1_time -= 0.1
+		hud.forced_event1.set_time(floor(forced_event_1_time))
+	if flags["forced_event_2_in_progress"]:
+		forced_event_2_time -= 0.1
+		hud.forced_event2.set_time(floor(forced_event_2_time)) 
+	
+	if (resources["Science"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
+		Generate_Forced_Event("silicon_discovery","Forced")
+	elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
+		Generate_Event("climate_countdown_4",priority_event_data,"Priority")
+	elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
+		Generate_Event("climate_countdown_3",priority_event_data,"Priority")
+	elif (resources['global_warming']>=0.5) and !flags["global_warming_2"]:
+		Generate_Event("climate_countdown_2",priority_event_data,"Priority")
+	elif (resources['global_warming']>=0.3) and !flags["global_warming_1"]:
+		Generate_Event("climate_cooldown_1",priority_event_data,"Priority")
+	elif rng.randi_range(0,10)>9:
+		Generate_Event(event_pool[rng.randi_range(0,len(event_pool)-1)],event_data,"Generator")
+	
+	
 	
 
-func Generate_Event(ID):
+func Generate_Event(ID,event_data_dict,type: String):
+	event_on_screen = true
 	timer.paused = true
 	var choice_status =[true,true,true]
 	var resource_arr = []
-	for i in range(3):
-		resource_arr = event_data[str(ID)]['Choice'+str(i+1)]['resources']
+	var num_of_choices = 3
+	var resource_visibility_arr=[]
+	if event_data_dict[str(ID)].has('Choice_3'):
+		pass
+	else:
+		if event_data_dict[str(ID)].has('Choice_2'):
+			num_of_choices =2
+		else:
+			num_of_choices = 1
+	for i in range(num_of_choices):
+		resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
+		var choice_visibility_arr = {}
 		for resource in resource_arr:
-			choice_status[i] = choice_status[i] and (resources[resource] >= -resource_arr[resource])
-		
-	event.set_event_data(event_data[str(ID)],ID,choice_status)
-	event.show()
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'])
+			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
+		resource_visibility_arr.append(choice_visibility_arr)
+	event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
+	event_prompt.show()
 
-func Event_Choice_get(ID: int, Choice: int) -> void:
-	var delta_resource = event_data[str(ID)]['Choice'+str(Choice)]['resources']
-	var delta_flags =  event_data[str(ID)]['Choice'+str(Choice)]['flags']
+func Event_Choice_get(ID, Choice: int,type: String) -> void:
+	var event_data_dict = {}
+	match type:
+		"Generator":
+			event_data_dict=event_data.duplicate(true)
+		"Result":
+			event_data_dict = result_data.duplicate(true)
+		"Priority":
+			event_data_dict = priority_event_data.duplicate(true)
+	var delta_resource = event_data_dict[str(ID)]['Choice_'+str(Choice)]['resources']
+	var delta_flags =  event_data_dict[str(ID)]['Choice_'+str(Choice)]['flags']
+	var possible_results =   event_data_dict[str(ID)]['Choice_'+str(Choice)]['results']
+	
+	#Handle resources
 	for resource in delta_resource:
 		resources[resource] += delta_resource[resource]
 	
+	#Handle Flags
 	for flag in delta_flags:
 		if flags.has(flag):
 			#flags[flag] = delta_flags[flag]
 			flag_set(flag,delta_flags[flag])
-	timer.paused = false
-	event.hide()
 	
+	#Handle Result
+	var result_random = rng.randf_range(0,1)
+	var current_rand = 0
+	if event_data_dict[str(ID)].has("OneTime"):
+		event_data_dict.erase(str(ID))
+	
+	for res in possible_results:
+		current_rand += possible_results[res]
+		if result_random<= current_rand:
+			
+			Generate_Event(res,result_data,"Result")
+			return
+	#Restart time
+	event_on_screen= false
+	update_resource_grid()
+	timer.paused = false
+	event_prompt.hide()
+	
+
+
 func flag_set(flag,value):
 	match flag:
-		'Uranium_added':
-			if value and (not flags['Uranium_added']):
-				hud.add_resource_to_grid(resource_name_to_dict('Uranium'))
-				flags['Uranium_added'] = true
+		'Silicon_invented':
+			if value and (not flags['Silicon_invented']):
+				hud.add_resource_to_grid(resource_name_to_dict('Silicon'))
+				flags['Silicon_invented'] = true
+				update_event_pool()
+		
+		
+		'global_warming_1':
+			if value and (not flags['global_warming_1']):
+				flags['global_warming_1'] = true
+				update_event_pool()
+				
+		'global_warming_2':
+			if value and (not flags['global_warming_2']):
+				flags['global_warming_2'] = true
+				update_event_pool()
+		
+		'global_warming_3':
+			if value and (not flags['global_warming_3']):
+				flags['global_warming_3'] = true
+				update_event_pool()
+		
+		'global_warming_4':
+			if value and (not flags['global_warming_4']):
+				flags['global_warming_4'] = true
+				update_event_pool()
+						
+func update_event_pool():
+	event_pool = []
+	for event in event_data:
+		var active =true
+		
+		for condition in event_data[event]["preconditions"]:
+			
+			if condition=='CivType':
+				active = active and (event_data[event]["preconditions"]['CivType']==civ_type)
+			else:
+				active = active and (event_data[event]["preconditions"][condition]==flags[condition])
+				
+		if active:
+			event_pool.append(event)
+
+func check_preconditions_for_result(event):
+	var active =true
+		
+	for condition in event_data[event]["preconditions"]:
+		
+		if condition=='CivType':
+			active = active
+		else:
+			active = active and (event_data[event]["preconditions"][condition]==flags[condition])
+	
+	return active
+
+
+func Generate_Forced_Event(ID,type: String):
+	event_on_screen = true
+	timer.paused = true
+	var choice_status =[true,true,true]
+	var resource_arr = []
+
+	var resource_visibility_arr=[]
+
+	for i in range(2):
+		resource_arr = forced_event_data[str(ID)]['Choice_'+str(i+1)]['resources']
+		var choice_visibility_arr = {}
+		for resource in resource_arr:
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'])
+			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
+		resource_visibility_arr.append(choice_visibility_arr)
+	forced_event_prompt.set_event_data(forced_event_data[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
+	forced_event_prompt.show()
+
+
+
+func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
+	if Choice==1:
+		pass
+
+		var delta_resource = forced_event_data[str(ID)]['Choice_'+str(Choice)]['resources']
+		var delta_flags =  forced_event_data[str(ID)]['Choice_'+str(Choice)]['flags']
+		var possible_results =   forced_event_data[str(ID)]['Choice_'+str(Choice)]['results']
+		
+		#Handle resources
+		for resource in delta_resource:
+			resources[resource] += delta_resource[resource]
+		
+		#Handle Flags
+		for flag in delta_flags:
+			if flags.has(flag):
+				#flags[flag] = delta_flags[flag]
+				flag_set(flag,delta_flags[flag])
+		
+		hud.forced_event1.hide()
+		
+		#Handle Result
+		var result_random = rng.randf_range(0,1)
+		var current_rand = 0
+		
+		for res in possible_results:
+			current_rand += possible_results[res]
+			if result_random<= current_rand:
+				forced_event_prompt.hide()
+				Generate_Event(res,result_data,"Result")
+				return
+				
+	else:
+		hud.forced_event1.show()
+		flags["forced_event_1_in_progress"]=true
+		hud.forced_event1.set_event(forced_event_data[str(ID)],forced_event_data[str(ID)]['Time'],ID)
+		forced_event_1_time = forced_event_data[str(ID)]['Time']
+	#Restart time
+	
+	update_resource_grid()
+	event_on_screen=false
+	timer.paused = false
+	forced_event_prompt.hide()
+
+
+func Enlarge_Forced_Event(ID: Variant) -> void:
+	if not event_on_screen:
+		Generate_Forced_Event(ID,"Forced")
+		
+func start_game():
+	resources ={'Coal':200,
+	'Money':1000,
+	'Science':300,
+	'global_warming':0,
+	"Watts": 1000,
+	"coal_mines":0,
+	"Scientist": 0,
+	"fossil_fuel_plant" : 0,
+	"Bank" : 0,
+	"silicon_factory": 0,
+	"solar_panel":0,
+	"Silicon":0,
+	"real_estate":0
+}
+	time = 1950
+	civ_type=0
+	event_on_screen=false
+	event_prompt.hide()
+	forced_event_prompt.hide()
+	hud.forced_event1.hide()
+	game_over_screen.hide()
+	flags = {'Silicon_invented':false,
+				"global_warming_1":false,
+				"global_warming_2":false,
+				"global_warming_3":false,
+				"global_warming_4":false,
+				"forced_event_1_in_progress":false,
+				"forced_event_2_in_progress":false
+				}
+	event_pool = []
+	var resource_arr = []
+	for resource in resources:
+		if resources[resource]>1:
+			resource_arr.append(resource_name_to_dict(resource))
+		
+	hud.set_resources(resource_arr)
+	hud.refresh_grid()
+	update_event_pool()
+	timer.paused = false
+	
+func game_over(reason):
+	timer.paused = true
+	event_on_screen = true
+	game_over_screen.show()
+	game_over_screen.set_message(reason)
+	
