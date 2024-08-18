@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://mw0qod6splqo"]
+
+[ext_resource type="FontFile" uid="uid://cnn603hon8f8m" path="res://fonts/stelpolvo_sans/StelpolvoSans-Regula.ttf" id="1_ndc05"]
+[ext_resource type="StyleBox" uid="uid://boq7661jduwi7" path="res://styles/Alien_stylebox_hover.tres" id="2_hy1bt"]
+[ext_resource type="StyleBox" uid="uid://dndnvioi5ttwc" path="res://styles/Alien_stylebox_normal.tres" id="3_qxb2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvt22"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.152941, 0.145098, 0.121569, 0.858824)
+skew = Vector2(1, 0)
+
+[resource]
+Button/colors/font_color = Color(0.098967, 0.458749, 0.781591, 1)
+Button/colors/font_focus_color = Color(0.69579, 0, 0.274875, 1)
+Button/colors/font_hover_color = Color(0.532506, 0.81289, 0.815022, 1)
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 25
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_ndc05")
+Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
+Button/styles/hover = ExtResource("2_hy1bt")
+Button/styles/normal = ExtResource("3_qxb2w")
+Button/styles/pressed = ExtResource("3_qxb2w")
+TooltipLabel/colors/font_color = Color(0, 0.426952, 0.388069, 1)
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/fonts/font = ExtResource("1_ndc05")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_vvt22")
