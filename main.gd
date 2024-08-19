@@ -187,6 +187,7 @@ func _on_update_resources_timeout() -> void:
 	if resources["Watts"]>10000 and civ_type==0:
 		civ_type=1
 		hud.set_animation_type(1)
+		changetheme("Future")
 	update_resource_grid()
 	time +=dt
 	hud.update_time(floor(time))
@@ -314,6 +315,12 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	event_prompt.hide()
 	
 
+# Change theme to themenameButton.tres
+# options: 70s, 80s, ModernFlat, Future, Alien(WIP)
+func changetheme(themename):
+	var themepath="res://styles/"+themename+"Button.tres"
+	$HUD.theme=load(themepath)
+
 
 func flag_set(flag,value):
 	match flag:
@@ -322,6 +329,7 @@ func flag_set(flag,value):
 				hud.add_resource_to_grid(resource_name_to_dict('Silicon'))
 				flags['Silicon_invented'] = true
 				update_event_pool()
+				changetheme("80s")
 		
 		
 		'global_warming_1':
@@ -353,6 +361,8 @@ func flag_set(flag,value):
 				hud.add_resource_to_grid(resource_name_to_dict('Uranium'))
 				flags['Uranium_invented'] = true
 				update_event_pool()
+				if civ_type==0:
+					changetheme("ModernFlat")
 						
 func update_event_pool():
 	suprise_event_pool = []
@@ -561,6 +571,7 @@ func start_game():
 	update_event_pool()
 	timer.paused = false
 	gen_timer.paused = false
+	changetheme("70s")
 	
 func game_over(reason):
 	timer.paused = true

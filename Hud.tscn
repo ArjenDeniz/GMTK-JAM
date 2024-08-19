@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0lmqubdnq56k" path="res://bg_0.tscn" id="2_msbpq"]
 [ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="2_rqw05"]
 [ext_resource type="PackedScene" uid="uid://dk2wuywkul47e" path="res://bg_1.tscn" id="3_igfr3"]
-[ext_resource type="PackedScene" uid="uid://cilwh4ha3jnbt" path="res://forced_event_miinimized.tscn" id="32_dp5ps"]
+[ext_resource type="PackedScene" uid="uid://celr4cct78p0q" path="res://forced_event_miinimized.tscn" id="32_dp5ps"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -96,7 +96,6 @@ offset_bottom = 296.0
 grow_horizontal = 0
 
 [node name="Forced_event2" parent="." instance=ExtResource("32_dp5ps")]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -108,6 +107,7 @@ offset_bottom = 491.0
 grow_horizontal = 0
 
 [node name="Type-BG" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1000.0
 offset_top = 32.0
 offset_right = 1192.0

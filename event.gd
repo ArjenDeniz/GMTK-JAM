@@ -10,6 +10,7 @@ signal forced_choice_made(ID, Choice: int,type)
 
 var event_id = -1
 var type = "Forced"
+var ColorRectInitSize
 # Test
 
 
@@ -27,8 +28,7 @@ func load_json_data(file_path):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	pass # Replace with function body.
+	ColorRectInitSize=$ColorRect.size
 
 
 func Event_setup(ID: int):
@@ -39,7 +39,12 @@ func resource_dict_to_arr(dict):
 	for key in dict:
 		arr.append({"name":key,'quantity':dict[key]})
 	return arr
+
 func set_event_data(event_data,ID,Choice_status,resource_visibility_arr,event_type):
+	$ColorRect.size=ColorRectInitSize
+	$Choice_grid/Choice_Slot1.show()
+	$Choice_grid/Choice_Slot2.show()
+	$Choice_grid/Choice_Slot3.show()
 	type = event_type
 	event_name.text = event_data['Event_title']
 	description.text = event_data['Event_description']
