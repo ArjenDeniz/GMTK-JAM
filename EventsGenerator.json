@@ -451,6 +451,51 @@
 				"Scientist": 2
 			}
 	},
+"mining_uranium_civ1": {
+		"Event_title": "A search for a new source of energy",
+		"Event_description": "We now know that we can produce energy by decaying unstable atomic nuclei. Now it's time to get these radioactive elements.",
+		"Choice_1": {
+			"text": "Financing a large mine to search for uranium in the ground",
+			"resources": {
+				"Uranium": 3000,
+				"human": -100,
+				"Science": -7500,
+				"uranium_mines": 10,
+				"Scientist": -9
+			},
+			"flags": {
+				"uranium_present": true
+			},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Financing a smaller mine",
+			"resources": {
+				"Uranium": 1000,
+				"human": -50,
+				"Scientist": -3,
+		"uranium_mines":3
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Maybe next time. (Do nothing)",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": "1",
+			"Uranium_invented": true
+		},
+			"resource_required": {
+			 
+				"Science": 3000,
+				"Scientist": 12
+			}
+	},
+
 	"make_nuclear_power_plant": {
 		"Event_title": "Time to generate energy from matter",
 		"Event_description": "Nuclear power plants will revolutionize the way we generate energy, (with some potential risks).  ",
@@ -497,6 +542,55 @@
 			"Uranium_invented": true
 		}
 	},
+
+
+	"make_nuclear_power_plant_civ1": {
+		"Event_title": "Time to generate energy from matter",
+		"Event_description": "Nuclear power plants will revolutionize the way we generate energy, (with some potential risks).  ",
+		"Choice_1": {
+			"text": "Build a nuclear power plant.",
+			"resources": {
+				"Uranium": -600,
+				"human": -500,
+				"nuclear_plant": 5,
+				"Science": -10000,
+				"Scientist": -8,
+				"nuclear_fallout" : 0.1
+			},
+			"flags": {
+							},
+			"results": {},
+			"resource_required": {
+				"Uranium": 200,
+				"Science": 5000,
+				"Money": 20000,
+				"Scientist": 4
+			}
+		},
+		"Choice_2": {
+			"text": "It is too risky to build nuclear plants for harvesting energy.",
+			"resources": {
+				"Science": -5000,
+				"human": 150,
+				"Scientist": -9
+			},
+			"flags": {},
+			"results": {},
+			"resource_required": {}
+		},
+		"Choice_3": {
+			"text": "Maybe next time",
+			"resources": {},
+			"flags": {},
+			"results": {},
+			"resource_required": {}
+		},
+		"preconditions": {
+			"CivType": "1",
+			"Uranium_invented": true
+		}
+	},
+
 	"close_down_nuclear_plant": {
 		"Event_title": "Cutting down on radioactive behaviour",
 		"Event_description": "Would you like too decrease your dependency on radioactive sources? ",
@@ -526,6 +620,39 @@
 		},
 		"preconditions": {
 			"CivType": "0",
+			"Uranium_invented": true
+		},
+			"resource_required": {"nuclear_plant":1}
+	},
+"close_down_nuclear_plant_civ1": {
+		"Event_title": "Cutting down on radioactive behaviour",
+		"Event_description": "Would you like too decrease your dependency on radioactive sources? ",
+		"Choice_1": {
+			"text": "Yes, decrease the risks by closing uranium mines and nuclear power plants.",
+			"resources": {
+				"Uranium": -300,
+				"nuclear_plant": -3,
+				"human": 200,
+				"Science": -7000,
+ 		"nuclear_fallout": -0.2
+			},
+			"flags": {
+				
+			},
+			"results": {},
+			"resource_required": {
+				"nuclear_plant": 1,
+				"uranium_mine": 1
+			}
+		},
+		"Choice_2": {
+			"text": "Do nothing. ",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": "1",
 			"Uranium_invented": true
 		},
 			"resource_required": {"nuclear_plant":1}
