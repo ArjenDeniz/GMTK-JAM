@@ -79,13 +79,13 @@ func load_json_data(file_path):
 func resource_eqn(resource):
 	match resource:
 		'Coal':
-			return 25*resources['coal_mines']
+			return 5*resources['coal_mines']
 		'Money':
-			return 100*resources['real_estate']+250*resources['Bank']
+			return 25*resources['real_estate']+75*resources['Bank']
 		'Science':
-			return 10*resources['Scientist']
+			return 3*resources['Scientist']
 		"Silicon":
-			return 25*resources["silicon_factory"]
+			return 5*resources["silicon_factory"]
 		"Watts":
 			return  min(resources["Coal"],500)*resources["fossil_fuel_plant"]+min(resources["Silicon"],1000)*resources["solar_panel"]
 		"global_warming":
@@ -151,7 +151,8 @@ func _on_update_resources_timeout() -> void:
 	elif forced_event_1_time < 0:
 		game_over("Your progress was too slow...")
 		return
-	
+	elif forced_event_1_time < dt:
+		Generate_Forced_Event("silicon_discovery","Forced")
 	
 	if flags["forced_event_1_in_progress"]:
 		forced_event_1_time -= dt
