@@ -1,0 +1,32 @@
+{ "Multimillioneaire_Result_1": {
+            "Event_title": "We're kindaa(?) successful",
+            "Event_description": "We swindled the stupid millionare but public realised faster than our calculations.",
+            "Choice_1": {
+                "text": "Free money is free money",
+                "resources": {
+                    "Money": 70000,
+                    "Science": -9000,
+                    "rebellion": "0.2"
+                },
+                "flags": {},
+                "results": {}
+            }
+        },
+        "Multimillioneaire_Result_2": {
+            "Event_title": "They were not a fool",
+            "Event_description": "They outplayed us, they already planned for our treason.",
+            "Choice_1": {
+                "text": "We need to upgrade our calculations.",
+                "resources": {
+                    "supercomputer": -2
+                },
+                "flags": {},
+                "results": {}
+            }
+        }
+
+
+
+
+  
+}
