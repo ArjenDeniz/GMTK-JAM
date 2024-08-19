@@ -160,7 +160,7 @@
         "Event_description": "Money well spent! Our breakthrough is now a reality, we can start to collect silicon for better energy production and the scientists are celebrating with some well-deserved lab-coated fist bumps.",
         "Choice_1": {
             "text": "Wuhuu!",
-            "resources": {},
+            "resources": {"Silicon":200,"silicon_factory":1},
             "flags": {},
             "results": {}
         }

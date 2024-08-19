@@ -15,7 +15,7 @@
 			"resources": {
 				"Bank": 1,
 				"Money": -2000,
-				"fossil_fuel_plant": 1
+				"fossil_fuel_plant": -1
 			},
 			"flags": {},
 			"results": {}
@@ -59,7 +59,8 @@
 			"results": {}
 		},
 		"preconditions": {
-			"CivType": 0
+			"CivType": 0,"Silicon_invented": false
+
 		}
 	},
 	"coal_generator": {
@@ -201,7 +202,7 @@
 			"text": "Coffee for everyone!",
 			"resources": {
 				"Scientist": 10,
-				"Money": -500
+				"Money": -500,"Watts":-220
 			},
 			"flags": {},
 			"results": {}
@@ -210,14 +211,16 @@
 			"text": "Let's keep it medium brew.",
 			"resources": {
 				"Scientist": 3,
-				"Money": 200
+				"Money": -200,"Watts":-100
+
 			},
 			"flags": {},
 			"results": {}
 		},
 		"Choice_3": {
 			"text": "We're fully caffeinated.",
-			"resources": {},
+			"resources": {"Watts":25
+},
 			"flags": {},
 			"results": {}
 		},
@@ -322,7 +325,7 @@
 			"results": {}
 		},
 		"preconditions": {
-			"CivType": 0
+			"CivType": 0, "Silicon_invented":false
 		}
 	}
 }

@@ -275,7 +275,7 @@
         "Choice_2": {
             "text": "Recruit the CERN scientist!",
             "resources": {
-                "Scientist": 5
+                "Scientist": 3
             },
             "flags": {},
             "results": {}
@@ -325,5 +325,34 @@
             "CivType": "0"
         },
         "onetime": "true"
+    },
+"scientist_go_mad2": {
+        "Event_title": "Scientists go mad! (Again)",
+        "Event_description": "With the advancement of scientists' studies on quantum mechanics, there is confusion about the measurement nature of quantum mechanics. Could this imply that we are living in a simulation? Perhaps the intelligent beings who created our universe implied this type of physics to save computation power?",
+        "Choice_1": {
+            "text": "We have locked the lab doors and thrown away the key!",
+            "resources": {
+                "science": 1200,
+                "money": -2400
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Fire them and cut our losses.",
+            "resources": {
+                "Scientist": -3
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+            "resource_required": {
+                "silicon_factory": 1,
+                "scientist": 5,
+                "Money": 5000
+            }
     }
 }

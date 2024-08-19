@@ -140,7 +140,7 @@ func _on_update_resources_timeout() -> void:
 	update_resource_grid()
 	time +=dt
 	hud.update_time(floor(time))
-	
+	print(resources["global_warming"])
 	if resources["Money"]<0:
 		game_over("You run out of money... ")
 		return
@@ -413,7 +413,7 @@ func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
 				flag_set(flag,delta_flags[flag])
 		
 		hud.forced_event1.hide()
-		
+		forced_event_1_time = 999
 		#Handle Result
 		var result_random = rng.randf_range(0,1)
 		var current_rand = 0
