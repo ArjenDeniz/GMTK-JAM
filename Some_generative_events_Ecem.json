@@ -37,7 +37,94 @@
 
   },
 
-  
+  expanding_in_solar_system": {
+        "Event_title": "Earth is kinda small",
+        "Event_description": "We have a lot of energy generated. Why don't we sail away to far away planets in our solar system in search of new materials ?",
+        "Choice_1": {
+            "text": "Let's hit the road to Pluto",
+            "resources": {
+                "Money": -150000,
+                "human": -5,
+                "Science": 12000,
+                "Uranium": 450,
+                "supercomputer": -2
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {
+                "Money": 150001,
+                "Science": 12001
+            }
+        },
+        "Choice_2": {
+            "text": "Let's go nearby, to the Moon! One small step for man, one giant leap for mankind.",
+            "resources": {
+                "Money": -60000,
+                "human": 5,
+                "Science": 8000,
+                "Uranium": 350,
+                "supercomputer": -1
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_3": {
+            "text": "Maybe next time. (Do nothing)",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1",
+            "supercomputer": 10
+        }
+    },
+"searching_exotic_materials": {
+        "Event_title": "Let's cook",
+        "Event_description": "Think big. Think about new materials.",
+        "Choice_1": {
+            "text": "Recepie-1 ",
+            "resources": {
+                "human": -5,
+                "Silicon": 160,
+                "Uranium": -300,
+                "computronium": 30,
+                "Science": -30000
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "Recipe-2",
+            "resources": {
+                "Science": -22000,
+                "Silicon": -400,
+                "computronium": 15,
+                "human": 20,
+                "supercomputer": 4
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_3": {
+            "text": "Recipe-3",
+            "resources": {
+                "Money": -20000,
+                "human": 35
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1",
+            "computorium_invented": true
+        }
+    }
 
  
 }
