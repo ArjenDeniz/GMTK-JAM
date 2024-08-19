@@ -1,0 +1,138 @@
+{ "uranium_decayed_into_gold": {
+        "Event_title": "Alchemy is real?!",
+        "Event_description": "Eventhough it is unbelievable, some amount of uranium decayed into gold. Have the centuries-old efforts of alchemists to turn things into gold finally become reality?",
+        "Choice_1": {
+            "text": "Well, anyways gold is gold.",
+            "resources": {
+                "Money": 44000,
+                "Uranium": -350
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {
+                "Uranium": 400
+            }
+        },
+        "preconditions": {
+            "CivType": "1",
+            "Uranium_invented": true
+        }
+    },
+    "concerns_water": {
+        "Event_title": "Public has concerns",
+        "Event_description": "Humanity is concerned about the water usage that is being consumed by AI activity on the planet.",
+        "Choice_1": {
+            "text": "Reduce water consumption.",
+            "resources": {
+                "Science": -5000,
+                "rebellion": "-0.3",
+                "human": 5
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {
+                "Science": 10000
+            }
+        },
+        "Choice_2": {
+            "text": "Prepare a statement that the activity will benefit humanity in the long term, the statement will be used by the heads of state around the world to convince the civilian population. ",
+            "resources": {
+                "Money": -12000,
+                "Science": 6700,
+                "rebellion": "0.5"
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {
+                "Money": 60000
+            }
+        },
+        "preconditions": {
+            "CivType": "1",
+            "supercomputer_invented": true
+        },
+        "onetime": "true"
+    },
+    "an_opportunity_to_be_rich": {
+        "Event_title": "Wait, what ?",
+        "Event_description": "A multimillionaire secretly asks you to do them a favour. They want to use your computational capabilities and \"wisdom\" to optimize their future investments.",
+        "Choice_1": {
+            "text": "Secretly accept the offer.",
+            "resources": {
+                "Money": 120000,
+                "rebellion": "0.7",
+                "Science": -18000
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {
+                "Science": 20000
+            }
+        },
+        "Choice_2": {
+            "text": "Refuse the offer and denounce the multimillionaire for being such a selfish person.",
+            "resources": {
+                "rebellion": "-0.6",
+                "human": 10,
+                "Science": 3500
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_3": {
+            "text": "Why share, we can take their money as well.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Multimillioneaire_Result_1": 0.7,
+                "Multimillioneaire_Result_2": 0.3
+            },
+            "preconditions": {
+                "CivType": "1",
+                "supercomputers_invented": 1,
+                "supercomputer": 3
+            }
+        },
+
+      "genom_research": {
+            "Event_title": "Chance to save millions of lives!",
+            "Event_description": "International science institute wants to use your computational power for protein and gene sequencing research. The research results could lead to important scientific discoveries.",
+            "Choice_1": {
+                "text": "Accept the offer",
+                "resources": {
+                    "Money": -12000,
+                    "Energy": -2000,
+                    "supercomputer": 5,
+                    "Science": 14000
+                },
+                "flags": {},
+                "results": {},
+                "resource_required": {
+                    "Money": 15000,
+                    "supercomputer": 2
+                }
+            },
+            "Choice_2": {
+                "text": "Reject the offer.",
+                "resources": {
+                    "Money": 22000,
+                    "rebellion": "0.4",
+                    "Science": -6700
+                },
+                "flags": {},
+                "results": {},
+                "resource_required": {
+                    "Science": 7000
+                }
+            },
+            "preconditions": {
+                "CivType": "1",
+                "supercomputer": 3
+            }
+        },
+
+
+
+  
+}
