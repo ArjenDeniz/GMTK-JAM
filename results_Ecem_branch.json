@@ -1,6 +1,6 @@
 { "Multimillioneaire_Result_1": {
             "Event_title": "We're kindaa(?) successful",
-            "Event_description": "We swindled the stupid millionare but public realised faster than our calculations.",
+            "Event_description": "We swindled the stupid millionaire but public realized faster than our calculations.",
             "Choice_1": {
                 "text": "Free money is free money",
                 "resources": {
@@ -22,6 +22,18 @@
                 },
                 "flags": {},
                 "results": {}
+            }
+        },
+
+"Result_send_gorilla_invest2" {
+        "Event_title": "Scientific breakthrough",
+        "Event_description": "The virus indeed had an exoplanet origin. We are not alone in the universe." ,
+        "Choice_1":{
+            "text": "Collect the rewards.",
+            "resources": {
+                "human": 20,
+                "supercomputer": 6,
+                "Silicon": 500
             }
         }
 
