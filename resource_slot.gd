@@ -53,12 +53,20 @@ func add_resource(new_resource):
 	$Innter/ItemIcon.texture = ImageTexture.create_from_image(image)
 	
 	#Icon.texture = ResourceLoader.load(resource['texture'])
-	$Innter/Quantity.text= str(resource['quantity'])
+	if resource['name']!= "Watts":
+		$Innter/Quantity.text = str(resource['quantity'])
+	else:
+		$Innter/Quantity.text = str(resource['quantity'])+"TW"
 	$Details/Label.text = str(resource['name'])
-	
+	custom_minimum_size.x = max(10*len($Innter/Quantity.text)+60,100)
 	
 func update_quantity(new_quantity):
 	resource['quantity'] =new_quantity
-	$Innter/Quantity.text = str(resource['quantity'])
+	if resource['name']!= "Watts":
+		$Innter/Quantity.text = str(resource['quantity'])
+	else:
+		$Innter/Quantity.text = str(resource['quantity'])+"TW"
+	var length = len($Innter/Quantity.text)
+	custom_minimum_size.x = max(10*length+60,100)
 	return
 	

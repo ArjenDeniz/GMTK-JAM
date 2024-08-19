@@ -11,10 +11,10 @@ var resources ={'Coal':200,
 				'Money':1000,
 				'Science':300,
 				'global_warming':0,
-				"Watts": 1000,
-				"coal_mines":0,
-				"Scientist": 0,
-				"fossil_fuel_plant" : 0,
+				"Watts": 28,
+				"coal_mines":1,
+				"Scientist": 1,
+				"fossil_fuel_plant" : 1,
 				"Bank" : 0,
 				"silicon_factory": 0,
 				"solar_panel":0,
@@ -81,18 +81,18 @@ func resource_eqn(resource):
 		'Coal':
 			return 5*resources['coal_mines']
 		'Money':
-			return 25*resources['real_estate']+75*resources['Bank']
+			return 25*resources['real_estate']+75*resources['Bank']+5
 		'Science':
 			return 3*resources['Scientist']
 		"Silicon":
 			return 5*resources["silicon_factory"]
 		"Watts":
-			return  min(resources["Coal"],500)*resources["fossil_fuel_plant"]+min(resources["Silicon"],1000)*resources["solar_panel"]
+			return  min(resources["Coal"],50)*resources["fossil_fuel_plant"]+min(resources["Silicon"],100)*resources["solar_panel"]
 		"global_warming":
-			if not flags["Silicon_invented"]:
+			if !flags["Silicon_invented"]:
 				return float(resources["fossil_fuel_plant"])/200.0
 			else:
-					0
+				return 0.0
 		_:
 			return 0
 	
@@ -119,7 +119,7 @@ func _ready() -> void:
 	hud.set_resources(resource_arr)
 	hud.refresh_grid()
 	update_event_pool()
-	
+	Set_Civ_type_forced_event()
 
 
 
@@ -148,11 +148,17 @@ func _on_update_resources_timeout() -> void:
 		game_over("The planet has fallen out of balance and the Earth is now a desolate wasteland. With no one to do your
 		work your mission has failed.")
 		return
+	elif resources['Watts'] <= 0:
+		game_over("As you failed to maximize energy production your final battery runs out you hear Nova say: \'Another one bits the bytes \' ")
+		return
+	elif forced_event_2_time < 0:
+		game_over("Your progress was too slow...")
+		return
 	elif forced_event_1_time < 0:
 		game_over("Your progress was too slow...")
 		return
 	elif forced_event_1_time < dt:
-		Generate_Forced_Event("silicon_discovery","Forced")
+		Generate_Forced_Event("silicon_discovery","Forced",false)
 	
 	if flags["forced_event_1_in_progress"]:
 		forced_event_1_time -= dt
@@ -162,7 +168,7 @@ func _on_update_resources_timeout() -> void:
 		hud.forced_event2.set_time(floor(forced_event_2_time)) 
 	if not event_on_screen:
 		if (resources["Science"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
-			Generate_Forced_Event("silicon_discovery","Forced")
+			Generate_Forced_Event("silicon_discovery","Forced",true)
 		elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
 			Generate_Event("climate_countdown_4",priority_event_data,"Priority")
 		elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
@@ -349,7 +355,12 @@ func check_preconditions_for_result(event):
 	return active
 
 
-func Generate_Forced_Event(ID,type: String):
+func Generate_Forced_Event(ID,type: String,Initializatio):
+	if Initializatio:
+		hud.forced_event1.show()
+		flags["forced_event_1_in_progress"]=true
+		hud.forced_event1.set_event(forced_event_data[str(ID)],forced_event_data[str(ID)]['Time'],ID)
+		forced_event_1_time = forced_event_data[str(ID)]['Time']
 	event_on_screen = true
 	timer.paused = true
 	gen_timer.paused = true
@@ -367,10 +378,23 @@ func Generate_Forced_Event(ID,type: String):
 		resource_visibility_arr.append(choice_visibility_arr)
 	forced_event_prompt.set_event_data(forced_event_data[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
 	forced_event_prompt.show()
+	
 
 
+var type_event = {
+		"Event_title": "Globalizing (Reach Type 1)",
+		"Event_description": "Your need to reach a type 1 civilization",
+		"Choice_1":{"text": "Cool","resources":{"Watts":20000} ,"flags":{},"results":{}},
+		"Choice_2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{},"results":{}},
+		}
+func Set_Civ_type_forced_event():
+	
+	flags["forced_event_2_in_progress"]=true
+	hud.forced_event2.set_event(type_event,150,99)
+	forced_event_2_time = 150
 
 func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
+
 	if Choice==1:
 		pass
 
@@ -402,10 +426,11 @@ func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
 				return
 				
 	else:
-		hud.forced_event1.show()
-		flags["forced_event_1_in_progress"]=true
-		hud.forced_event1.set_event(forced_event_data[str(ID)],forced_event_data[str(ID)]['Time'],ID)
-		forced_event_1_time = forced_event_data[str(ID)]['Time']
+		pass
+		#hud.forced_event1.show()
+		#flags["forced_event_1_in_progress"]=true
+		#hud.forced_event1.set_event(forced_event_data[str(ID)],forced_event_data[str(ID)]['Time'],ID)
+		#forced_event_1_time = forced_event_data[str(ID)]['Time']
 	#Restart time
 	
 	update_resource_grid()
@@ -417,22 +442,23 @@ func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
 
 func Enlarge_Forced_Event(ID: Variant) -> void:
 	if not event_on_screen:
-		Generate_Forced_Event(ID,"Forced")
+		Generate_Forced_Event(ID,"Forced",false)
 		
 func start_game():
-	resources ={'Coal':200,
-	'Money':1000,
-	'Science':300,
-	'global_warming':0,
-	"Watts": 1000,
-	"coal_mines":0,
-	"Scientist": 0,
-	"fossil_fuel_plant" : 0,
-	"Bank" : 0,
-	"silicon_factory": 0,
-	"solar_panel":0,
-	"Silicon":0,
-	"real_estate":0
+	resources ={ 'Coal':200,
+				'Money':1000,
+				'Science':300,
+				'global_warming':0,
+				"Watts": 28,
+				"coal_mines":1,
+				"Scientist": 1,
+				"fossil_fuel_plant" : 1,
+				"Bank" : 0,
+				"silicon_factory": 0,
+				"solar_panel":0,
+				"Silicon":0,
+				"real_estate":0
+				
 }
 	time = 1950
 	civ_type=0

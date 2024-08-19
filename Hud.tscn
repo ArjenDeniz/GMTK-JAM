@@ -71,16 +71,15 @@ text = "Year:
 [node name="Forced_event1" parent="." instance=ExtResource("32_dp5ps")]
 visible = false
 offset_left = 1309.0
-offset_top = 170.0
+offset_top = 328.0
 offset_right = 1559.0
-offset_bottom = 295.0
+offset_bottom = 453.0
 
 [node name="Forced_event2" parent="." instance=ExtResource("32_dp5ps")]
-visible = false
-offset_left = 1312.0
-offset_top = 330.0
-offset_right = 1562.0
-offset_bottom = 455.0
+offset_left = 1304.0
+offset_top = 174.0
+offset_right = 1554.0
+offset_bottom = 299.0
 
 [node name="Animation_Canvas" parent="." instance=ExtResource("4_s0u3o")]
 layer = 0
