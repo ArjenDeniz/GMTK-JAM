@@ -61,12 +61,13 @@ anchor_right = 0.5
 anchor_bottom = 0.176
 offset_left = -271.0
 offset_top = -9.60001
-offset_right = 210.0
-offset_bottom = 134.4
+offset_right = 280.0
+offset_bottom = 153.4
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ihpbv")
 theme_override_font_sizes/font_size = 25
 text = "You lost because of..."
+autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,7 @@
 extends CanvasLayer
 
 @onready var moon = $Moon
-@onready var bank = $Area2D
-@onready var bank2 = $Area2D2
+
 var r = 500.0
 var t = 0.0
 var omega = 2.0*3.14/50.0

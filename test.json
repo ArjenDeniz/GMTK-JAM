@@ -9,7 +9,7 @@
                 "Science": -3000
             },
             "flags": {
-                "Silicon_invented": true
+                "Silicon_invented": true,"forced_event_1_in_progress":false
             },
             "results": {
                 "Silicon_Result_1": 1

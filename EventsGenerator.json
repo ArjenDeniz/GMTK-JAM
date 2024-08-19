@@ -191,7 +191,8 @@
 		},
 		"preconditions": {
 			"CivType": 0
-		}
+		},
+		"resource_required":{"fossil_fuel_plant": 1,"coal_mines":1}
 	},
 	"scientist_generator": {
 		"Event_title": "New Job Applications",

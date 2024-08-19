@@ -40,11 +40,11 @@ var suprise_event_data_path = "res://SupriseEvents0.json"
 
 
 
-var prev_gen_event = -1
-var prev_prev_gen_event =  -1
+var prev_gen_event = 999
+var prev_prev_gen_event =  999
 
-var prev_suprise_event = -1
-var prev_prev_suprise_event = -1
+var prev_suprise_event = 999
+var prev_prev_suprise_event =999
 
 var dt = 0.2
 var forced_event_1_time = 40
@@ -88,6 +88,11 @@ func resource_eqn(resource):
 			return 25*resources["silicon_factory"]
 		"Watts":
 			return  min(resources["Coal"],500)*resources["fossil_fuel_plant"]+min(resources["Silicon"],1000)*resources["solar_panel"]
+		"global_warming":
+			if not flags["Silicon_invented"]:
+				return float(resources["fossil_fuel_plant"])/200.0
+			else:
+					0
 		_:
 			return 0
 	
@@ -190,6 +195,7 @@ func _on_update_resources_timeout() -> void:
 	
 
 func Generate_Event(ID,event_data_dict,type: String):
+	print(type)
 	event_on_screen = true
 	timer.paused = true
 	gen_timer.paused = true
@@ -209,7 +215,8 @@ func Generate_Event(ID,event_data_dict,type: String):
 		resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
 		var choice_visibility_arr = {}
 		for resource in resource_arr:
-			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'] or (type=="Result"))
+			
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or !resource_flags[resource]['Positive'] or (type=="Result"))
 			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 		resource_visibility_arr.append(choice_visibility_arr)
 	event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
@@ -232,9 +239,9 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	
 	#Handle resources
 	for resource in delta_resource:
-		resources[resource] += delta_resource[resource]
+		resources[resource] += int(delta_resource[resource])
 		if (resources[resource]<0) and resource_flags[resource]['Positive']:
-			print("Damn negative")
+
 			resources[resource] = 0
 	
 	#Handle Flags
@@ -291,6 +298,11 @@ func flag_set(flag,value):
 		'global_warming_4':
 			if value and (not flags['global_warming_4']):
 				flags['global_warming_4'] = true
+				update_event_pool()
+				
+		"forced_event_1_in_progress":
+			if value !=  (flags['forced_event_1_in_progress']):
+				flags['forced_event_1_in_progress'] = value
 				update_event_pool()
 						
 func update_event_pool():
@@ -425,11 +437,11 @@ func start_game():
 	civ_type=0
 	event_on_screen=false
 	
-	prev_gen_event = -1
-	prev_prev_gen_event =  -1
+	prev_gen_event = 999
+	prev_prev_gen_event = 999
 
-	prev_suprise_event = -1
-	prev_prev_suprise_event = -1
+	prev_suprise_event = 999
+	prev_prev_suprise_event =999
 	dt = 0.2
 	forced_event_1_time = 40
 	forced_event_2_time = 30
@@ -477,15 +489,18 @@ func _on_generator_timer_timeout() -> void:
 			can_happen = true
 			if (prev_gen_event== rand_event) or (prev_prev_gen_event== rand_event):
 				can_happen=false
-				print("Change: ",generator_event_pool[rand_event])
+				#print("Change: ",generator_event_pool[rand_event])
 			if generator_event_data[generator_event_pool[rand_event]].has('resource_required'):
 				for resource in generator_event_data[generator_event_pool[rand_event]]['resource_required']:
 				
 					can_happen = can_happen and (resources[resource] >=generator_event_data[generator_event_pool[rand_event]]['resource_required'][resource]) 
 			if can_happen:
+				
+				#print("Current Event: ",generator_event_pool[rand_event]," prev events: ",generator_event_pool[prev_gen_event]," and",generator_event_pool[prev_prev_gen_event])
 				prev_prev_gen_event = prev_gen_event
 				prev_gen_event = rand_event
-				Generate_Event(generator_event_pool[rng.randi_range(0,len(generator_event_pool)-1)],generator_event_data,"Generator")
+				
+				Generate_Event(generator_event_pool[rand_event],generator_event_data,"Generator")
 			else:
 				rand_event = rng.randi_range(0,len(generator_event_pool)-1)
 	
