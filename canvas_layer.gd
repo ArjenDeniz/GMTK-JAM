@@ -14,7 +14,7 @@ var resources =[]
 @onready var year = $"Time-BG/TimeLabel"
 @onready var forced_event1 = $Forced_event1
 @onready var forced_event2 = $Forced_event2
-@onready var anim_control = $BG0
+
 @onready var anim_node = $Node
 
 # Called when the node enters the scene tree for the first time.

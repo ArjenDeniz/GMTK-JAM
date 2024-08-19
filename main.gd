@@ -188,6 +188,7 @@ func _on_update_resources_timeout() -> void:
 		civ_type=1
 		hud.set_animation_type(1)
 		changetheme("Future")
+		update_event_pool()
 	update_resource_grid()
 	time +=dt
 	hud.update_time(floor(time))
@@ -320,6 +321,7 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 func changetheme(themename):
 	var themepath="res://styles/"+themename+"Button.tres"
 	$HUD.theme=load(themepath)
+	$AudioStreamPlayer.play_track(themename)
 
 
 func flag_set(flag,value):
