@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 signal Forced_Event_Enlarge(ID)
 
@@ -17,10 +17,6 @@ var resources =[]
 @onready var anim_control = $BG0
 @onready var anim_node = $Node
 
-var r = 500.0
-var t = 0.0
-var omega = 2.0*3.14/10.0
-var moon_order = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	refresh_grid()
@@ -29,7 +25,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	pass
 
 func clear_grid():

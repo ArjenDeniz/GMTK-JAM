@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://clar667tddtxq"]
+[gd_scene load_steps=7 format=3 uid="uid://clar667tddtxq"]
 
 [ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
 [ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
 [ext_resource type="PackedScene" uid="uid://cqyn3ifdqp0ul" path="res://event.tscn" id="3_5bh0l"]
-[ext_resource type="PackedScene" uid="uid://cn71mf6hr3smu" path="res://forced_event.tscn" id="4_svhob"]
-[ext_resource type="PackedScene" uid="uid://bon5y0ucpi40i" path="res://game_over_screen.tscn" id="5_ewxav"]
+[ext_resource type="Theme" uid="uid://cbge6l1w82i4d" path="res://styles/70sButton.tres" id="3_j2uao"]
+[ext_resource type="PackedScene" uid="uid://7d2tesbv14i1" path="res://forced_event.tscn" id="4_svhob"]
+[ext_resource type="PackedScene" uid="uid://rt0efmt4hea7" path="res://game_over_screen.tscn" id="5_ewxav"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tm8uo")
 
 [node name="HUD" parent="." instance=ExtResource("1_2q76b")]
+theme = ExtResource("3_j2uao")
 
 [node name="Event_prompt" parent="HUD" instance=ExtResource("3_5bh0l")]
 visible = false
 z_index = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

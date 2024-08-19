@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dw5pq2h4ncewh"]
+
+[ext_resource type="Texture2D" uid="uid://d3i2ul681uy4s" path="res://styles/Game UI collection FREE version/background_cropped.png" id="1_lh8k0"]
+
+[resource]
+texture = ExtResource("1_lh8k0")
+texture_margin_left = 340.0
+texture_margin_top = 333.0
+texture_margin_right = 416.0
+texture_margin_bottom = 102.0
+expand_margin_left = 50.0
+expand_margin_top = 20.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0

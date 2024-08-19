@@ -1,0 +1,56 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://6tqngk6t3wjy"]
+
+[ext_resource type="StyleBox" uid="uid://c7gkut8lccnrf" path="res://styles/Future_stylebox_hover.tres" id="2_kt7fy"]
+[ext_resource type="StyleBox" uid="uid://c5hcmfyjvhku1" path="res://styles/Future_stylebox_normal.tres" id="3_2njl7"]
+[ext_resource type="Texture2D" uid="uid://dehmw3rdc8oh3" path="res://styles/Game UI collection FREE version/forcedevent.png" id="4_6a4ol"]
+[ext_resource type="Texture2D" uid="uid://s4it3xhl8rws" path="res://styles/Game UI collection FREE version/year.png" id="4_f0rsc"]
+[ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="4_mxu13"]
+[ext_resource type="StyleBox" uid="uid://dw5pq2h4ncewh" path="res://styles/Future_stylebox_panel.tres" id="4_orbt1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v675k"]
+bg_color = Color(0.101961, 0.666667, 0.796078, 0.188235)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wfn8m"]
+texture = ExtResource("4_6a4ol")
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvt22"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.469699, 0.359146, 0.695757, 0.764706)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7f7a"]
+texture = ExtResource("4_f0rsc")
+expand_margin_left = 10.0
+expand_margin_right = 100.0
+
+[resource]
+Button/colors/font_color = Color(0, 0.921569, 0.862745, 1)
+Button/colors/font_focus_color = Color(0.870417, 0.237052, 0, 1)
+Button/colors/font_hover_color = Color(0.187765, 0.701027, 0.600651, 1)
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 25
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("4_mxu13")
+Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
+Button/styles/hover = ExtResource("2_kt7fy")
+Button/styles/normal = ExtResource("3_2njl7")
+Button/styles/pressed = ExtResource("3_2njl7")
+DetailPanel/base_type = &"Panel"
+DetailPanel/styles/panel = SubResource("StyleBoxFlat_v675k")
+ForcedPanel/base_type = &"Panel"
+ForcedPanel/styles/panel = SubResource("StyleBoxTexture_wfn8m")
+Label/fonts/font = ExtResource("4_mxu13")
+Panel/styles/panel = ExtResource("4_orbt1")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/fonts/font = ExtResource("4_mxu13")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_vvt22")
+YearPanel/base_type = &"Panel"
+YearPanel/styles/panel = SubResource("StyleBoxTexture_d7f7a")

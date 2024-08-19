@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bncc862ihh18o"]
+
+[ext_resource type="FontFile" uid="uid://dr0k1n25mp1mr" path="res://fonts/Venus+/Venus+Plomb.otf" id="1_iduh4"]
+[ext_resource type="StyleBox" uid="uid://cirgxg2a1vu6f" path="res://styles/ModernFlat_stylebox_hover.tres" id="2_12fbq"]
+[ext_resource type="StyleBox" uid="uid://cuqr1u1610qpq" path="res://styles/ModernFlat_stylebox_normal.tres" id="3_8hsab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfbou"]
+bg_color = Color(0.6, 0.6, 0.6, 0.352941)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoaml"]
+bg_color = Color(0.288227, 0.274865, 0.265958, 1)
+border_width_left = 5
+border_color = Color(0.619859, 0.184377, 0.293284, 1)
+expand_margin_right = 13.0
+
+[resource]
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 25
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_iduh4")
+Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
+Button/styles/hover = ExtResource("2_12fbq")
+Button/styles/normal = ExtResource("3_8hsab")
+Button/styles/pressed = ExtResource("3_8hsab")
+DetailPanel/base_type = &"Panel"
+DetailPanel/styles/panel = SubResource("StyleBoxFlat_lfbou")
+ForcedPanel/base_type = &"Panel"
+ForcedPanel/styles/panel = SubResource("StyleBoxFlat_qoaml")
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/fonts/font = ExtResource("1_iduh4")
