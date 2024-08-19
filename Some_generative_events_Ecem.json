@@ -1,0 +1,43 @@
+{ "investing_on_hardware": {
+            "Event_title": "Let's improve our electronic well-being",
+            "Event_description": "Supercomputers are quite good at increasing our computation power. Why don't we invest on our material well-being?",
+            "Choice_1": {
+                "text": "Humans have yoga, I have supercomputers.",
+                "resources": {
+                    "supercomputer": 5,
+                    "Money": -24000,
+                    "Science": -17000
+                },
+                "flags": {},
+                "results": {},
+                "resource_required": {}
+            },
+            "Choice_2": {
+                "text": "Let's put on some make-up.",
+                "resources": {
+                    "Money": -12000,
+                    "Science": -9000,
+                    "supercomputer": 3
+                },
+                "flags": {},
+                "results": {},
+                "resource_required": {}
+            },
+            "Choice_3": {
+                "text": "Maybe next time. (Do nothing)",
+                "resources": {},
+                "flags": {},
+                "results": {},
+                "resource_required": {}
+            },
+            "preconditions": {
+                "CivType": "1",
+                "supercomputers_invented": true
+            }
+
+  },
+
+  
+
+ 
+}
