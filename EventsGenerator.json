@@ -407,7 +407,96 @@
 				"silicon_factory": 1,
 				"Scientist": 5
 			}
-	},  "make_nuclear_power_plant": {
+	}, "mining_uranium": {
+        "Event_title": "A search for a new source of energy",
+        "Event_description": "We now know that we can produce energy by decaying unstable atomic nuclei. Now it's time to get these radioactive elements.",
+        "Choice_1": {
+            "text": "Financing a large mine to search for uranium in the ground",
+            "resources": {
+                "Uranium": 250,
+                "Money": -5000,
+                "Science": -3500,
+                "uranium_mines": 3,
+                "Scientist": -3
+            },
+            "flags": {
+                "uranium_present": true
+            },
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Financing a smaller mine",
+            "resources": {
+                "Uranium": 175,
+                "Money": -3500,
+                "Scientist": -1,
+		"uranium_mines":1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_3": {
+            "text": "Maybe next time. (Do nothing)",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0",
+            "Uranium_invented": true
+        },
+            "resource_required": {
+                "Money": 2000,
+                "Science": 3000,
+                "Scientist": 2
+            }
+    },
+"mining_uranium_civ1": {
+        "Event_title": "We can expand our mines to other planets!",
+        "Event_description": "We have harnessed the power of Earth now we shall harness the power inside of the other planets.",
+        "Choice_1": {
+            "text": "Search every planet for any sign of uranium!",
+            "resources": {
+                "Uranium": 3000,
+                "human": -100,
+                "Science": -7500,
+                "uranium_mines": 10,
+                "Scientist": -9
+            },
+            "flags": {
+                "uranium_present": true
+            },
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "We shall look to nearby planets.",
+            "resources": {
+                "Uranium": 1000,
+                "human": -50,
+                "Scientist": -3,
+		"uranium_mines":3
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_3": {
+            "text": "Maybe next time. (Do nothing)",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "1",
+            "Uranium_invented": true
+        },
+            "resource_required": {
+             
+                "Science": 3000,
+                "Scientist": 12
+            }
+    },
+
+    "make_nuclear_power_plant": {
         "Event_title": "Time to generate energy from matter",
         "Event_description": "Nuclear power plants will revolutionize the way we generate energy, (with some potential risks).",
         "Choice_1": {
@@ -567,7 +656,8 @@
             "Uranium_invented": true
         },
             "resource_required": {"nuclear_plant":1}
-    },"investing_on_hardware": {
+    },
+"investing_on_hardware": {
             "Event_title": "Let's improve our electronic well-being",
             "Event_description": "Supercomputers are quite good at increasing our computation power. Why don't we invest on our material well-being?",
             "Choice_1": {
@@ -694,5 +784,4 @@
             "computorium_invented": true
         }
     }
-
 }

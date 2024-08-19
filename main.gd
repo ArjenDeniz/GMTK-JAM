@@ -94,9 +94,9 @@ func load_json_data(file_path):
 		if (parse_res is Dictionary) or (parse_res is Array):
 			return parse_res
 		else:
-			print('Parse error')
+			print('Parse error ',file_path)
 	else:
-		print('Couldn\'t find resource data ')
+		print('Couldn\'t find resource data: ',file_path)
 
 func resource_eqn(resource):
 	match resource:
