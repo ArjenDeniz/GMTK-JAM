@@ -1,0 +1,142 @@
+[gd_scene load_steps=28 format=3 uid="uid://b0lmqubdnq56k"]
+
+[ext_resource type="Texture2D" uid="uid://blocsux4jehqm" path="res://Backgrounds/space_bg.png" id="1_fr4j4"]
+[ext_resource type="Script" path="res://bg_0.gd" id="1_revo0"]
+[ext_resource type="Texture2D" uid="uid://i87gehbfiwku" path="res://Backgrounds/moon.png" id="2_3jnll"]
+[ext_resource type="Texture2D" uid="uid://b01dlk154begj" path="res://Backgrounds/Earth_new/earth1.png" id="3_fxdd3"]
+[ext_resource type="Texture2D" uid="uid://qe06ylijto46" path="res://Backgrounds/Earth_new/earth2.png" id="4_o2uks"]
+[ext_resource type="Texture2D" uid="uid://d12pltn3420wl" path="res://Backgrounds/Earth_new/earth3.png" id="5_l3dhd"]
+[ext_resource type="Texture2D" uid="uid://btdnfwr3wk331" path="res://Backgrounds/Earth_new/earth4.png" id="6_g1nwa"]
+[ext_resource type="Texture2D" uid="uid://by2j6gbu05hs6" path="res://Backgrounds/Earth_new/earth5.png" id="7_p1jws"]
+[ext_resource type="Texture2D" uid="uid://46lrx3wfgxy7" path="res://Backgrounds/Earth_new/earth6.png" id="8_2as7n"]
+[ext_resource type="Texture2D" uid="uid://chevjqf1x1cfd" path="res://Backgrounds/Earth_new/earth7.png" id="9_a4xj1"]
+[ext_resource type="Texture2D" uid="uid://qnni8xmgrs7n" path="res://Backgrounds/Earth_new/earth8.png" id="10_r6kk5"]
+[ext_resource type="Texture2D" uid="uid://duodv43654pra" path="res://Backgrounds/Earth_new/earth9.png" id="11_wfuc6"]
+[ext_resource type="Texture2D" uid="uid://cu6qrhsjxvdd6" path="res://Backgrounds/Earth_new/earth10.png" id="12_5elpv"]
+[ext_resource type="Texture2D" uid="uid://10p5mrkgxgxd" path="res://Backgrounds/Earth_new/earth11.png" id="13_nbdpq"]
+[ext_resource type="Texture2D" uid="uid://b0hmfnf66wint" path="res://Backgrounds/Earth_new/earth12.png" id="14_bpnoa"]
+[ext_resource type="Texture2D" uid="uid://c8niduhvvjwaq" path="res://Backgrounds/Earth_new/earth13.png" id="15_0dqva"]
+[ext_resource type="Texture2D" uid="uid://wo7q8vuf1qh6" path="res://Backgrounds/Earth_new/earth14.png" id="16_68trw"]
+[ext_resource type="Texture2D" uid="uid://djnaabxpwdaxg" path="res://Backgrounds/Earth_new/earth15.png" id="17_h4chw"]
+[ext_resource type="Texture2D" uid="uid://c7kqrnqsvt6c2" path="res://Backgrounds/Earth_new/earth16.png" id="18_8l8jl"]
+[ext_resource type="Texture2D" uid="uid://lpra1frj6pft" path="res://Backgrounds/Earth_new/earth17.png" id="19_ru3qr"]
+[ext_resource type="Texture2D" uid="uid://cfff6ifo5reup" path="res://Backgrounds/Earth_new/earth18.png" id="20_ow2ts"]
+[ext_resource type="Texture2D" uid="uid://b44uh46b7845d" path="res://Backgrounds/Earth_new/earth19.png" id="21_bfvc8"]
+[ext_resource type="Texture2D" uid="uid://ddfoblpct3pb6" path="res://Backgrounds/Earth_new/earth20.png" id="22_oa3l2"]
+[ext_resource type="Texture2D" uid="uid://cnw0c3c8jsglu" path="res://Backgrounds/Earth_new/earth21.png" id="23_fxl0s"]
+[ext_resource type="Texture2D" uid="uid://yitqt2phrjjl" path="res://Backgrounds/Earth_new/earth22.png" id="24_u0uei"]
+[ext_resource type="Texture2D" uid="uid://qfai63toyku2" path="res://Backgrounds/Earth_new/earth26.png" id="25_3fpbv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hhht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fxdd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o2uks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l3dhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g1nwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p1jws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2as7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a4xj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r6kk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wfuc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5elpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nbdpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bpnoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0dqva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_68trw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h4chw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8l8jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ru3qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ow2ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bfvc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_oa3l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fxl0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u0uei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_3fpbv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BG0" type="Node2D"]
+z_index = -1
+script = ExtResource("1_revo0")
+
+[node name="Space" type="Sprite2D" parent="."]
+position = Vector2(818, 403)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_fr4j4")
+
+[node name="Moon" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1200, 415)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3jnll")
+
+[node name="Timer" type="Timer" parent="Moon"]
+wait_time = 25.0
+autostart = true
+
+[node name="Earth" type="AnimatedSprite2D" parent="."]
+position = Vector2(815, 419)
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_6hhht")
+speed_scale = 2.0
+
+[node name="Shadow" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shadow"]
+polygon = PackedVector2Array(577, 123, 461, 252, 470, 447, 534, 612, 645, 784, 626, 742, 581, 652, 552, 586, 537, 529, 519, 412, 522, 344, 532, 268, 554, 168)
+
+[node name="Light" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light"]
+polygon = PackedVector2Array(718, 115, 743, 155, 782, 177, 856, 239, 898, 339, 907, 437, 899, 561, 831, 691, 760, 748, 720, 774, 781, 747, 854, 710, 899, 654, 940, 504, 920, 423, 906, 289, 852, 214, 760, 140)
+
+[connection signal="timeout" from="Moon/Timer" to="." method="_on_timer_timeout"]

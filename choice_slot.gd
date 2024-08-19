@@ -17,14 +17,15 @@ func clear_grid():
 		child.queue_free()
 	
 
-func set_choice(choice_text,resources,choice_ID,enable):
+func set_choice(choice_text,resources,choice_ID,enable,visibility_arr):
 	button.text = choice_text
 	choice_num = choice_ID
 	clear_grid()
 	for resource in resources:
-		var slot = resource_slot_scene.instantiate()
-		slot.add_resource(resource)
-		grid.add_child(slot)
+		if visibility_arr[resource['name']]:
+			var slot = resource_slot_scene.instantiate()
+			slot.add_resource(resource)
+			grid.add_child(slot)
 	if enable:
 		enable_choice()
 	else:

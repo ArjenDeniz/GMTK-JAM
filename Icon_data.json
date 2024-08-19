@@ -1,7 +1,15 @@
 {
   "Money": "res://Icons/Money.png",
   "Science": "res://Icons/science.png",
-  "Work Power": "res://Icons/human.png",
-  "Uranium": "res://Icons/uranium.png",
-  "Oil": "res://Icons/Oil.png"
+  "Coal": "res://Backgrounds/SpecialPNG_type0/coal.png",
+  "Watts": "res://Icons/watt.png",
+  "Silicon": "res://Icons/compute.png",
+  "Uranium": "res://Icons/radioactive_uranium.png",
+  "Bank":"res://Backgrounds/SpecialPNG_type0/bank.png",
+  "real_estate": "res://Backgrounds/SpecialPNG_type0/real_estate.png",
+  "silicon_factory": "res://Backgrounds/SpecialPNG_type0/silicon_mine.png",
+  "solar_panel":"res://Backgrounds/SpecialPNG_type0/solar_panel.png",
+  "fossil_fuel_plant":"res://Backgrounds/SpecialPNG_type0/termik_santral.png",
+  "uranium_mines":"res://Backgrounds/SpecialPNG_type0/uanium.png"
+
 }

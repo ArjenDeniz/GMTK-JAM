@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk2wuywkul47e"]
+
+[ext_resource type="Script" path="res://bg_1.gd" id="1_x5cmm"]
+[ext_resource type="Texture2D" uid="uid://byeim8b15fcls" path="res://Backgrounds/Planets/background.png" id="2_pdegy"]
+[ext_resource type="Texture2D" uid="uid://rm6ihk4gs1r5" path="res://Backgrounds/Planets/mercury3.png" id="3_wt531"]
+[ext_resource type="Texture2D" uid="uid://w30rgabdajrl" path="res://Backgrounds/Planets/venus3.png" id="4_pvpot"]
+[ext_resource type="Texture2D" uid="uid://bgcii3csrrrrk" path="res://Backgrounds/Planets/earth3.png" id="5_l53w5"]
+[ext_resource type="Texture2D" uid="uid://cnxlrvlj7efx4" path="res://Backgrounds/Planets/mars3.png" id="6_qd2k0"]
+[ext_resource type="Texture2D" uid="uid://cngmlo01mi444" path="res://Backgrounds/Planets/jupiter3.png" id="7_nhhkg"]
+[ext_resource type="Texture2D" uid="uid://do2l7s2df3bhl" path="res://Backgrounds/Planets/saturn3.png" id="8_gujmu"]
+[ext_resource type="Texture2D" uid="uid://d2vyujgdjrf5y" path="res://Backgrounds/Planets/sun2.png" id="9_413wj"]
+
+[node name="BG1" type="Node2D"]
+z_index = -1
+script = ExtResource("1_x5cmm")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(788, 396)
+scale = Vector2(0.815104, 0.815735)
+texture = ExtResource("2_pdegy")
+
+[node name="Mercury" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(750, 572)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("3_wt531")
+
+[node name="Timer_mer" type="Timer" parent="Mercury"]
+wait_time = 3.0
+autostart = true
+
+[node name="Venus" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(878, 526)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("4_pvpot")
+
+[node name="Timer_venus" type="Timer" parent="Venus"]
+wait_time = 4.0
+autostart = true
+
+[node name="Earth" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(975, 453)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("5_l53w5")
+
+[node name="Timer_earth" type="Timer" parent="Earth"]
+wait_time = 5.0
+autostart = true
+
+[node name="Mars" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1096, 377)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("6_qd2k0")
+
+[node name="Timer_mars" type="Timer" parent="Mars"]
+wait_time = 6.0
+autostart = true
+
+[node name="Jupyter" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1230, 272)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("7_nhhkg")
+
+[node name="Timer_jupy" type="Timer" parent="Jupyter"]
+wait_time = 9.0
+autostart = true
+
+[node name="Saturn" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1428, 143)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("8_gujmu")
+
+[node name="Timer_saturn" type="Timer" parent="Saturn"]
+wait_time = 25.0
+autostart = true
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(782.5, 406.2)
+scale = Vector2(0.813021, 0.809938)
+texture = ExtResource("9_413wj")

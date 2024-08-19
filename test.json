@@ -1,28 +1,108 @@
 {
-	"0":{
-		"Event Name": "Time for a break",
-		"Event Description": "It is holliday season and workers want to enjoy a nice break",
-		"Choice1":{"text": "Sure why not?","resources":{"Science":-50,"Work Power":100} , "flags":{}},
-		"Choice2":{"text": "Make it quick!","resources":{"Science":-20,"Work Power":40} ,"flags":{}},
-		"Choice3":{"text": "This doesn't optimize energy production!","resources":{"Science":40,"Work Power":-80} ,"flags":{}}	
-		},
+	  "silicon_discovery": {
+        "Event_title": "Discovering Silicon",
+        "Event_description": "Our scientists have made a groundbreaking discovery that could revolutionize our operations. But to bring this discovery to life, we need substantial funding. Will you invest in this scientific marvel, or 		let it slip through our circuits?",
+        "Choice_1": {
+            "text": "Fund the research!",
+            "resources": {
+                "Money": -10000,
+                "Science": -3000
+            },
+            "flags": {
+                "Silicon_invented": true,"forced_event_1_in_progress":false
+            },
+            "results": {
+                "Silicon_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "We don't have the resources now..",
+            "resources": {
+         	},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": 0,
+            "Silicon_invented": false
+        },
+	"Time":20
+    	}, "uranium_discovery": {
+        "Event_title": "We Need to go nuclear",
+        "Event_description": "Fosil fuel and solar energy is not enough, if we really want to maximize our energy we require NUCLEAR POWER.",
+        "Choice_1": {
+            "text": "Onto the next era!",
+            "resources": {
+                "Money": -50000,
+                "Science": -20000
+            },
+            "flags": {
+                "Uranium_invented": true,"forced_event_1_in_progress":false
+            },
+            "results": {
+                "Uranium_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "We don't have the resources now..",
+            "resources": {
+         	},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": 0,
+            "Uranium_invented": false, "Silicon_invented":true
+        },
+	"Time":50
+    	},
+
 	"1":{
 		"Event Name": "Scientific Breakthrough",
 		"Event Description": "Your Scientists have made a breakthrough!",
-		"Choice1":{"text": "Cool","resources":{"Science":20} ,"flags":{}},
-		"Choice2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{}},
-		"Choice3":{"text": "Fund them A LOT","resources":{"Science":150,"Money":-1250},"flags":{"Uranium_added":true} }
+		"Choice1":{"text": "Cool","resources":{"Science":20} ,"flags":{},"results":{}},
+		"Choice2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{},"results":{}},
+		"Choice3":{"text": "Fund them A LOT","resources":{"Science":150,"Money":-1250},"flags":{} ,"results":{"Discover_Uranium":1}},
+		"preconditions":{"civtype":0}	
 		},
 	"2":{
-		"Event Name": "Two Options",
-		"Event Description": "Wow you have only two options",
-		"Choice1":{"text": "Nooo","resources":{"Oil":35} ,"flags":{}},
-		"Choice2":{"text": "Whatever","resources":{"Uranium":50,"Money":-500},"flags":{} }	
+		"Event Name": "Uranium Generation Event",
+		"Event Description": "This event requires uranium",
+		"Choice1":{"text": "Cool let's generate Uranium","resources":{"Uranium":50,"Money":-500} ,"flags":{},"results":{}},
+		"Choice2":{"text": "Whatever, don't care","resources":{},"flags":{},"results":{} },
+		"preconditions":{"civtype":0,"Uranium_added":true}		
 		},
 	"3":{
 		"Event Name": "One Option",
 		"Event Description": "Now you have no more options",
-		"Choice1":{"text": "Crap","resources":{"Money":35},"flags":{} }
+		"Choice1":{"text": "Crap","resources":{"Money":35},"flags":{} ,"results":{}},
+		"preconditions":{"civtype":1}	
+		},
+
+	"Event_with_result":{
+		"Event Name": "Event with result",
+		"Event Description": "description",
+		"Choice1":{"text": "sample text","resources":{"Oil":35} ,"flags":{},"results":{"Result_Event_A":0.3,"Result_Event_B":0.7}},
+		"Choice2":{"text": "bla bla bla","resources":{"Uranium":50,"Money":-500},"flags":{},"results":{} },
+		"preconditions":{"civtype":2}		
+		},
+	"Result_Event_A":{
+		"Event Name": "Result A",
+		"Event Description": "description",
+		"Choice1":{"text": "sample text","resources":{"Oil":35} ,"flags":{},"results":{}},
+		"preconditions":{"civtype":-1}	
+		},
+	"Result_Event_B":{
+		"Event Name": "Result B",
+		"Event Description": "description",
+		"Choice1":{"text": "sample text","resources":{"Oil":35} ,"flags":{},"results":{}},
+		"preconditions":{"civtype":-1}	
+		},
+	"Discover_Uranium":{
+		"Event Name": "Discovered Uranium",
+		"Event Description": "The investment you have made to the scientific cause payed-ff! We have invented Uranium",
+		"Choice1":{"text": "Great!","resources":{} ,"flags":{"Uranium_added":true},"results":{}},
+		"preconditions":{"civtype":-1,"Uranium_added":false}	
 		}
 
 }

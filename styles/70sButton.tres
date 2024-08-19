@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cbge6l1w82i4d"]
+
+[ext_resource type="FontFile" uid="uid://s8fnmmt54ccs" path="res://fonts/x_typewriter/XTypewriter-Regular.otf" id="1_ttwy4"]
+[ext_resource type="StyleBox" uid="uid://bqblxpie345yc" path="res://styles/70s_stylebox_hover.tres" id="3_at2q6"]
+[ext_resource type="StyleBox" uid="uid://7qiy83ubsg28" path="res://styles/70s_stylebox_normal.tres" id="3_kbhee"]
+[ext_resource type="Texture2D" uid="uid://by1rfvhxxapwa" path="res://styles/linedpaper.png" id="4_r8ywc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt784"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldfn0"]
+bg_color = Color(0.481355, 0.489518, 0.511982, 1)
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsjv0"]
+bg_color = Color(0.68571, 0.0521174, 0.149416, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8plg"]
+texture = ExtResource("4_r8ywc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga7q8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.663315, 0.665308, 0.683885, 1)
+
+[resource]
+Button/colors/font_color = Color(0.0177325, 0.0177324, 0.0177324, 1)
+Button/colors/font_focus_color = Color(0.64179, 0, 0.203087, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 25
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_ttwy4")
+Button/styles/focus = SubResource("StyleBoxEmpty_pt784")
+Button/styles/hover = ExtResource("3_at2q6")
+Button/styles/normal = ExtResource("3_kbhee")
+Button/styles/pressed = ExtResource("3_kbhee")
+DetailPanel/base_type = &"Panel"
+DetailPanel/styles/panel = SubResource("StyleBoxFlat_ldfn0")
+ForcedLabel/base_type = &"Label"
+ForcedLabel/colors/font_color = Color(0.868985, 0.868985, 0.868985, 1)
+ForcedPanel/base_type = &"Panel"
+ForcedPanel/styles/panel = SubResource("StyleBoxFlat_nsjv0")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_ttwy4")
+Panel/styles/panel = SubResource("StyleBoxTexture_r8plg")
+TooltipLabel/colors/font_color = Color(0, 0, 0, 1)
+TooltipLabel/font_sizes/font_size = 20
+TooltipLabel/fonts/font = ExtResource("1_ttwy4")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_ga7q8")
