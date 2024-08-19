@@ -3,5 +3,6 @@
   "Science": "res://Icons/science.png",
   "Coal": "res://Icons/fossil_fuel.png",
   "Watts": "res://Icons/watt.png",
-  "Silicon": "res://Icons/compute.png"
+  "Silicon": "res://Icons/compute.png",
+  "Uranium": "res://Icons/radioactive_uranium.png"
 }

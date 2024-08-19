@@ -44,7 +44,7 @@ offset_bottom = 728.0
 autostart = true
 
 [node name="Generator_timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 3.2
 autostart = true
 
 [connection signal="Forced_Event_Enlarge" from="HUD" to="." method="Enlarge_Forced_Event"]

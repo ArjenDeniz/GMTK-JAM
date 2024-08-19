@@ -6,9 +6,16 @@ var resources =[]
 
 @onready var grid_cont = $"Grid-BG/GridContainer"
 @onready var resource_slot_scene = preload("res://resource_slot.tscn")
+@onready var anim0 = preload("res://animation_canvas.tscn")
+@onready var anim1 = preload("res://background_type_1.tscn")
+@onready var anim2 = preload("res://resource_slot.tscn")
+@onready var anim3 = preload("res://resource_slot.tscn")
+
 @onready var year = $"Time-BG/TimeLabel"
 @onready var forced_event1 = $Forced_event1
 @onready var forced_event2 = $Forced_event2
+@onready var anim_control = $Animation_Canvas
+
 
 var r = 500.0
 var t = 0.0
@@ -50,11 +57,24 @@ func refresh_grid():
 
 func update_time(new_time):
 	year.text = str(new_time)
+func update_type(watt):
+	var civ_type = (log(watt)/log(10)+6.0)/10.0
+	$"Type-BG/Type-label".text = 'Type: ' +str(float(round(civ_type*100.0))/100.0)
 
 func update_grid():
 	pass
 
+func set_animation_type(type):
 
+	
+	match type:
+		0:
+			var bg = anim0
+			anim_control = bg
+		1: 
+			var bg = anim1
+			print('levelup')
+			anim_control = bg
 
 
 func Maximize_Forced_Event_1(ID: Variant) -> void:

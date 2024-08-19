@@ -101,8 +101,8 @@
 		"Choice_1": {
 			"text": "Full throttle!",
 			"resources": {
-				"Money": -800,
-				"Coal": -600,
+				"Money": -700,
+				"Coal": -350,
 				"fossil_fuel_plant": 2
 			},
 			"flags": {},
@@ -112,7 +112,7 @@
 			"text": "We've got the plant and some coal to spare. Not bad for a day's work.",
 			"resources": {
 				"Money": -400,
-				"Coal": -300,
+				"Coal": -200,
 				"fossil_fuel_plant": 1
 			},
 			"flags": {},
@@ -269,7 +269,7 @@
 			"resources": {
 				"solar_panel": 3,
 				"Money": -2000,
-				"Silicon": -200
+				"Silicon": -500
 			},
 			"flags": {},
 			"results": {}
@@ -327,5 +327,85 @@
 		"preconditions": {
 			"CivType": 0, "Silicon_invented":false
 		}
+	},
+"Inventing_Phones": {
+		"Event_title": "Time to turn silicon into money !",
+		"Event_description": "We are harvesting a great amount of silicon it's time we profit from it. We can allocate some of our resources to create customized technologies for the public.",
+		"Choice_1": {
+			"text": "Lets generate personalized cell phones and sell everyone",
+			"resources": {
+				"Science": -2000,
+				"Silicon": -250,
+				"Money": 4000
+			},
+			"flags": {
+			   
+			},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Lets generate computers to be used only in universities and research institutes. Personalized electronics will create pollution in the  long term",
+			"resources": {
+				"Money": -2000,
+				"Science": 2500,
+				"Scientist": 10
+			},
+			"flags": { },
+			"results": {}
+		},
+		"Choice_3": {
+			"text": "Humans  do not simply deserve a thing. (Do nothing)",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": "0","Silicon_invented":true
+		},
+			"resource_required": {
+				"Scientist": 5,
+				"silicon_factory": 1,
+				"Money": 1500
+			}
+	},
+	"Inventing_gaming_computers": {
+		"Event_title": "Time to turn silicon into money!",
+		"Event_description": "We are harvesting a great amount of silicon it's time we profit from it. We can allocate some of our resources to create customized technologies for the public.",
+		"Choice_1": {
+			"text": "Let\u2019s generate gaming computers and invest for the game development industry to sell everyone.",
+			"resources": {
+				"Science": -2500,
+				"Scientist": 2,
+				"Silicon": -350,
+				"Money": 6000
+			},
+			"flags": {},
+			"results": {}
+		},
+		"Choice_2": {
+			"text": "Let\u2019s generate computers to be used only in universities and research institutes. Personalized electronics will create pollution in the  long term.",
+			"resources": {
+				"Money": -3000,
+				"Science": 2500,
+				"Silicon": -250,
+				"Scientist": 10
+			},
+			"flags": {},
+			"results": {}
+	   
+		},
+		"Choice_3": {
+			"text": "Humans  do not simply deserve a thing. (Do nothing)",
+			"resources": {},
+			"flags": {},
+			"results": {}
+		},
+		"preconditions": {
+			"CivType": "0"
+		},
+			"resource_required": {
+				"silicon_factory": 1,
+				"Scientist": 5
+			}
 	}
 }

@@ -13,5 +13,7 @@
 "silicon_factory": {"Visible":true,"Positive":true},
 "solar_panel":{"Visible":true,"Positive":true},
 "Silicon":{"Visible":true,"Positive":true},
-"real_estate":{"Visible":true,"Positive":true}
+"real_estate":{"Visible":true,"Positive":true},
+"Uranium" : {"Visible":true,"Positive":true},
+"uranium_mines" : {"Visible":true,"Positive":true}
 }

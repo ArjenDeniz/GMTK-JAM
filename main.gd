@@ -11,7 +11,7 @@ var resources ={'Coal':200,
 				'Money':1000,
 				'Science':300,
 				'global_warming':0,
-				"Watts": 28,
+				"Watts": 9760,#28,
 				"coal_mines":1,
 				"Scientist": 1,
 				"fossil_fuel_plant" : 1,
@@ -19,7 +19,9 @@ var resources ={'Coal':200,
 				"silicon_factory": 0,
 				"solar_panel":0,
 				"Silicon":0,
-				"real_estate":0
+				"real_estate":0,
+				"Uranium":0,
+				"uranium_mines":0
 				}
 var rng = RandomNumberGenerator.new()
 
@@ -60,7 +62,8 @@ var flags = {'Silicon_invented':false,
 				"global_warming_3":false,
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
-				"forced_event_2_in_progress":false
+				"forced_event_2_in_progress":false,
+				"Uranium_invented": false
 				}
 var generator_event_pool = []
 var suprise_event_pool = []
@@ -79,7 +82,7 @@ func load_json_data(file_path):
 func resource_eqn(resource):
 	match resource:
 		'Coal':
-			return 5*resources['coal_mines']
+			return 10*resources['coal_mines']
 		'Money':
 			return 25*resources['real_estate']+75*resources['Bank']+5
 		'Science':
@@ -89,8 +92,8 @@ func resource_eqn(resource):
 		"Watts":
 			return  min(resources["Coal"],50)*resources["fossil_fuel_plant"]+min(resources["Silicon"],100)*resources["solar_panel"]
 		"global_warming":
-			if !flags["Silicon_invented"]:
-				return float(resources["fossil_fuel_plant"])/200.0
+			if civ_type==0:
+				return float(resources["fossil_fuel_plant"])/200.0+float(resources["silicon_factory"])/800.0
 			else:
 				return 0.0
 		_:
@@ -134,13 +137,9 @@ func update_resource_grid():
 
 
 func _on_update_resources_timeout() -> void:
-	for resource in resources:
-		resources[resource] +=resource_eqn(resource)
+
 	
-	update_resource_grid()
-	time +=dt
-	hud.update_time(floor(time))
-	print(resources["global_warming"])
+	#Game Over?
 	if resources["Money"]<0:
 		game_over("You run out of money... ")
 		return
@@ -160,15 +159,32 @@ func _on_update_resources_timeout() -> void:
 	elif forced_event_1_time < dt:
 		Generate_Forced_Event("silicon_discovery","Forced",false)
 	
+	
+	#Update Resoiurces
+	for resource in resources:
+		resources[resource] +=resource_eqn(resource)
+	if resources["Watts"]>10000:
+		civ_type=1
+		hud.set_animation_type(1)
+	update_resource_grid()
+	time +=dt
+	hud.update_time(floor(time))
+	hud.update_type(resources['Watts'])
+	print(resources["global_warming"])
+	
+	#Priority Events
 	if flags["forced_event_1_in_progress"]:
 		forced_event_1_time -= dt
 		hud.forced_event1.set_time(floor(forced_event_1_time))
 	if flags["forced_event_2_in_progress"]:
 		forced_event_2_time -= dt
 		hud.forced_event2.set_time(floor(forced_event_2_time)) 
+		
 	if not event_on_screen:
-		if (resources["Science"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
+		if (resources["Watts"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
 			Generate_Forced_Event("silicon_discovery","Forced",true)
+		elif (resources["Watts"]>5000) and  !flags["Uranium_invented"] and !flags["forced_event_1_in_progress"]:
+			Generate_Forced_Event("uranium_discovery","Forced",true)
 		elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
 			Generate_Event("climate_countdown_4",priority_event_data,"Priority")
 		elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
@@ -202,7 +218,7 @@ func _on_update_resources_timeout() -> void:
 	
 
 func Generate_Event(ID,event_data_dict,type: String):
-	print(type)
+	print(type,": ",ID)
 	event_on_screen = true
 	timer.paused = true
 	gen_timer.paused = true
@@ -311,6 +327,11 @@ func flag_set(flag,value):
 			if value !=  (flags['forced_event_1_in_progress']):
 				flags['forced_event_1_in_progress'] = value
 				update_event_pool()
+		"Uranium_invented":
+			if value and (not flags['Uranium_invented']):
+				hud.add_resource_to_grid(resource_name_to_dict('Uranium'))
+				flags['Uranium_invented'] = true
+				update_event_pool()
 						
 func update_event_pool():
 	suprise_event_pool = []
@@ -321,7 +342,7 @@ func update_event_pool():
 		for condition in generator_event_data[event]["preconditions"]:
 			
 			if condition=='CivType':
-				active = active and (generator_event_data[event]["preconditions"]['CivType']==civ_type)
+				active = active and (int(generator_event_data[event]["preconditions"]['CivType'])==civ_type)
 			else:
 				active = active and (generator_event_data[event]["preconditions"][condition]==flags[condition])
 				
@@ -384,7 +405,7 @@ func Generate_Forced_Event(ID,type: String,Initializatio):
 var type_event = {
 		"Event_title": "Globalizing (Reach Type 1)",
 		"Event_description": "Your need to reach a type 1 civilization",
-		"Choice_1":{"text": "Cool","resources":{"Watts":20000} ,"flags":{},"results":{}},
+		"Choice_1":{"text": "Cool","resources":{"Watts":10000} ,"flags":{},"results":{}},
 		"Choice_2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{},"results":{}},
 		}
 func Set_Civ_type_forced_event():
@@ -457,8 +478,9 @@ func start_game():
 				"silicon_factory": 0,
 				"solar_panel":0,
 				"Silicon":0,
-				"real_estate":0
-				
+				"real_estate":0,
+				"Uranium":0,
+				"uranium_mines":0		
 }
 	time = 1950
 	civ_type=0
@@ -483,7 +505,8 @@ func start_game():
 				"global_warming_3":false,
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
-				"forced_event_2_in_progress":false
+				"forced_event_2_in_progress":false,
+				"Uranium_invented": false
 				}
 	generator_event_pool = []
 	suprise_event_pool = []
@@ -492,6 +515,7 @@ func start_game():
 		if resources[resource]>1:
 			resource_arr.append(resource_name_to_dict(resource))
 		
+	hud.set_animation_type(0)
 	hud.set_resources(resource_arr)
 	hud.refresh_grid()
 	update_event_pool()

@@ -27,6 +27,34 @@
             "Silicon_invented": false
         },
 	"Time":20
+    	}, "uranium_discovery": {
+        "Event_title": "We Need to go nuclear",
+        "Event_description": "Fosil fuel and solar energy is not enough, if we really want to maximize our energy we require NUCLEAR POWER.",
+        "Choice_1": {
+            "text": "Onto the next era!",
+            "resources": {
+                "Money": -50000,
+                "Science": -20000
+            },
+            "flags": {
+                "Uranium_invented": true,"forced_event_1_in_progress":false
+            },
+            "results": {
+                "Uranium_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "We don't have the resources now..",
+            "resources": {
+         	},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": 0,
+            "Uranium_invented": false, "Silicon_invented":true
+        },
+	"Time":30
     	},
 
 	"1":{

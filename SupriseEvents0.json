@@ -332,8 +332,8 @@
         "Choice_1": {
             "text": "We have locked the lab doors and thrown away the key!",
             "resources": {
-                "science": 1200,
-                "money": -2400
+                "Science": 1200,
+                "Money": -2400
             },
             "flags": {},
             "results": {}
@@ -351,7 +351,7 @@
         },
             "resource_required": {
                 "silicon_factory": 1,
-                "scientist": 5,
+                "Scientist": 5,
                 "Money": 5000
             }
     }

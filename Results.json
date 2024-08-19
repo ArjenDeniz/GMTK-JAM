@@ -33,7 +33,7 @@
             "resources": {
                 "global_warming": 0.1,
                 "coal_mines": -1
-            },
+            },"flags":{},
             "results": {}
         },
         "preconditions": {}
@@ -403,5 +403,21 @@
         "preconditions": {
             "CivType": "0"
         }
+    },
+   "Uranium_Result_1": {
+        "Event_title": "We are radioactive",
+        "Event_description": "One step closer to reach the power of the sun.",
+        "Choice_1": {
+            "text": "Onwards!",
+            "resources": {
+                "Uranium": 50, "uranium_mines":1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
     }
+
 }
