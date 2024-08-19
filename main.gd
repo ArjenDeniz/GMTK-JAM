@@ -11,7 +11,7 @@ var resources ={'Coal':200,
 				'Money':1000,
 				'Science':300,
 				'global_warming':0,
-				"Watts": 9760,#28,
+				"Watts": 2,
 				"coal_mines":1,
 				"Scientist": 1,
 				"fossil_fuel_plant" : 1,
@@ -21,7 +21,15 @@ var resources ={'Coal':200,
 				"Silicon":0,
 				"real_estate":0,
 				"Uranium":0,
-				"uranium_mines":0
+				"uranium_mines":0,
+				"nuclear_fallout":0,
+				"rebellion": 0,
+				"nuclear_plant": 0,
+				"supercomputer":0,
+				"human":0,
+				"computorium":0,
+				"dyson_sphere":0.0,
+				"quantum_computer":0
 				}
 var rng = RandomNumberGenerator.new()
 
@@ -53,7 +61,7 @@ var forced_event_1_time = 40
 var forced_event_2_time = 30
 var event_on_screen=false
 
-var time =1950
+var time =1990
 var civ_type = 0
 
 var flags = {'Silicon_invented':false,
@@ -63,7 +71,18 @@ var flags = {'Silicon_invented':false,
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
 				"forced_event_2_in_progress":false,
-				"Uranium_invented": false
+				"Uranium_invented": false,
+				"supercomputer_invented":false,
+				"quantum_computer_invented":false,
+				"computorium_found":false,
+				"nuclear_fallout_1":false,
+				"nuclear_fallout_2":false,
+				"nuclear_fallout_3":false,
+				"nuclear_fallout_4":false,
+				"rebellion_1":false,
+				"rebellion_2":false,
+				"rebellion_3":false,
+				"rebellion_4":false
 				}
 var generator_event_pool = []
 var suprise_event_pool = []
@@ -90,12 +109,14 @@ func resource_eqn(resource):
 		"Silicon":
 			return 5*resources["silicon_factory"]
 		"Watts":
-			return  min(resources["Coal"],50)*resources["fossil_fuel_plant"]+min(resources["Silicon"],100)*resources["solar_panel"]
+			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],40)*resources["nuclear_plant"]
 		"global_warming":
 			if civ_type==0:
-				return float(resources["fossil_fuel_plant"])/200.0+float(resources["silicon_factory"])/800.0
+				return float(resources["fossil_fuel_plant"])/1000.0+float(resources["silicon_factory"])/4000.0
 			else:
 				return 0.0
+		"Uranium":
+			return 5*resources["uranium_mines"]
 		_:
 			return 0
 	
@@ -163,7 +184,7 @@ func _on_update_resources_timeout() -> void:
 	#Update Resoiurces
 	for resource in resources:
 		resources[resource] +=resource_eqn(resource)
-	if resources["Watts"]>10000:
+	if resources["Watts"]>10000 and civ_type==0:
 		civ_type=1
 		hud.set_animation_type(1)
 	update_resource_grid()
@@ -480,9 +501,17 @@ func start_game():
 				"Silicon":0,
 				"real_estate":0,
 				"Uranium":0,
-				"uranium_mines":0		
+				"uranium_mines":0,
+				"nuclear_fallout":0,
+				"rebellion": 0,
+				"nuclear_plant": 0,
+				"supercomputer":0,
+				"human":0,
+				"computorium":0,
+				"dyson_sphere":0.0,
+				"quantum_computer":0
 }
-	time = 1950
+	time = 1990
 	civ_type=0
 	event_on_screen=false
 	
@@ -506,7 +535,18 @@ func start_game():
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
 				"forced_event_2_in_progress":false,
-				"Uranium_invented": false
+				"Uranium_invented": false,
+				"supercomputer_invented":false,
+				"quantum_computer_invented":false,
+				"computorium_found":false,
+				"nuclear_fallout_1":false,
+				"nuclear_fallout_2":false,
+				"nuclear_fallout_3":false,
+				"nuclear_fallout_4":false,
+				"rebellion_1":false,
+				"rebellion_2":false,
+				"rebellion_3":false,
+				"rebellion_4":false
 				}
 	generator_event_pool = []
 	suprise_event_pool = []

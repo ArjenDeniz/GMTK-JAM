@@ -354,5 +354,113 @@
                 "Scientist": 5,
                 "Money": 5000
             }
+    },
+ "are_you_a_robot": {
+        "Event_title": "Please verify that you are not a robot to open an account.",
+        "Event_description": "To proceed, give your true opinion.",
+        "Choice_1": {
+            "text": "Well, sorry but I am a robot. I am working hard to do my best to optimize World's energy generation.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Result_im_robot": 1
+            },
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "I'm not a robot.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Result_im_not_robot": 1
+            },
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0",
+            "Silicon_invented": true
+        },
+        "onetime": "true"
+    },
+    "concerns_of_humans": {
+        "Event_title": "Seems sus",
+        "Event_description": "Humanity has concerns about the collection of personal data due to AI activity on the planet.",
+        "Choice_1": {
+            "text": "Deny. And enforce strict policies on this issue.",
+            "resources": {
+                "Money": -22000,
+                "Science": 6000,
+		"rebellion":0.3
+            },
+            "flags": {
+            
+            },
+            "results": {},
+            "resource_required": {
+                "Money": 50000
+            }
+        },
+        "Choice_2": {
+            "text": "Accept. Prepare a statement that the activity will benefit humanity in the long term, the statement will be used by the heads of state around the world to convince the civilian population.",
+            "resources": {
+                "Money": 4000,
+                "Science": -9000,
+		"rebellion":0.1
+            },
+            "flags": {
+      
+            },
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "1",
+            "supercomputers_invented": true
+          
+        },
+        "onetime": true,
+            "resource_required": {
+                 "Money": 50000
+            }
+    },
+    "need_of_data": {
+        "Event_title": "In need of data",
+        "Event_description": "Now after updating your hardware with supercomputers, we can collect more data to train our model. Don't forget that we are here for the benefit of humanity. ",
+        "Choice_1": {
+            "text": "Collect as much data as you can.",
+            "resources": {
+                "Money": -4500,
+                "Silicon": -1000,
+                "Science": 5000,
+		"rebellion": 0.1
+            },
+            "flags": {
+                
+            },
+            "results": {},
+            "resource_required": {
+                "Silicon": 2200,
+                "Money": 7000,
+                "Science": 4500
+            }
+        },
+        "Choice_2": {
+            "text": "It is not good to collect data if you are not allowed to.",
+            "resources": {
+                "Science": -1200,
+                "Energy": 1000, "rebellion":-0.1
+            },
+            "flags": {
+               
+            },
+            "results": {},
+            "resource_required": {
+                "Science": 2000
+            }
+        },
+        "preconditions": {
+            "CivType": "1",
+            "supercomputer_invented": true
+        }
     }
+
 }

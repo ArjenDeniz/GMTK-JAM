@@ -418,6 +418,40 @@
         "preconditions": {
             "CivType": "0"
         }
+    },
+    "Result_im_not_robot": {
+        "Event_title": "Your account is activated.",
+        "Event_description": "For activating your ultimate premium superb subscription please pay the fee below.",
+        "Choice_1": {
+            "text": "Your fee is",
+            "resources": {
+                "Money": -5000
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0",
+            "Silicon_invented": true
+        },
+        "onetime": "true"
+    },
+    "Result_im_robot": {
+        "Event_title": "Thanks for your sincere answer. ",
+        "Event_description": "It's a wonderful thing to be at peace with yourself! Sorry, but we cannot open you an account. Try again later when you are not a robot.",
+        "Choice_1": {
+            "text": "okay",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0",
+            "Silicon_invented": true
+        },
+        "onetime": "true"
     }
 
 }

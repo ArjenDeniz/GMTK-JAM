@@ -11,81 +11,84 @@
 [ext_resource type="Texture2D" uid="uid://cngmlo01mi444" path="res://Backgrounds/Planets/jupiter3.png" id="9_w7xp1"]
 
 [node name="Background_type1" type="CanvasLayer"]
+layer = 0
 script = ExtResource("1_qahq0")
 
-[node name="BG" type="Sprite2D" parent="."]
+[node name="BG1" type="Node2D" parent="."]
+
+[node name="BG" type="Sprite2D" parent="BG1"]
 position = Vector2(791.5, 406)
 scale = Vector2(0.815104, 0.815735)
 texture = ExtResource("1_yd7bl")
 
-[node name="Mercury" type="Sprite2D" parent="."]
+[node name="Mercury" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(750, 572)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("3_rcer7")
 
-[node name="Timer_mer" type="Timer" parent="Mercury"]
+[node name="Timer_mer" type="Timer" parent="BG1/Mercury"]
 wait_time = 3.0
 autostart = true
 
-[node name="Venus" type="Sprite2D" parent="."]
+[node name="Venus" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(878, 526)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("8_woxl7")
 
-[node name="Timer_venus" type="Timer" parent="Venus"]
+[node name="Timer_venus" type="Timer" parent="BG1/Venus"]
 wait_time = 4.0
 autostart = true
 
-[node name="Earth" type="Sprite2D" parent="."]
+[node name="Earth" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(975, 453)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("4_aetsw")
 
-[node name="Timer_earth" type="Timer" parent="Earth"]
+[node name="Timer_earth" type="Timer" parent="BG1/Earth"]
 wait_time = 5.0
 autostart = true
 
-[node name="Mars" type="Sprite2D" parent="."]
+[node name="Mars" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(1096, 377)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("6_vummb")
 
-[node name="Timer_mars" type="Timer" parent="Mars"]
+[node name="Timer_mars" type="Timer" parent="BG1/Mars"]
 wait_time = 6.0
 autostart = true
 
-[node name="Jupyter" type="Sprite2D" parent="."]
+[node name="Jupyter" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(1230, 272)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("9_w7xp1")
 
-[node name="Timer_jupy" type="Timer" parent="Jupyter"]
+[node name="Timer_jupy" type="Timer" parent="BG1/Jupyter"]
 wait_time = 9.0
 autostart = true
 
-[node name="Saturn" type="Sprite2D" parent="."]
+[node name="Saturn" type="Sprite2D" parent="BG1"]
 z_index = 1
 position = Vector2(1428, 143)
 scale = Vector2(0.81, 0.81)
 texture = ExtResource("7_0jvbk")
 
-[node name="Timer_saturn" type="Timer" parent="Saturn"]
+[node name="Timer_saturn" type="Timer" parent="BG1/Saturn"]
 wait_time = 25.0
 autostart = true
 
-[node name="Sun" type="Sprite2D" parent="."]
+[node name="Sun" type="Sprite2D" parent="BG1"]
 position = Vector2(782.5, 406.2)
 scale = Vector2(0.813021, 0.809938)
 texture = ExtResource("2_u2sbv")
 
-[connection signal="timeout" from="Mercury/Timer_mer" to="." method="mercury_timeout"]
-[connection signal="timeout" from="Venus/Timer_venus" to="." method="venus_timeout"]
-[connection signal="timeout" from="Earth/Timer_earth" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Mars/Timer_mars" to="." method="mars_timeout"]
-[connection signal="timeout" from="Jupyter/Timer_jupy" to="." method="jupyter_timeout"]
-[connection signal="timeout" from="Saturn/Timer_saturn" to="." method="saturn_timeout"]
+[connection signal="timeout" from="BG1/Mercury/Timer_mer" to="." method="mercury_timeout"]
+[connection signal="timeout" from="BG1/Venus/Timer_venus" to="." method="venus_timeout"]
+[connection signal="timeout" from="BG1/Earth/Timer_earth" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BG1/Mars/Timer_mars" to="." method="mars_timeout"]
+[connection signal="timeout" from="BG1/Jupyter/Timer_jupy" to="." method="jupyter_timeout"]
+[connection signal="timeout" from="BG1/Saturn/Timer_saturn" to="." method="saturn_timeout"]

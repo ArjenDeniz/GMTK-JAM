@@ -15,5 +15,14 @@
 "Silicon":{"Visible":true,"Positive":true},
 "real_estate":{"Visible":true,"Positive":true},
 "Uranium" : {"Visible":true,"Positive":true},
-"uranium_mines" : {"Visible":true,"Positive":true}
+"uranium_mines" : {"Visible":true,"Positive":true},
+ "nuclear_fallout" :{"Visible":false,"Positive":true},
+ "rebellion" : {"Visible":false,"Positive":true},
+"nuclear_plant": {"Visible":true,"Positive":true},
+"supercomputer":{"Visible":true,"Positive":true},
+"human":{"Visible":true,"Positive":true},
+"computorium":{"Visible":true,"Positive":true},
+"dyson_sphere":{"Visible":true,"Positive":true},	
+"quantum_computer":{"Visible":true,"Positive":true}
+ 
 }
