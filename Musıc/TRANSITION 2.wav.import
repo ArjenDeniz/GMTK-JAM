@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmftyqndu7q51"
+path="res://.godot/imported/TRANSITION 2.wav-f418e0d59eff1b5f6983838bc8dd335c.sample"
+
+[deps]
+
+source_file="res://Musıc/TRANSITION 2.wav"
+dest_files=["res://.godot/imported/TRANSITION 2.wav-f418e0d59eff1b5f6983838bc8dd335c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
