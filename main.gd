@@ -2,6 +2,7 @@ extends Node
 
 @onready var hud = $HUD
 @onready var timer = $Update_Resources
+@onready var gen_timer = $Generator_timer
 @onready var event_prompt = $HUD/Event_prompt
 @onready var forced_event_prompt = $HUD/Forced_Event
 @onready var game_over_screen = $"HUD/Game Over Screen"
@@ -24,8 +25,8 @@ var rng = RandomNumberGenerator.new()
 
 var resource_data = {}
 var resource_data_path = "res://Icon_data.json"
-var event_data = {}
-var event_data_path = "res://EventsGenerator.json"
+var generator_event_data = {}
+var generator_event_data_path= "res://EventsGenerator.json"
 var result_data = {}
 var result_data_path = "res://Results.json"
 var resource_flags = {}
@@ -34,8 +35,18 @@ var priority_event_data = {}
 var priority_event_path = "res://ClimateCountdown.json"
 var forced_event_data = {}
 var forced_event_path = "res://test.json"
+var suprise_event_data = {}
+var suprise_event_data_path = "res://SupriseEvents0.json"
 
 
+
+var prev_gen_event = -1
+var prev_prev_gen_event =  -1
+
+var prev_suprise_event = -1
+var prev_prev_suprise_event = -1
+
+var dt = 0.2
 var forced_event_1_time = 40
 var forced_event_2_time = 30
 var event_on_screen=false
@@ -51,7 +62,8 @@ var flags = {'Silicon_invented':false,
 				"forced_event_1_in_progress":false,
 				"forced_event_2_in_progress":false
 				}
-var event_pool = []
+var generator_event_pool = []
+var suprise_event_pool = []
 
 func load_json_data(file_path):
 	if FileAccess.file_exists(file_path):
@@ -87,11 +99,12 @@ func resource_name_to_dict(resource_name):
 	
 func _ready() -> void:
 	resource_data = load_json_data(resource_data_path)
-	event_data = load_json_data(event_data_path)
+	generator_event_data = load_json_data(generator_event_data_path)
 	resource_flags= load_json_data(resource_flag_path)
 	result_data = load_json_data(result_data_path)
 	priority_event_data =load_json_data(priority_event_path)
 	forced_event_data =load_json_data(forced_event_path)
+	suprise_event_data =load_json_data(suprise_event_data_path)
 	
 	var resource_arr = []
 	for resource in resources:
@@ -120,7 +133,7 @@ func _on_update_resources_timeout() -> void:
 		resources[resource] +=resource_eqn(resource)
 	
 	update_resource_grid()
-	time +=0.1
+	time +=dt
 	hud.update_time(floor(time))
 	
 	if resources["Money"]<0:
@@ -130,27 +143,48 @@ func _on_update_resources_timeout() -> void:
 		game_over("The planet has fallen out of balance and the Earth is now a desolate wasteland. With no one to do your
 		work your mission has failed.")
 		return
+	elif forced_event_1_time < 0:
+		game_over("Your progress was too slow...")
+		return
 	
 	
 	if flags["forced_event_1_in_progress"]:
-		forced_event_1_time -= 0.1
+		forced_event_1_time -= dt
 		hud.forced_event1.set_time(floor(forced_event_1_time))
 	if flags["forced_event_2_in_progress"]:
-		forced_event_2_time -= 0.1
+		forced_event_2_time -= dt
 		hud.forced_event2.set_time(floor(forced_event_2_time)) 
+	if not event_on_screen:
+		if (resources["Science"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
+			Generate_Forced_Event("silicon_discovery","Forced")
+		elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
+			Generate_Event("climate_countdown_4",priority_event_data,"Priority")
+		elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
+			Generate_Event("climate_countdown_3",priority_event_data,"Priority")
+		elif (resources['global_warming']>=0.5) and !flags["global_warming_2"]:
+			Generate_Event("climate_countdown_2",priority_event_data,"Priority")
+		elif (resources['global_warming']>=0.3) and !flags["global_warming_1"]:
+			Generate_Event("climate_cooldown_1",priority_event_data,"Priority")
+		elif rng.randi_range(0,9)>8:
+			var rand_event =  rng.randi_range(0,len(suprise_event_pool)-1)
+
+			var can_happen = false
+			while(!can_happen):
+				can_happen = true
+				if (prev_suprise_event== rand_event) or (prev_prev_suprise_event== rand_event):
+					can_happen=false
+				if suprise_event_data[suprise_event_pool[rand_event]].has('resource_required'):
+					for resource in suprise_event_data[suprise_event_pool[rand_event]]['resource_required']:
+					
+						can_happen = can_happen and (resources[resource] >=suprise_event_data[suprise_event_pool[rand_event]]['resource_required'][resource]) 
+				if can_happen:
+					prev_prev_suprise_event = prev_suprise_event
+					prev_suprise_event = rand_event
+					Generate_Event(suprise_event_pool[rand_event],suprise_event_data,"Suprise")
+				else:
+					rand_event = rng.randi_range(0,len(suprise_event_pool)-1)
+					
 	
-	if (resources["Science"]>500) and  !flags["Silicon_invented"] and !flags["forced_event_1_in_progress"]:
-		Generate_Forced_Event("silicon_discovery","Forced")
-	elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
-		Generate_Event("climate_countdown_4",priority_event_data,"Priority")
-	elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
-		Generate_Event("climate_countdown_3",priority_event_data,"Priority")
-	elif (resources['global_warming']>=0.5) and !flags["global_warming_2"]:
-		Generate_Event("climate_countdown_2",priority_event_data,"Priority")
-	elif (resources['global_warming']>=0.3) and !flags["global_warming_1"]:
-		Generate_Event("climate_cooldown_1",priority_event_data,"Priority")
-	elif rng.randi_range(0,10)>9:
-		Generate_Event(event_pool[rng.randi_range(0,len(event_pool)-1)],event_data,"Generator")
 	
 	
 	
@@ -158,6 +192,8 @@ func _on_update_resources_timeout() -> void:
 func Generate_Event(ID,event_data_dict,type: String):
 	event_on_screen = true
 	timer.paused = true
+	gen_timer.paused = true
+	
 	var choice_status =[true,true,true]
 	var resource_arr = []
 	var num_of_choices = 3
@@ -173,7 +209,7 @@ func Generate_Event(ID,event_data_dict,type: String):
 		resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
 		var choice_visibility_arr = {}
 		for resource in resource_arr:
-			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'])
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'] or (type=="Result"))
 			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 		resource_visibility_arr.append(choice_visibility_arr)
 	event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
@@ -183,11 +219,13 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	var event_data_dict = {}
 	match type:
 		"Generator":
-			event_data_dict=event_data.duplicate(true)
+			event_data_dict=generator_event_data.duplicate(true)
 		"Result":
 			event_data_dict = result_data.duplicate(true)
 		"Priority":
 			event_data_dict = priority_event_data.duplicate(true)
+		"Suprise":
+			event_data_dict = suprise_event_data.duplicate(true)
 	var delta_resource = event_data_dict[str(ID)]['Choice_'+str(Choice)]['resources']
 	var delta_flags =  event_data_dict[str(ID)]['Choice_'+str(Choice)]['flags']
 	var possible_results =   event_data_dict[str(ID)]['Choice_'+str(Choice)]['results']
@@ -195,6 +233,9 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	#Handle resources
 	for resource in delta_resource:
 		resources[resource] += delta_resource[resource]
+		if (resources[resource]<0) and resource_flags[resource]['Positive']:
+			print("Damn negative")
+			resources[resource] = 0
 	
 	#Handle Flags
 	for flag in delta_flags:
@@ -209,7 +250,7 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 		event_data_dict.erase(str(ID))
 	
 	for res in possible_results:
-		current_rand += possible_results[res]
+		current_rand += float(possible_results[res])
 		if result_random<= current_rand:
 			
 			Generate_Event(res,result_data,"Result")
@@ -218,6 +259,7 @@ func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	event_on_screen= false
 	update_resource_grid()
 	timer.paused = false
+	gen_timer.paused = false
 	event_prompt.hide()
 	
 
@@ -252,29 +294,44 @@ func flag_set(flag,value):
 				update_event_pool()
 						
 func update_event_pool():
-	event_pool = []
-	for event in event_data:
+	suprise_event_pool = []
+	generator_event_pool = []
+	for event in generator_event_data:
 		var active =true
 		
-		for condition in event_data[event]["preconditions"]:
+		for condition in generator_event_data[event]["preconditions"]:
 			
 			if condition=='CivType':
-				active = active and (event_data[event]["preconditions"]['CivType']==civ_type)
+				active = active and (generator_event_data[event]["preconditions"]['CivType']==civ_type)
 			else:
-				active = active and (event_data[event]["preconditions"][condition]==flags[condition])
+				active = active and (generator_event_data[event]["preconditions"][condition]==flags[condition])
 				
 		if active:
-			event_pool.append(event)
+			generator_event_pool.append(event)
+			
+	for event in suprise_event_data:
+		var active =true
+		
+		for condition in suprise_event_data[event]["preconditions"]:
+			
+			if condition=='CivType':
+				active = active and (int(suprise_event_data[event]["preconditions"]['CivType'])==civ_type)
+			else:
+				active = active and (suprise_event_data[event]["preconditions"][condition]==flags[condition])
+				
+		if active:
+			suprise_event_pool.append(event)
+			
 
 func check_preconditions_for_result(event):
 	var active =true
 		
-	for condition in event_data[event]["preconditions"]:
+	for condition in generator_event_data[event]["preconditions"]:
 		
 		if condition=='CivType':
 			active = active
 		else:
-			active = active and (event_data[event]["preconditions"][condition]==flags[condition])
+			active = active and (generator_event_data[event]["preconditions"][condition]==flags[condition])
 	
 	return active
 
@@ -282,6 +339,7 @@ func check_preconditions_for_result(event):
 func Generate_Forced_Event(ID,type: String):
 	event_on_screen = true
 	timer.paused = true
+	gen_timer.paused = true
 	var choice_status =[true,true,true]
 	var resource_arr = []
 
@@ -340,6 +398,7 @@ func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
 	update_resource_grid()
 	event_on_screen=false
 	timer.paused = false
+	gen_timer.paused = false
 	forced_event_prompt.hide()
 
 
@@ -365,6 +424,16 @@ func start_game():
 	time = 1950
 	civ_type=0
 	event_on_screen=false
+	
+	prev_gen_event = -1
+	prev_prev_gen_event =  -1
+
+	prev_suprise_event = -1
+	prev_prev_suprise_event = -1
+	dt = 0.2
+	forced_event_1_time = 40
+	forced_event_2_time = 30
+	
 	event_prompt.hide()
 	forced_event_prompt.hide()
 	hud.forced_event1.hide()
@@ -377,7 +446,8 @@ func start_game():
 				"forced_event_1_in_progress":false,
 				"forced_event_2_in_progress":false
 				}
-	event_pool = []
+	generator_event_pool = []
+	suprise_event_pool = []
 	var resource_arr = []
 	for resource in resources:
 		if resources[resource]>1:
@@ -387,10 +457,35 @@ func start_game():
 	hud.refresh_grid()
 	update_event_pool()
 	timer.paused = false
+	gen_timer.paused = false
 	
 func game_over(reason):
 	timer.paused = true
+	gen_timer.paused = true
 	event_on_screen = true
 	game_over_screen.show()
 	game_over_screen.set_message(reason)
+	
+
+
+func _on_generator_timer_timeout() -> void:
+	if not event_on_screen: 
+		var rand_event =  rng.randi_range(0,len(generator_event_pool)-1)
+
+		var can_happen = false
+		while(!can_happen):
+			can_happen = true
+			if (prev_gen_event== rand_event) or (prev_prev_gen_event== rand_event):
+				can_happen=false
+				print("Change: ",generator_event_pool[rand_event])
+			if generator_event_data[generator_event_pool[rand_event]].has('resource_required'):
+				for resource in generator_event_data[generator_event_pool[rand_event]]['resource_required']:
+				
+					can_happen = can_happen and (resources[resource] >=generator_event_data[generator_event_pool[rand_event]]['resource_required'][resource]) 
+			if can_happen:
+				prev_prev_gen_event = prev_gen_event
+				prev_gen_event = rand_event
+				Generate_Event(generator_event_pool[rng.randi_range(0,len(generator_event_pool)-1)],generator_event_data,"Generator")
+			else:
+				rand_event = rng.randi_range(0,len(generator_event_pool)-1)
 	

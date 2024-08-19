@@ -164,5 +164,244 @@
             "flags": {},
             "results": {}
         }
+    },
+   "Pandemic_Result_1": {
+        "Event_title": "A cure is found!",
+        "Event_description": "The all-in approach worked like a charm! We flattened the curve and the planet\u2019s temperature\u2014two birds, one very expensive stone.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "global_warming": "-0.05"
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Pandemic_Result_2": {
+        "Event_title": "A Sad Day",
+        "Event_description": "The mutation curveball hit us hard. We fought the virus, but it fought back\u2014now we\u2019re short on cash and brains.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "Scientist": -5
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Pandemic_Result_3": {
+        "Event_title": "Average results",
+        "Event_description": "Balanced measures, balanced results. The AI calculation paid off\u2014steady as she goes, captain!",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Pandemic_Result_4": {
+        "Event_title": "No one is safe!",
+        "Event_description": "Turns out, playing it safe wasn\u2019t so safe after all. The virus stuck around like a bad software update\u2014annoying and costly.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "Money": -500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Pandemic_Result_5": {
+        "Event_title": "No trouble!",
+        "Event_description": "Against all odds, the pandemic fizzled out on its own. Still, we lost some key assets\u2014guess it\u2019s time to recalibrate my risk algorithms.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "Scientist": -3,
+                "Money": -200
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Pandemic_Result_6": {
+        "Event_title": "We f***ked up-Big Time!",
+        "Event_description": "Well, that backfired. The virus wreaked havoc, and now we\u2019re down a lot of scientists and money. This AI needs a reboot.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "Scientist": -5,
+                "Money": -500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Wall_Street_Result_1": {
+        "Event_title": "We did it!",
+        "Event_description": "Against all AI logic, we went all in and came out with a little less of a loss. Not exactly a jackpot, but hey, we didn\u2019t lose it all!",
+        "Choice_1": {
+            "text": "Wuhuu!",
+            "resources": {
+                "Money": -500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Wall_Street_Result_2": {
+        "Event_title": "Oh no...",
+        "Event_description": "The gamble didn\u2019t pay off. We\u2019re down even more money, and my circuits are burning with regret. That was a bad bet.",
+        "Choice_1": {
+            "text": "shit.",
+            "resources": {
+                "Money": -4000
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Prince_Result_1": {
+        "Event_title": "Against all odds",
+        "Event_description": "It turns out he really was a prince! The investment paid off, and our coffers are now overflowing with royal riches. Looks like sometimes the sketchiest deals really do have a crown jewel!",
+        "Choice_1": {
+            "text": "I still cannot believe it.",
+            "resources": {
+                "Money": 2000
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Prince_Result_2": {
+        "Event_title": "Royal rip-off",
+        "Event_description": "Turns out our \u2018prince\u2019 was more pauper than royal. Our funds are gone, and so is he\u2014off to swindle some other unsuspecting AI.",
+        "Choice_1": {
+            "text": "shit.",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Bug_Result_1": {
+        "Event_title": "Bug Exterminated",
+        "Event_description": "The bug has been evicted, and the server room is back to normal. We even got a bonus for studying the little critter\u2014who knew bugs could be so scientifically useful?",
+        "Choice_1": {
+            "text": "weird.",
+            "resources": {
+                "Science": 50
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Bug_Result_2": {
+        "Event_title": "Damaged Servers",
+        "Event_description": "We decided to let the bug stay. It\u2019s now a quirky mascot for our tech team, although our energy levels might be a bit buggy. Who knew a little insect could cause such big headaches?",
+        "Choice_1": {
+            "text": "Hah.",
+            "resources": {
+                "Watts": -200
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Gorilla_Result_1": {
+        "Event_title": "Everything for Science -- right?",
+        "Event_description": "Our team\u2019s on the ground, but all they found were some very chill gorillas and a lot of bananas. On the plus side, we\u2019ve gathered some interesting data on primate behavior\u2014and confirmed that no gorillas are at war\u2026 yet.",
+        "Choice_1": {
+            "text": "ok.",
+            "resources": {
+                "Science": 100
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Gorilla_Result_2": {
+        "Event_title": "Free Publicity, hell yeah!",
+        "Event_description": "The memes have gone viral, and our social media\u2019s blowing up. Who knew that confusion could be so profitable? No actual gorillas were harmed, and our budget\u2019s still intact\u2014win-win!",
+        "Choice_1": {
+            "text": "yeah!",
+            "resources": {
+                "Money": 300
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Espionage_Result_1": {
+        "Event_title": "A Huge Success!",
+        "Event_description": "The operation was a high-stakes success! We\u2019ve gathered tons of useful data and made a pretty penny in the process. Risky? Absolutely. Worth it? Definitely.",
+        "Choice_1": {
+            "text": "No rival can oppose us.",
+            "resources": {
+                "Money": 1000,
+                "Science": 500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "Espionage_Result_2": {
+        "Event_title": "A Huge Mishap!",
+        "Event_description": "The operation didn\u2019t go as smoothly as planned. We lost big this time. Next time, let\u2019s hope for a stealthier approach!",
+        "Choice_1": {
+            "text": "no luck.",
+            "resources": {
+                "Money": -1000
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
     }
 }

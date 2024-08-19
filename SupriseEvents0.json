@@ -1,0 +1,329 @@
+{
+    "rival_ai_espionage": {
+        "Event_title": "Espionage Opportunity",
+        "Event_description": "A rare opportunity has arisen to conduct espionage on a rival AI. We\u2019ve got the chance to gather valuable information and potentially gain a significant edge. The operation has its risks, but the potential rewards could be substantial.",
+        "Choice_1": {
+            "text": "A daring mission for a daring AI.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Espionage_Result_1": "0.3",
+                "Espionage_Result_2": "0.7"
+            }
+        },
+        "Choice_2": {
+            "text": "A bribe to humans can solve everything.",
+            "resources": {
+                "Money": -500,
+                "Science": 500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_3": {
+            "text": "Let's sit this one out.",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "gorilla_wars": {
+        "Event_title": "Gorilla Wars?!",
+        "Event_description": "Breaking news! Reports are flooding in about \"Gorilla Wars\" happening in a distant jungle. Primatologists say the clashes were even more violent than the Battle of Gombe. Wait\u2026 do they mean _guerilla_ wars? Or are actual gorillas battling it out somewhere? The news is unclear, and the internet is losing its mind over the confusion. Should we investigate this bizarre situation, or just let the memes roll in?",
+        "Choice_1": {
+            "text": "Send a team to investigate (just in case).",
+            "resources": {
+                "Money": -200
+            },
+            "flags": {},
+            "results": {
+                "Gorilla_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Laugh it off and let the memes do their thing.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Gorilla_Result_2": 1
+            }
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+        "onetime": "true"
+    },
+    "real_bug_warning": {
+        "Event_title": "System Bug Alert",
+        "Event_description": "An urgent warning has come through about a \"bug\" in our system. Panic spreads through the office as techs scramble to address the supposed issue. However, it turns out the \"bug\" is less about coding and more about a literal insect that\u2019s made its way into the server room. Time to deal with this new kind of glitch!",
+        "Choice_1": {
+            "text": "Send an exterminator to handle the situation.",
+            "resources": {
+                "Money": -150
+            },
+            "flags": {},
+            "results": {
+                "Bug_Result_1": 1
+            }
+        },
+        "Choice_2": {
+            "text": "Ignore the bug, What can 1 bug do to our servers?",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Bug_Result_2": 1
+            }
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+        "onetime": "true"
+    },
+    "inflation": {
+        "Event_title": "Inflation Spike!",
+        "Event_description": "Inflation has hit hard, and the cost of living has skyrocketed! Your team of brilliant scientists is feeling the pinch, and they\u2019re demanding higher pay to keep up.",
+        "Choice_1": {
+            "text": "Increase their pay to keep the talent!",
+            "resources": {
+                "Money": -500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Hold firm on wages and let some leave.",
+            "resources": {
+                "Scientist": -3
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "crazy_scientist": {
+        "Event_title": "Scientist Goes Mad!",
+        "Event_description": "One of our top scientists has gone completely bonkers! They\u2019ve started raving about wild theories and strange inventions that are more fiction than science. This could be a PR nightmare if word gets out. We need to decide\u2014do we cover up the incident and keep them on board for their brilliance, or do we cut our losses and let them go?",
+        "Choice_1": {
+            "text": "We\u2019ve locked the lab doors and thrown away the key!",
+            "resources": {
+                "Science": 300,
+                "Money": -500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Fire them and cut our losses.",
+            "resources": {
+                "Scientist": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "nigerian_prince_offer": {
+        "Event_title": "A Prince's Proposal?",
+        "Event_description": "A rather dubious character claiming to be a Nigerian prince has approached us with a \"once-in-a-lifetime\" investment opportunity. He promises untold riches if we just invest a modest sum upfront. The whole thing feels a bit off, but what if it\u2019s real? Will you take the chance or walk away?",
+        "Choice_1": {
+            "text": "Take the gamble!",
+            "resources": {
+                "Money": -500
+            },
+            "flags": {},
+            "results": {
+                "Prince_Result_1": "0.1",
+                "Prince_Result_2": "0.9"
+            }
+        },
+        "Choice_2": {
+            "text": "No royal drama here.",
+            "resources": {},
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+        "onetime": "true"
+    },
+    "economic_boom": {
+        "Event_title": "Economic Boom!",
+        "Event_description": "The global economy is on fire\u2014in a good way! Markets are soaring, investments are paying off, and the wealth is flowing like never before. It\u2019s a perfect time to capitalize on the prosperity and expand your influence. Get ready to see your resources multiply!",
+        "Choice_1": {
+            "text": "Ride the wave of prosperity!",
+            "resources": {
+                "Money": 800,
+                "Watts": 300
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "gold_in_coal_mines": {
+        "Event_title": "Striking Gold",
+        "Event_description": "Jackpot! While digging deeper into one of our coal mines, we\u2019ve uncovered a hidden vein of gold. This unexpected windfall is a game-changer, offering a significant boost to our finances. Sometimes, it pays to dig a little deeper\u2014literally!",
+        "Choice_1": {
+            "text": "Mine the gold and cash in!",
+            "resources": {
+                "Money": 1000
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "wall_street_meltdown": {
+        "Event_title": "Wall Street Meltdown",
+        "Event_description": "The stock market has crashed, sending shockwaves through your finances! The Wall Street meltdown means substantial losses, but we still have a chance to make a risky play to save some of our funds. ",
+        "Choice_1": {
+            "text": "Take the risk and try to save our investments.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Wall_Street_Result_1": "0.3",
+                "Wall_Street_Result_2": "0.7"
+            }
+        },
+        "Choice_2": {
+            "text": "Cut our losses and pull out immediately.",
+            "resources": {
+                "Money": -2000
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "fossil_fuel_explosion": {
+        "Event_title": "Fossil Fuel Plant Exploded!",
+        "Event_description": "Catastrophe! One of our fossil fuel plants has exploded, causing significant damage. The plant is a total loss, and the fallout is severe. You\u2019re left with two difficult options: either attempt to recover any salvageable energy stores or sell the contaminated land at a discounted price.",
+        "Choice_1": {
+            "text": "Recover salvageable energy.",
+            "resources": {
+                "Watts": 200,
+                "fossil_fuel_plant": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Sell the contaminated land.",
+            "resources": {
+                "Money": 150,
+                "fossil_fuel_plant": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+	"resource_required":{"fossil_fuel_plant": 1}
+    },
+    "coal_mine_collapse": {
+        "Event_title": "Coal Mine Collapse",
+        "Event_description": " Disaster strikes! One of our coal mines has collapsed unexpectedly. The damage is irreparable, and we\u2019ve lost the mine. You now face a tough decision: attempt to salvage whatever coal remains or sell the area for a quick cash influx.",
+        "Choice_1": {
+            "text": "We managed to scrape together some leftover coal, but the mine is a total loss.",
+            "resources": {
+                "Coal": 150,
+                "coal_mines": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "We\u2019ve offloaded the land for a quick buck. Sure, it\u2019s money in the bank, but losing the mine stings. Guess it\u2019s time to think about greener pastures\u2014or just less shaky ones.",
+            "resources": {
+                "Money": 200,
+                "coal_mines": -1
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+"resource_required":{"coal_mines": 1}
+    },
+    " cern_particle_collison": {
+        "Event_title": "God Particle Real?!",
+        "Event_description": "An unexpected particle collision at CERN has led to a major scientific breakthrough! The discovery has the potential to push the boundaries of our understanding of the universe. You now have two options: harness this newfound knowledge or recruit the brilliant minds behind this breakthrough.",
+        "Choice_1": {
+            "text": "Harness the discovery!",
+            "resources": {
+                "Science": 500
+            },
+            "flags": {},
+            "results": {}
+        },
+        "Choice_2": {
+            "text": "Recruit the CERN scientist!",
+            "resources": {
+                "Scientist": 5
+            },
+            "flags": {},
+            "results": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+        "onetime": "true"
+    },
+    "pandemic_break": {
+        "Event_title": "A New Pandemic Started (Again) ",
+        "Event_description": " A new pandemic, COVID-20, has struck the globe, spreading faster and with more severe effects than its predecessor. As the situation worsens, you must decide how to handle this unprecedented crisis. Your response will determine the outcome for your resources and overall stability.",
+        "Choice_1": {
+            "text": "Mobilize all available resources.",
+            "resources": {
+                "Money": -800,
+                "Science": -300
+            },
+            "flags": {},
+            "results": {
+                "Pandemic_Result_1": "0.7",
+                "Pandemic_Result_2": "0.3"
+            }
+        },
+        "Choice_2": {
+            "text": "Implement moderate measures.",
+            "resources": {
+                "Money": -400,
+                "Science": -150
+            },
+            "flags": {},
+            "results": {
+                "Pandemic_Result_3": "0.5",
+                "Pandemic_Result_4": "0.5"
+            }
+        },
+        "Choice_3": {
+            "text": "We do not have a body, why should we care?",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Pandemic_Result_5": "0.3",
+                "Pandemic_Result_6": "0.7"
+            }
+        },
+        "preconditions": {
+            "CivType": "0"
+        },
+        "onetime": "true"
+    }
+}

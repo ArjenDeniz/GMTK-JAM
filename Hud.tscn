@@ -1,151 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwx7676ylv54k"]
+[gd_scene load_steps=5 format=3 uid="uid://bwx7676ylv54k"]
 
 [ext_resource type="Script" path="res://canvas_layer.gd" id="1_hu5xu"]
-[ext_resource type="Texture2D" uid="uid://blocsux4jehqm" path="res://Backgrounds/space_bg.png" id="2_m5i88"]
 [ext_resource type="FontFile" uid="uid://8n2j0x5tijeu" path="res://fonts/Xolonium-Regular.ttf" id="2_rqw05"]
-[ext_resource type="Texture2D" uid="uid://i87gehbfiwku" path="res://Backgrounds/moon.png" id="3_kaatx"]
-[ext_resource type="Texture2D" uid="uid://bsploveiivbqy" path="res://Backgrounds/Earth_new/earth1.png" id="3_v83k5"]
-[ext_resource type="Texture2D" uid="uid://dk3y4xflmmt8m" path="res://Backgrounds/Earth_new/earth2.png" id="4_14p1b"]
-[ext_resource type="Texture2D" uid="uid://cm3n817sj4ows" path="res://Backgrounds/Earth_new/earth3.png" id="5_ptiau"]
-[ext_resource type="Texture2D" uid="uid://c6fvtyrbodtfg" path="res://Backgrounds/Earth_new/earth4.png" id="6_xp6pd"]
-[ext_resource type="Texture2D" uid="uid://dd36ke84l4t3w" path="res://Backgrounds/Earth_new/earth5.png" id="7_2gr4d"]
-[ext_resource type="Texture2D" uid="uid://dspfmcw7xwsi1" path="res://Backgrounds/Earth_new/earth6.png" id="8_ubcp4"]
-[ext_resource type="Texture2D" uid="uid://m6i1sh40md4d" path="res://Backgrounds/Earth_new/earth7.png" id="9_i00hj"]
-[ext_resource type="Texture2D" uid="uid://b3rmvi4oi6q6k" path="res://Backgrounds/Earth_new/earth8.png" id="10_mk1tw"]
-[ext_resource type="Texture2D" uid="uid://cn8d412s0cs4q" path="res://Backgrounds/Earth_new/earth9.png" id="11_7nofn"]
-[ext_resource type="Texture2D" uid="uid://cykxvbqx3cf7f" path="res://Backgrounds/Earth_new/earth10.png" id="12_7swlq"]
-[ext_resource type="Texture2D" uid="uid://chragglxrwwv8" path="res://Backgrounds/Earth_new/earth11.png" id="13_wujkv"]
-[ext_resource type="Texture2D" uid="uid://c8wwihht035fh" path="res://Backgrounds/Earth_new/earth12.png" id="14_53aan"]
-[ext_resource type="Texture2D" uid="uid://fk856d6xysv8" path="res://Backgrounds/Earth_new/earth13.png" id="15_681cx"]
-[ext_resource type="Texture2D" uid="uid://bofpjf4vjotp5" path="res://Backgrounds/Earth_new/earth14.png" id="16_by8m5"]
-[ext_resource type="Texture2D" uid="uid://bex7bemyg0ovc" path="res://Backgrounds/Earth_new/earth15.png" id="17_r7vg1"]
-[ext_resource type="Texture2D" uid="uid://27vltwgkaav8" path="res://Backgrounds/Earth_new/earth16.png" id="18_7wppo"]
-[ext_resource type="Texture2D" uid="uid://csp3nbobowv80" path="res://Backgrounds/Earth_new/earth17.png" id="19_pcnyq"]
-[ext_resource type="Texture2D" uid="uid://nd6ixvxaqjg0" path="res://Backgrounds/Earth_new/earth18.png" id="20_26otc"]
-[ext_resource type="Texture2D" uid="uid://cvpj0regd6i7i" path="res://Backgrounds/Earth_new/earth19.png" id="21_0plyh"]
-[ext_resource type="Texture2D" uid="uid://d10kykpc457kl" path="res://Backgrounds/Earth_new/earth20.png" id="22_4hdbi"]
-[ext_resource type="Texture2D" uid="uid://de46x3dbptj2" path="res://Backgrounds/Earth_new/earth21.png" id="23_7714j"]
-[ext_resource type="Texture2D" uid="uid://43oj4pmxpi1g" path="res://Backgrounds/Earth_new/earth22.png" id="24_awuwe"]
-[ext_resource type="Texture2D" uid="uid://bjyhw8gg4sdlh" path="res://Backgrounds/Earth_new/earth23.png" id="25_kglcy"]
-[ext_resource type="Texture2D" uid="uid://bpmd53ebewwvc" path="res://Backgrounds/Earth_new/earth24.png" id="26_0wggy"]
-[ext_resource type="Texture2D" uid="uid://c4acsunwspd85" path="res://Backgrounds/Earth_new/earth25.png" id="27_c3uoh"]
-[ext_resource type="Texture2D" uid="uid://cu7sg0qtjuj1m" path="res://Backgrounds/Earth_new/earth26.png" id="28_enipx"]
-[ext_resource type="Texture2D" uid="uid://dduyvi857mjce" path="res://Backgrounds/Earth_new/earth27.png" id="29_fkx33"]
+[ext_resource type="PackedScene" uid="uid://0o5kde1rrb40" path="res://animation_canvas.tscn" id="4_s0u3o"]
 [ext_resource type="PackedScene" uid="uid://cilwh4ha3jnbt" path="res://forced_event_miinimized.tscn" id="32_dp5ps"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7r2h8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_v83k5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_14p1b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ptiau")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_xp6pd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_2gr4d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ubcp4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_i00hj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_mk1tw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_7nofn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_7swlq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_wujkv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_53aan")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_681cx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_by8m5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_r7vg1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_7wppo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_pcnyq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_26otc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_0plyh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_4hdbi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_7714j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_awuwe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_kglcy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_0wggy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_c3uoh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_enipx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_fkx33")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hu5xu")
-
-[node name="Space" type="Sprite2D" parent="."]
-position = Vector2(818, 403)
-scale = Vector2(0.85, 0.85)
-texture = ExtResource("2_m5i88")
-
-[node name="Moon" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1200, 415)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_kaatx")
-
-[node name="Timer" type="Timer" parent="Moon"]
-wait_time = 5.0
-autostart = true
-
-[node name="Earth" type="AnimatedSprite2D" parent="."]
-position = Vector2(815, 415)
-scale = Vector2(0.85, 0.85)
-sprite_frames = SubResource("SpriteFrames_7r2h8")
-frame_progress = 0.181173
-speed_scale = 2.0
 
 [node name="Grid-BG" type="ColorRect" parent="."]
 offset_left = 9.0
@@ -221,5 +82,7 @@ offset_top = 330.0
 offset_right = 1562.0
 offset_bottom = 455.0
 
-[connection signal="timeout" from="Moon/Timer" to="." method="_on_timer_timeout"]
+[node name="Animation_Canvas" parent="." instance=ExtResource("4_s0u3o")]
+layer = 0
+
 [connection signal="Maximize_forced_event" from="Forced_event1" to="." method="Maximize_Forced_Event_1"]
