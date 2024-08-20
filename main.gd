@@ -105,11 +105,11 @@ func resource_eqn(resource):
 		'Money':
 			return 25*resources['real_estate']+75*resources['Bank']+5
 		'Science':
-			return 3*resources['Scientist']
+			return 3*resources['Scientist']+30*resources["supercomputer"]
 		"Silicon":
 			return 5*resources["silicon_factory"]
 		"Watts":
-			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],40)*resources["nuclear_plant"]
+			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],40)*resources["nuclear_plant"]+100000*resources["dyson_sphere"]
 		"global_warming":
 			if civ_type==0:
 				return float(resources["fossil_fuel_plant"])/1000.0+float(resources["silicon_factory"])/4000.0
@@ -117,6 +117,11 @@ func resource_eqn(resource):
 				return 0.0
 		"Uranium":
 			return 5*resources["uranium_mines"]
+		"human":
+			if civ_type==0:
+				return 0
+			else:
+				return floor(sqrt(resources["human"])/5.0)
 		_:
 			return 0
 	
@@ -212,6 +217,10 @@ func _on_update_resources_timeout() -> void:
 			Generate_Forced_Event("uranium_discovery","Forced",true)
 		elif (resources["Watts"]>50000) and  !flags["supercomputer_invented"] and !flags["forced_event_1_in_progress"]:
 			Generate_Forced_Event("building_super_computers","Forced",true)
+		elif (resources["Watts"]>100000) and  !flags["computorium_invented"] and !flags["forced_event_1_in_progress"]:
+			Generate_Forced_Event("computorium_discover","Forced",true)
+		elif flags["computorium_invented"] and (resources["dyson_sphere"]<1) and !flags["forced_event_1_in_progress"]:
+			Generate_Forced_Event("dyson_sphere","Forced",true)
 		elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
 			Generate_Event("climate_countdown_4",priority_event_data,"Priority")
 		elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
@@ -374,7 +383,12 @@ func flag_set(flag,value):
 			if value and (not flags['supercomputer_invented']):
 				flags['supercomputer_invented'] = true
 				update_event_pool()
-				
+		
+	
+		"computorium_invented":
+			if value and (not flags['computorium_invented']):
+				flags['computorium_invented'] = true
+				update_event_pool()
 						
 func update_event_pool():
 	suprise_event_pool = []

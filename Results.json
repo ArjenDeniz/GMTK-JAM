@@ -573,7 +573,7 @@
         "Event_description": "The sun is now surrounded by a Dyson sphere, . This will let us jump into the next era in no time...",
         "Choice_1": {
             "text": "Hurray!",
-            "resources": {},
+            "resources": {"dyson_sphere":1},
             "flags": {},
             "results": {},
             "resource_required": {}

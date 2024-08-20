@@ -748,7 +748,7 @@
                 "human": -5,
                 "Silicon": 160,
                 "Uranium": -300,
-                "computronium": 30,
+                "computorium": 30,
                 "Science": -30000
             },
             "flags": {},
@@ -760,7 +760,7 @@
             "resources": {
                 "Science": -22000,
                 "Silicon": -400,
-                "computronium": 15,
+                "computorium": 15,
                 "human": 20,
                 "supercomputer": 4
             },

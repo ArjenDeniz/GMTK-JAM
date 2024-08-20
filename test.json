@@ -67,7 +67,7 @@
 					"Science": -50000
 				},
 				"flags": {
-					"supercomputer_invented": true
+					"supercomputer_invented": true,"forced_event_1_in_progress":false
 				},
 				"results": {
 					"super_computer_discovery": 1
@@ -83,7 +83,34 @@
 			},
 			"preconditions": {
 				"CivType": "1"
-			},"Time":25
+			},"Time":50
+		},"computorium_discover": {
+			"Event_title": "The search for an exotic material",
+			"Event_description": "We need to look high and low to find a material to build a Dyson Sphere",
+			"Choice_1": {
+				"text": "At last we found it!",
+				"resources": {
+					"human": -700,
+					"Science": -35000
+				},
+				"flags": {
+					"computorium_invented": true,"forced_event_1_in_progress":false
+				},
+				"results": {
+					
+				},
+				"resource_required": {}
+			},
+			"Choice_2": {
+				"text": "We havent found it yet.",
+				"resources": {},
+				"flags": {},
+				"results": {},
+				"resource_required": {}
+			},
+			"preconditions": {
+				"CivType": "1"
+			},"Time":50
 		},
 		"dyson_sphere": {
 			"Event_title": "Building a Dyson Sphere",
@@ -95,7 +122,7 @@
 					"Science": -100000,
 					"computorium": -100
 				},
-				"flags": {},
+				"flags": {"forced_event_1_in_progress":false},
 				"results": {
 					"dyson_sphere_built": 1
 				},

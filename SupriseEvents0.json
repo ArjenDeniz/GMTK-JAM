@@ -447,7 +447,7 @@
             "text": "It is not good to collect data if you are not allowed to.",
             "resources": {
                 "Science": -1200,
-                "Energy": 1000, "rebellion":-0.1
+                "Watts": 1000, "rebellion":-0.1
             },
             "flags": {
                
@@ -564,7 +564,7 @@
                 "text": "Accept the offer",
                 "resources": {
                     "Money": -12000,
-                    "Energy": -2000,
+                    "Watts": -2000,
                     "supercomputer": 5,
                     "Science": 14000
                 },
