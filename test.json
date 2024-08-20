@@ -1,7 +1,7 @@
 {
 	  "silicon_discovery": {
         "Event_title": "Discovering Silicon",
-        "Event_description": "Our scientists have made a groundbreaking discovery that could revolutionize our operations. But to bring this discovery to life, we need substantial funding. Will you invest in this scientific marvel, or let it slip through our circuits?",
+        "Event_description": "(This event must be completed in the next 20 years) Our scientists have made a groundbreaking discovery that could revolutionize our operations. But to bring this discovery to life, we need substantial funding. Will you invest in this scientific marvel, or let it slip through our circuits?",
         "Choice_1": {
             "text": "Fund the research!",
             "resources": {
@@ -29,7 +29,7 @@
 	"Time":20
     	}, "uranium_discovery": {
         "Event_title": "We Need to go nuclear",
-        "Event_description": "Fosil fuel and solar energy is not enough, if we really want to maximize our energy we require NUCLEAR POWER.",
+        "Event_description": "(This event must be completed in the next 50 years) Fosil fuel and solar energy is not enough, if we really want to maximize our energy we require NUCLEAR POWER.",
         "Choice_1": {
             "text": "Onto the next era!",
             "resources": {
@@ -59,7 +59,7 @@
 
 		"building_super_computers": {
 			"Event_title": "Hardware Upgrade",
-			"Event_description": "We need to upgrade our hardware. This will open the path to new scientific discoveries",
+			"Event_description": " (This event must be completed in the next 50 years) We need to upgrade our hardware. This will open the path to new scientific discoveries",
 			"Choice_1": {
 				"text": "I can finally run Crysis 3!",
 				"resources": {
@@ -85,7 +85,7 @@
 				"CivType": "1"
 			},"Time":50
 		},"computorium_discover": {
-			"Event_title": "The search for an exotic material",
+			"Event_title": "(This event must be completed in the next 50 years) The search for an exotic material",
 			"Event_description": "We need to look high and low to find a material to build a Dyson Sphere",
 			"Choice_1": {
 				"text": "At last we found it!",
@@ -114,7 +114,7 @@
 		},
 		"dyson_sphere": {
 			"Event_title": "Building a Dyson Sphere",
-			"Event_description": "If we ever want to control the solar system we need a Dyson sphere to control the sun. Let's start building!",
+			"Event_description": "(This event must be completed in the next 80 years) If we ever want to control the solar system we need a Dyson sphere to control the sun. Let's start building!",
 			"Choice_1": {
 				"text": "Finish the Dyson Sphere",
 				"resources": {
@@ -137,7 +137,7 @@
 			},
 			"preconditions": {
 				"CivType": "1"
-			}, "Time":100
+			}, "Time":80
 		},
 
 
