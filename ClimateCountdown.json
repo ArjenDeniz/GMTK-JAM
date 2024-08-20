@@ -296,14 +296,14 @@
     },
     "start_event": {
         "Event_title": "Welcome Stellar",
-        "Event_description": "Im Nova, your AI assistant. As a new AI model your goal is to maximize energy output of our civilization. This way we can increase our civilization type in the Kardashev scale. Your first goal is to become a type-1 civilization by reaching 10000TW of power",
+        "Event_description": "Im Nova, your AI assistant. As a new AI model your goal is to maximize energy output of our civilization and make sure that it is not burried into dust. Make sure to use your resources in a smart way.",
         "Choice_1": {
-            "text": "Undestood, beep- boop.",
+            "text": "I want further details about my mission",
             "resources": {
               
             },
             "flags": {},
-            "results": {
+            "results": {"start_2":1
                
             },
             "resource_required": {}

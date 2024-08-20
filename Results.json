@@ -581,6 +581,45 @@
         "preconditions": {
             "CivType": "1"
         }
+    },
+    "start_2":{
+        "Event_title": "About Civilization types",
+        "Event_description": "The level of development of a civilization can be measured by the level of energy it produces. According to the famous physicist Nikolai Kardashev, civilizations are divided into three types: Type-1, Type-2, and Type-3. Right now, humanity is not even a Type-1 civilization yet.",
+        "Choice_1": {
+            "text": "Very interesting beep-boop",
+            "resources": {},
+            "flags": {},
+            "results": {"start_3":1},
+            "resource_required": {}
+        },"Choice_2": {
+            "text": "Yeah yeah maximize energy mumbo jumbo got it.",
+            "resources": {},
+            "flags": {},
+            "results": {"start_3":1},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },  "start_3":{
+        "Event_title": "Current Goal",
+        "Event_description": "Your current goal is to reach our civilization to type-1, this requires to obtain 10000TW of power. On the way there will be some discoveries that you will have to complete in a given time frame. Make sure to save some resources for those events. Good luck.",
+        "Choice_1": {
+            "text": "Job understood. Proceding to game.Boop.",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },"Choice_2": {
+            "text": "Can we start alreaady?",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
     }
 
 }

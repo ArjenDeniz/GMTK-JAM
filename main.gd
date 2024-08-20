@@ -70,7 +70,7 @@ var flags = {'Silicon_invented':false,
 				"global_warming_3":false,
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
-				"forced_event_2_in_progress":false,
+				"forced_event_2_in_progress":true,
 				"Uranium_invented": false,
 				"supercomputer_invented":false,
 				"quantum_computer_invented":false,
@@ -112,7 +112,7 @@ func resource_eqn(resource):
 			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],40)*resources["nuclear_plant"]+100000*resources["dyson_sphere"]
 		"global_warming":
 			if civ_type==0:
-				return float(resources["fossil_fuel_plant"])/1000.0+float(resources["silicon_factory"])/4000.0
+				return float(resources["fossil_fuel_plant"])/500.0+float(resources["silicon_factory"])/2000.0
 			else:
 				return 0.0
 		"Uranium":
@@ -626,7 +626,7 @@ func start_game():
 				"global_warming_3":false,
 				"global_warming_4":false,
 				"forced_event_1_in_progress":false,
-				"forced_event_2_in_progress":false,
+				"forced_event_2_in_progress":true,
 				"Uranium_invented": false,
 				"supercomputer_invented":false,
 				"quantum_computer_invented":false,
