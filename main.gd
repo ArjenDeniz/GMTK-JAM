@@ -109,10 +109,10 @@ func resource_eqn(resource):
 		"Silicon":
 			return 5*resources["silicon_factory"]
 		"Watts":
-			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],40)*resources["nuclear_plant"]+100000*resources["dyson_sphere"]
+			return  min(resources["Coal"],10)*resources["fossil_fuel_plant"]+min(resources["Silicon"],20)*resources["solar_panel"]+min(resources["Uranium"],60)*resources["nuclear_plant"]+100000*resources["dyson_sphere"]
 		"global_warming":
 			if civ_type==0:
-				return float(resources["fossil_fuel_plant"])/500.0+float(resources["silicon_factory"])/2000.0
+				return float(resources["fossil_fuel_plant"])/1000.0+float(resources["silicon_factory"])/2000.0
 			else:
 				return 0.0
 		"Uranium":

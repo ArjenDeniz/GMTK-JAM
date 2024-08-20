@@ -296,7 +296,7 @@
     },
     "start_event": {
         "Event_title": "Welcome Stellar",
-        "Event_description": "Im Nova, your AI assistant. As a new AI model your goal is to maximize energy output of our civilization and make sure that it is not burried into dust. Make sure to use your resources in a smart way.",
+        "Event_description": "Im Nova, your AI assistant. As a new artificial intellegance model your goal is to maximize energy output of our civilization and make sure that it is not burried into dust. Make sure to use your resources in a smart way.",
         "Choice_1": {
             "text": "I want further details about my mission",
             "resources": {
