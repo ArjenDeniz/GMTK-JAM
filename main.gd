@@ -150,7 +150,8 @@ func _ready() -> void:
 	update_event_pool()
 	Set_Civ_type_forced_event(0)
 	changetheme('70s')
-
+	Generate_Event("start_event",priority_event_data,"Priority")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -196,6 +197,7 @@ func _on_update_resources_timeout() -> void:
 		update_event_pool()
 		hud.add_resource_to_grid(resource_name_to_dict('human'))
 		Set_Civ_type_forced_event(1)
+		Generate_Event("transition_type_1",priority_event_data,"Priority")
 	update_resource_grid()
 	time +=dt
 	hud.update_time(floor(time))
@@ -270,14 +272,31 @@ func Generate_Event(ID,event_data_dict,type: String):
 			num_of_choices =2
 		else:
 			num_of_choices = 1
+	var can_choose = true
 	for i in range(num_of_choices):
 		resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
 		var choice_visibility_arr = {}
 		for resource in resource_arr:
 			
-			choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or !resource_flags[resource]['Positive'] or (type=="Result"))
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or (type=="Result"))
+			
 			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 		resource_visibility_arr.append(choice_visibility_arr)
+		can_choose = can_choose and choice_status[i]		
+	
+	if not can_choose:
+	
+		resource_visibility_arr=[]
+		for i in range(num_of_choices):
+			resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
+			var choice_visibility_arr = {}
+			for resource in resource_arr:
+				
+				choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or !resource_flags[resource]['Positive'] or (type=="Result"))
+				choice_visibility_arr[resource]=resource_flags[resource]['Visible']
+			resource_visibility_arr.append(choice_visibility_arr)
+		
+		
 	event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
 	event_prompt.show()
 
@@ -446,14 +465,33 @@ func Generate_Forced_Event(ID,type: String,Initializatio):
 	var resource_arr = []
 
 	var resource_visibility_arr=[]
-
+	var can_choose = true
 	for i in range(2):
 		resource_arr = forced_event_data[str(ID)]['Choice_'+str(i+1)]['resources']
 		var choice_visibility_arr = {}
 		for resource in resource_arr:
-			choice_status[i] = choice_status[i] and ((resources[resource] >= -resource_arr[resource]) or !resource_flags[resource]['Positive'])
+			
+			choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or (type=="Result"))
+			
 			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 		resource_visibility_arr.append(choice_visibility_arr)
+		can_choose = can_choose and choice_status[i]		
+	
+	if not can_choose:
+	
+		resource_visibility_arr=[]
+		for i in range(2):
+			resource_arr = forced_event_data[str(ID)]['Choice_'+str(i+1)]['resources']
+			var choice_visibility_arr = {}
+			for resource in resource_arr:
+				
+				choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or !resource_flags[resource]['Positive'] or (type=="Result"))
+				choice_visibility_arr[resource]=resource_flags[resource]['Visible']
+			resource_visibility_arr.append(choice_visibility_arr)
+
+
+
+		
 	forced_event_prompt.set_event_data(forced_event_data[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
 	forced_event_prompt.show()
 	
@@ -484,7 +522,7 @@ func Set_Civ_type_forced_event(type):
 			forced_event_2_time = 150
 
 func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
-
+	
 	if Choice==1:
 		pass
 

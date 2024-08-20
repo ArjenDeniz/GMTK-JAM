@@ -275,5 +275,51 @@
         "preconditions": {
             "CivType": "1"
         }
+    },
+    "transition_type_1": {
+        "Event_title": "We Reached a Type-1 Civilization",
+        "Event_description": "We have managed to globalize and reach a  type-1 civilization! Now we control humans as a resource and money will become less important. Our next goal is to expand into the solar system.",
+        "Choice_1": {
+            "text": "To infinity and beyond!",
+            "resources": {
+              
+            },
+            "flags": {},
+            "results": {
+               
+            },
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
+    },
+    "start_event": {
+        "Event_title": "Welcome Stellar",
+        "Event_description": "Im Nova, your AI assistant. As a new AI model your goal is to maximize energy output of our civilization. This way we can increase our civilization type in the Kardashev scale. Your first goal is to become a type-1 civilization by reaching 10000TW of power",
+        "Choice_1": {
+            "text": "Undestood, beep- boop.",
+            "resources": {
+              
+            },
+            "flags": {},
+            "results": {
+               
+            },
+            "resource_required": {}
+        },"Choice_2": {
+            "text": "Bla bla bla, big energy = big good",
+            "resources": {
+              
+            },
+            "flags": {},
+            "results": {
+               
+            },
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "0"
+        }
     }
 }
