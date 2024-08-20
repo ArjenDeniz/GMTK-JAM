@@ -1,7 +1,8 @@
 {
-  "Money": "res://Icons/Money.png",
-  "Science": "res://Icons/science.png",
-  "Coal": "res://Backgrounds/SpecialPNG_type0/coal.png",
+  "Money": "res://Icons/money-stack.png",
+  "Science": "res://Icons/erlenmeyer.png", 
+  "Coal": "res://Icons/coal-pile.png",
+  "coal_mines": "res://Backgrounds/SpecialPNG_type0/coal.png",
   "Watts": "res://Icons/watt.png",
   "Silicon": "res://Icons/compute.png",
   "Uranium": "res://Icons/radioactive_uranium.png",
@@ -10,6 +11,11 @@
   "silicon_factory": "res://Backgrounds/SpecialPNG_type0/silicon_mine.png",
   "solar_panel":"res://Backgrounds/SpecialPNG_type0/solar_panel.png",
   "fossil_fuel_plant":"res://Backgrounds/SpecialPNG_type0/termik_santral.png",
-  "uranium_mines":"res://Backgrounds/SpecialPNG_type0/uanium.png"
-
+  "uranium_mines":"res://Backgrounds/SpecialPNG_type0/uanium.png",
+  "nuclear_plant": "res://Backgrounds/SpecialPNG_type0/nuclear_power_plant.png",
+  "human":"res://Icons/worker.png",
+  "computorium":"res://Icons/possible_futurium.png",
+ "supercomputer" :"res://Icons/semi_conductor.png",
+ "Scientist":"res://Icons/lab-coat.png",
+ "dyson_sphere":"res://Icons/stone-sphere.png"
 }
