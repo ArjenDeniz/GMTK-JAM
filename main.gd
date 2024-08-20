@@ -144,7 +144,7 @@ func _ready() -> void:
 	hud.refresh_grid()
 	update_event_pool()
 	Set_Civ_type_forced_event(0)
-
+	changetheme('70s')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
