@@ -638,6 +638,8 @@
         },
         "preconditions": {
             "CivType": "1"
-        }
+        },"resource_required": {"nuclear_plant": 2,
+                "solar_panel": 1}
+        
     }
 }
