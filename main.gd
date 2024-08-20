@@ -282,10 +282,10 @@ func Generate_Event(ID,event_data_dict,type: String):
 			
 			choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 		resource_visibility_arr.append(choice_visibility_arr)
-		can_choose = can_choose and choice_status[i]		
+		can_choose = can_choose or choice_status[i]		
 	
 	if not can_choose:
-	
+		can_choose=true
 		resource_visibility_arr=[]
 		for i in range(num_of_choices):
 			resource_arr = event_data_dict[str(ID)]['Choice_'+str(i+1)]['resources']
@@ -295,10 +295,16 @@ func Generate_Event(ID,event_data_dict,type: String):
 				choice_status[i] = choice_status[i] and ((resources[resource] >= -int(resource_arr[resource])) or !resource_flags[resource]['Positive'] or (type=="Result"))
 				choice_visibility_arr[resource]=resource_flags[resource]['Visible']
 			resource_visibility_arr.append(choice_visibility_arr)
-		
-		
-	event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
-	event_prompt.show()
+			can_choose = can_choose or choice_status[i]
+	if not can_choose:
+		print("Aborted")
+		event_on_screen = false
+		timer.paused = false
+		gen_timer.paused = false
+		return
+	else:
+		event_prompt.set_event_data(event_data_dict[str(ID)],str(ID),choice_status,resource_visibility_arr,type)
+		event_prompt.show()
 
 func Event_Choice_get(ID, Choice: int,type: String) -> void:
 	var event_data_dict = {}
