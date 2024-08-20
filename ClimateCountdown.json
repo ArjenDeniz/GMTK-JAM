@@ -220,5 +220,60 @@
             "CivType": 0,
             "Silicon_invented": false
         }
+    },
+    "building_super_computers": {
+        "Event_title": "Hardware Upgrade",
+        "Event_description": "We need to upgrade our hardware. This will open the path to new scientific discoveries",
+        "Choice_1": {
+            "text": "I can finally run Crysis 3!",
+            "resources": {
+                "human": -1000,
+                "Science": -50000
+            },
+            "flags": {
+                "supercomputer_invented": true
+            },
+            "results": {
+                "super_computer_discovery": 1
+            },
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "We can't afford at the moment",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },
+    "dyson_sphere": {
+        "Event_title": "Building a Dyson Sphere",
+        "Event_description": "If we ever want to control the solar system we need a Dyson sphere to control the sun. Let's start building!",
+        "Choice_1": {
+            "text": "Finish the Dyson Sphere",
+            "resources": {
+                "human": -10000,
+                "Science": -100000,
+                "computorium": -100
+            },
+            "flags": {},
+            "results": {
+                "dyson_sphere_built": 1
+            },
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "We are not ready yet.",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
     }
 }

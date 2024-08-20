@@ -691,7 +691,7 @@
             },
             "preconditions": {
                 "CivType": "1",
-                "supercomputers_invented": true
+                "supercomputer_invented": true
             }
 
   },
@@ -736,8 +736,7 @@
             "resource_required": {}
         },
         "preconditions": {
-            "CivType": "1",
-            "supercomputer": 10
+            "CivType": "1", "supercomputer_invented":true
         }
     },
 "searching_exotic_materials": {
@@ -783,5 +782,76 @@
             "CivType": "1",
             "computorium_invented": true
         }
+    },
+	"implants": {
+        "Event_title": "Cyber Implants",
+        "Event_description": "Our scientists manage to develop a technology to turn their brain into super computers!",
+        "Choice_1": {
+            "text": "Nice make sure everyone get the chip!",
+            "resources": {
+                "supercomputer": 5,
+                "Scientist": -30
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "Lets first try this on a few",
+            "resources": {
+                "supercomputer": 2,
+                "Scientist": -12
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_3": {
+            "text": "This sounds dangerous. Forget it",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1",
+            "supercomputer_invented": true
+        }
+    },"mars_colony": {
+        "Event_title": "A new colony in Mars",
+        "Event_description": "We must expand our horizons, a new colony in Mars is the perfect place, but it won't be cheap",
+        "Choice_1": {
+            "text": "Build a huge metropolis",
+            "resources": {
+                "human": 250,
+                "Money": -50000,
+                "Uranium": -500
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "Build a humble town",
+            "resources": {
+                "human": 100,
+                "Money": -25000,
+                "Uranium": -250
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_3": {
+            "text": "Sounds expensive...",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
     }
+
 }

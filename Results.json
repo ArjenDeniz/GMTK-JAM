@@ -480,7 +480,7 @@
             }
         },
 
-"Result_send_gorilla_invest2" {
+"Result_send_gorilla_invest2" :{
         "Event_title": "Scientific breakthrough",
         "Event_description": "The virus indeed had an exoplanet origin. We are not alone in the universe." ,
         "Choice_1":{
@@ -492,5 +492,95 @@
             }
         }
 
+    },
+    "Random_chimp_event_result_1": {
+        "Event_title": "Your scientist have given in to the chimps...",
+        "Event_description": "You thought them human but turns out they were chimps all along...",
+        "Choice_1": {
+            "text": "Nooooo my scientists",
+            "resources": {
+                "Scientist": -25
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },
+    "Random_chimp_event_result_2": {
+        "Event_title": "They are friendly",
+        "Event_description": "At first you had your suspicions but those chimps seem to be very friendly.",
+        "Choice_1": {
+            "text": "Let us join and together we shall rule the galaxy!",
+            "resources": {
+                "human": 250
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    } , "Random_chimp_event_result_3": {
+        "Event_title": "The Great Monkey War",
+        "Event_description": "A devastating war ensued between chimp and man. After many casualties, you barely managed to win, or did you...",
+        "Choice_1": {
+            "text": "Oh the horrors!",
+            "resources": {
+                "human": -350
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },"no_room_result_bad": {
+        "Event_title": "Riot!",
+        "Event_description": "The people weren't happy with our descisions.",
+        "Choice_1": {
+            "text": "Try to salvage the situation",
+            "resources": {
+                "nuclear_plant": -2,
+                "human": -100
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },"super_computer_discovery": {
+        "Event_title": "The new models are here",
+        "Event_description": "Finally we have invented some fine computers, they can boost our scientific research",
+        "Choice_1": {
+            "text": "Progress marches ever forward",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },"dyson_sphere_built": {
+        "Event_title": "The Power of the Sun",
+        "Event_description": "The sun is now surrounded by a Dyson sphere, . This will let us jump into the next era in no time...",
+        "Choice_1": {
+            "text": "Hurray!",
+            "resources": {},
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    }
 
 }

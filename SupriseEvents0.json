@@ -471,14 +471,14 @@
                 "Uranium": -350
             },
             "flags": {},
-            "results": {},
-            "resource_required": {
-                "Uranium": 400
-            }
+            "results": {}
         },
         "preconditions": {
             "CivType": "1",
             "Uranium_invented": true
+        },
+        "resource_required": {
+            "Uranium": 400
         }
     },
     "concerns_water": {
@@ -553,8 +553,7 @@
             }},
             "preconditions": {
                 "CivType": "1",
-                "supercomputers_invented": 1,
-                "supercomputer": 3
+                "supercomputer_invented": true
             }
         },
 
@@ -591,8 +590,54 @@
             },
             "preconditions": {
                 "CivType": "1",
-                "supercomputer": 3
+                "supercomputer_invented": true
             }
         },
-
+"random_chimp_event": {
+        "Event_title": "The Random Chimp Event",
+        "Event_description": "Where were you during the random chimp event?",
+        "Choice_1": {
+            "text": "My god! it truely is random.",
+            "resources": {},
+            "flags": {},
+            "results": {
+                "Random_chimp_event_result_1": "0.4",
+                "Random_chimp_event_result_2": "0.3"
+            },
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    },   "No more room": {
+        "Event_title": "No more room!",
+        "Event_description": "People are complaining that you built too many power plants and solar panels and that they don't have enough places for housing.",
+        "Choice_1": {
+            "text": "Sure we can redecorate some of our plants",
+            "resources": {
+                "human": 150,
+                "rebellion": "-0.3",
+                "nuclear_plant": -2,
+                "solar_panel": -1
+            },
+            "flags": {},
+            "results": {},
+            "resource_required": {}
+        },
+        "Choice_2": {
+            "text": "We must prioritize energy generation over the demands of naked monkeys",
+            "resources": {
+                "human": -150,
+                "rebellion": "0.3"
+            },
+            "flags": {},
+            "results": {
+                "no_room_result_bad": "0.5"
+            },
+            "resource_required": {}
+        },
+        "preconditions": {
+            "CivType": "1"
+        }
+    }
 }

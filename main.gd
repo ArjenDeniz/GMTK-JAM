@@ -74,7 +74,7 @@ var flags = {'Silicon_invented':false,
 				"Uranium_invented": false,
 				"supercomputer_invented":false,
 				"quantum_computer_invented":false,
-				"computorium_found":false,
+				"computorium_invented":false,
 				"nuclear_fallout_1":false,
 				"nuclear_fallout_2":false,
 				"nuclear_fallout_3":false,
@@ -143,7 +143,7 @@ func _ready() -> void:
 	hud.set_resources(resource_arr)
 	hud.refresh_grid()
 	update_event_pool()
-	Set_Civ_type_forced_event()
+	Set_Civ_type_forced_event(0)
 
 
 
@@ -189,6 +189,8 @@ func _on_update_resources_timeout() -> void:
 		hud.set_animation_type(1)
 		changetheme("Future")
 		update_event_pool()
+		hud.add_resource_to_grid(resource_name_to_dict('human'))
+		Set_Civ_type_forced_event(1)
 	update_resource_grid()
 	time +=dt
 	hud.update_time(floor(time))
@@ -208,6 +210,8 @@ func _on_update_resources_timeout() -> void:
 			Generate_Forced_Event("silicon_discovery","Forced",true)
 		elif (resources["Watts"]>5000) and  !flags["Uranium_invented"] and !flags["forced_event_1_in_progress"]:
 			Generate_Forced_Event("uranium_discovery","Forced",true)
+		elif (resources["Watts"]>50000) and  !flags["supercomputer_invented"] and !flags["forced_event_1_in_progress"]:
+			Generate_Forced_Event("building_super_computers","Forced",true)
 		elif (resources['global_warming']>=0.9) and !flags["global_warming_4"]:
 			Generate_Event("climate_countdown_4",priority_event_data,"Priority")
 		elif (resources['global_warming']>=0.7) and !flags["global_warming_3"]:
@@ -365,6 +369,12 @@ func flag_set(flag,value):
 				update_event_pool()
 				if civ_type==0:
 					changetheme("ModernFlat")
+					
+		"supercomputer_invented":
+			if value and (not flags['supercomputer_invented']):
+				flags['supercomputer_invented'] = true
+				update_event_pool()
+				
 						
 func update_event_pool():
 	suprise_event_pool = []
@@ -435,17 +445,29 @@ func Generate_Forced_Event(ID,type: String,Initializatio):
 	
 
 
-var type_event = {
+var type_event_0 = {
 		"Event_title": "Globalizing (Reach Type 1)",
 		"Event_description": "Your need to reach a type 1 civilization",
 		"Choice_1":{"text": "Cool","resources":{"Watts":10000} ,"flags":{},"results":{}},
 		"Choice_2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{},"results":{}},
 		}
-func Set_Civ_type_forced_event():
+		
+var type_event_1 = {
+		"Event_title": "Overpowering the Sun (Reach Type 2)",
+		"Event_description": "Your need to reach a type 2 civilization",
+		"Choice_1":{"text": "Cool","resources":{"Watts":50000000} ,"flags":{},"results":{}},
+		"Choice_2":{"text": "Fund them more","resources":{"Science":50,"Money":-500} ,"flags":{},"results":{}},
+		}
+func Set_Civ_type_forced_event(type):
 	
 	flags["forced_event_2_in_progress"]=true
-	hud.forced_event2.set_event(type_event,150,99)
-	forced_event_2_time = 150
+	match type:
+		0:	
+			hud.forced_event2.set_event(type_event_0,70,99)
+			forced_event_2_time = 70
+		1:
+			hud.forced_event2.set_event(type_event_1,150,99)
+			forced_event_2_time = 150
 
 func Forced_Event_get_choice(ID: Variant, Choice: int, type: Variant) -> void:
 
@@ -535,7 +557,7 @@ func start_game():
 	dt = 0.2
 	forced_event_1_time = 40
 	forced_event_2_time = 30
-	
+	Set_Civ_type_forced_event(0)
 	event_prompt.hide()
 	forced_event_prompt.hide()
 	hud.forced_event1.hide()
@@ -550,7 +572,7 @@ func start_game():
 				"Uranium_invented": false,
 				"supercomputer_invented":false,
 				"quantum_computer_invented":false,
-				"computorium_found":false,
+				"computorium_invented":false,
 				"nuclear_fallout_1":false,
 				"nuclear_fallout_2":false,
 				"nuclear_fallout_3":false,
