@@ -13,19 +13,19 @@ func play_track(track):
 		"70s":
 			currently_playing = 1
 			in_transition = false
-			stream = load("res://Musıc/TRACK 1.wav")
+			stream = load("res://Musıc/TRACK 1.mp3")
 		"80s":
 			currently_playing = 2	
 			in_transition = true
-			stream = load("res://Musıc/TRANSITION 1.wav")
+			stream = load("res://Musıc/TRANSITION 1.mp3")
 		"ModernFlat":
 			currently_playing = 3	
 			in_transition = true
-			stream = load("res://Musıc/TRANSITION 2.wav")
+			stream = load("res://Musıc/TRANSITION 2.mp3")
 		"Future":
 			currently_playing = 4	
 			in_transition = true
-			stream = load("res://Musıc/TRANSITION 3wav.wav")
+			stream = load("res://Musıc/TRANSITION 3wav.mp3")
 	play()	
 			
 	
@@ -39,12 +39,12 @@ func _on_finished() -> void:
 		in_transition = false
 		match currently_playing:
 			2:
-				stream = load("res://Musıc/TRACK 2.wav")
+				stream = load("res://Musıc/TRACK 2.mp3")
 				
 			3:
-				stream = load("res://Musıc/TRACK 3.wav")
+				stream = load("res://Musıc/TRACK 3.mp3")
 			4:
-				stream = load("res://Musıc/TRACK 4.wav")
+				stream = load("res://Musıc/TRACK 4.mp3")
 		
 	play()
 		

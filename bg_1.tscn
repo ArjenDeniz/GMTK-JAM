@@ -15,8 +15,8 @@ z_index = -1
 script = ExtResource("1_x5cmm")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(788, 396)
-scale = Vector2(0.815104, 0.815735)
+position = Vector2(965.75, 541.5)
+scale = Vector2(1.00026, 1.11698)
 texture = ExtResource("2_pdegy")
 
 [node name="Mercury" type="Sprite2D" parent="."]
@@ -80,6 +80,6 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sun" type="Sprite2D" parent="."]
-position = Vector2(782.5, 406.2)
+position = Vector2(774, 684)
 scale = Vector2(0.813021, 0.809938)
 texture = ExtResource("9_413wj")
