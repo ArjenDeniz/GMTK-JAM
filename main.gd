@@ -639,4 +639,3 @@ func Console_changeFlag_Command(text):
 	var flag_final_value = text.get_slice(" ", 1)
 	var flag_bool_value: bool = (flag_final_value == "true")
 	flags[flag_to_be_changed] = flag_bool_value
-	
