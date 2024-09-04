@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clar667tddtxq"]
+[gd_scene load_steps=8 format=3 uid="uid://clar667tddtxq"]
 
 [ext_resource type="PackedScene" uid="uid://bwx7676ylv54k" path="res://Hud.tscn" id="1_2q76b"]
 [ext_resource type="Script" path="res://main.gd" id="1_tm8uo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cbge6l1w82i4d" path="res://styles/70sButton.tres" id="3_j2uao"]
 [ext_resource type="PackedScene" uid="uid://7d2tesbv14i1" path="res://forced_event.tscn" id="4_svhob"]
 [ext_resource type="PackedScene" uid="uid://rt0efmt4hea7" path="res://game_over_screen.tscn" id="5_ewxav"]
+[ext_resource type="PackedScene" uid="uid://bdoij135jlfsv" path="res://Debug_Console.tscn" id="7_33y7v"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_tm8uo")
@@ -50,9 +51,19 @@ autostart = true
 wait_time = 3.2
 autostart = true
 
+[node name="DebugConsole" parent="." instance=ExtResource("7_33y7v")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="Forced_Event_Enlarge" from="HUD" to="." method="Enlarge_Forced_Event"]
 [connection signal="forced_choice_made" from="HUD/Event_prompt" to="." method="Event_Choice_get"]
 [connection signal="forced_choice_made" from="HUD/Forced_Event" to="." method="Forced_Event_get_choice"]
 [connection signal="restart" from="HUD/Game Over Screen" to="." method="start_game"]
 [connection signal="timeout" from="Update_Resources" to="." method="_on_update_resources_timeout"]
 [connection signal="timeout" from="Generator_timer" to="." method="_on_generator_timer_timeout"]
+[connection signal="console_open" from="DebugConsole" to="." method="_on_debug_console_console_open"]

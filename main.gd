@@ -330,8 +330,6 @@ func flag_set(flag,value):
 				flags['Silicon_invented'] = true
 				update_event_pool()
 				changetheme("80s")
-		
-		
 		'global_warming_1':
 			if value and (not flags['global_warming_1']):
 				flags['global_warming_1'] = true
@@ -405,7 +403,6 @@ func check_preconditions_for_result(event):
 			active = active and (generator_event_data[event]["preconditions"][condition]==flags[condition])
 	
 	return active
-
 
 func Generate_Forced_Event(ID,type: String,Initializatio):
 	if Initializatio:
@@ -605,4 +602,41 @@ func _on_generator_timer_timeout() -> void:
 				Generate_Event(generator_event_pool[rand_event],generator_event_data,"Generator")
 			else:
 				rand_event = rng.randi_range(0,len(generator_event_pool)-1)
+	
+
+#Everything from now on is debug console code and should be removed prior to deployment
+func _on_debug_console_console_open(isOpen: Variant) -> void:
+	# handles opening and closing of the console
+	if(isOpen == "opened"):
+		timer.paused = true
+		gen_timer.paused = true
+		#resources["Coal"] +=500
+		#for instance to add coal
+	if(isOpen == "closed"):
+		timer.paused = false
+		gen_timer.paused = false
+	
+	if("set" in isOpen):
+		Console_set_Command(isOpen.erase(0,4))
+	if("getEvent" in isOpen):
+		Console_getEvent_Command(isOpen.erase(0,9))
+	if("changeFlag" in isOpen):
+		Console_changeFlag_Command(isOpen.erase(0,11))
+#used to set a resource to a certain value
+func Console_set_Command(text):
+	var resource_to_be_changed = text.get_slice(" ", 0)
+	var change_amount = text.get_slice(" ", 1)
+	resources[resource_to_be_changed] = int(change_amount)
+
+#used to generate a certain event (for now only works with generator events)
+func Console_getEvent_Command(text):
+	var event_to_be_shown = text.get_slice(" ", 0)
+	var event_type = text.get_slice(" ", 2)
+	Generate_Event(event_to_be_shown, generator_event_data, "Generator")
+	
+func Console_changeFlag_Command(text):
+	var flag_to_be_changed = text.get_slice(" ",0)
+	var flag_final_value = text.get_slice(" ", 1)
+	var flag_bool_value: bool = (flag_final_value == "true")
+	flags[flag_to_be_changed] = flag_bool_value
 	
